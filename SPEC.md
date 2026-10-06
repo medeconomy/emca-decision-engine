@@ -62,7 +62,7 @@ E4. **Scope v0.1:** all four histotypes at once. Uterine leiomyosarcoma (UTSARC 
 
 E5. **Comparator that lost on OS → tier 5, not 7.** A backbone that lost OS to an add-on in the patient's own population is tier 5 with the reason shown ("for patients who cannot receive the better option"), so it survives when the add-on is contraindicated: carboplatin–paclitaxel and TAP for dMMR or MMR-unknown (RUBY), and for HER2-positive serous (Fader, randomised phase II); the KEYNOTE-775 chemotherapy control. AP (lost to TAP) and whole-abdominal RT (lost to AP) are tier 7 because better options always exist.
 
-E6. **pMMR first-line:** strict OS-first puts carboplatin–paclitaxel (tier 2: GOG-177 OS → GOG-209 non-inferiority) above every chemo-IO regimen (tier 4: RUBY pMMR OS 0.79, 0.60–1.04; GY018 OS not in the note). AtTEnd pMMR (PFS 0.92, NS) is tier 5.
+E6. **pMMR first-line (Jay, 2026-10-06): RUBY is tier 3 for pMMR.** The trial-wide OS benefit (0.69, 0.54–0.89) carries the card; the pMMR stratum itself is PFS 0.76 (0.59–0.98) and OS 0.79 (0.60–1.04), NS, which the card prints. Carboplatin–paclitaxel alone stays tier 2 (GOG-177 OS → GOG-209 non-inferiority). The other chemo-IO regimens stay tier 4 (GY018 has no OS in the note; DUO-E OS interim; AtTEnd pMMR PFS 0.92, NS → tier 5).
 
 E7. **DUO-E durvalumab + olaparib interim OS** (0.59, 0.42–0.83, P=.003) is shown but not counted as an OS benefit (interim, not formally tested). Tier 4.
 

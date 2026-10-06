@@ -11,7 +11,7 @@ v0.1 built in one Claude Code session from the four EMCA v1.2 vault notes, forki
 ## Waiting on Jay (judgement calls made in the build — SPEC E5–E12)
 
 1. **Comparator that lost → tier 5** (TC/TAP for dMMR or MMR-unknown; TC/TAP for HER2+ serous on Fader phase II; KEYNOTE-775 chemotherapy control).
-2. **pMMR first-line**: carboplatin–paclitaxel tier 2 ranks above all chemo-IO (tier 4) under strict OS-first. Is that the reading you want, or should RUBY's ITT OS benefit carry the pMMR card (tier 3)?
+2. ~~pMMR first-line~~ — decided 2026-10-06: RUBY pMMR → tier 3 on its trial-wide OS (SPEC E6).
 3. **DUO-E D+O interim OS 0.59 (P=.003)** not counted as OS benefit.
 4. **Fader tier 3** (randomised phase II, OS 0.49).
 5. **Adjuvant**: AP ×7 (GOG-122) tier 2 alongside chemoradiation; TC ×6 (GOG-258) tier 5; VBT tier 4 by non-inferiority to EBRT; observation tier 5; PORTEC-3 stage I–II tier 5 (p53abn → 3).
