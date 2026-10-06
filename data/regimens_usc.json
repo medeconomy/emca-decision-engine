@@ -1,0 +1,518 @@
+{
+ "_meta": {
+  "histology": "usc",
+  "label": "Uterine serous carcinoma",
+  "source_note": "EMCA_Serous_Algorithm_v1.2",
+  "built": "2026-10-06",
+  "settings": [
+   {
+    "key": "adjuvant",
+    "label": "Adjuvant after hysterectomy (stage I–IVA)"
+   },
+   {
+    "key": "first_line",
+    "label": "First-line systemic: stage III–IV or first recurrence, chemotherapy-naive for advanced disease"
+   },
+   {
+    "key": "maintenance",
+    "label": "Maintenance after response to first-line platinum"
+   },
+   {
+    "key": "second_line",
+    "label": "Second line and beyond (after platinum ± PD-(L)1)"
+   },
+   {
+    "key": "fertility_sparing",
+    "label": "Fertility-sparing (primary non-surgical)"
+   }
+  ],
+  "tiers": {
+   "1": "OS benefit, replicated (≥2 randomised trials or a class effect confirmed by non-inferiority)",
+   "2": "OS benefit, single phase 3 (CI excludes 1 as printed), or non-inferior to a regimen that has one",
+   "3": "OS benefit only in a subgroup (molecular post hoc, randomised phase II) or borderline",
+   "4": "PFS / RFS / local-control benefit only; no OS benefit shown",
+   "5": "No efficacy difference vs the comparator (non-inferior / NS), or the comparator that lost: chosen on toxicity or when the better option cannot be given",
+   "6": "No phase 3: single-arm, randomised phase II without an OS result, observational, extrapolated, or press release only",
+   "7": "Do not use: OS worse than the alternative, negative trial, or histotype excluded from the pivotal trial"
+  },
+  "tier_reading": "Serous is 15–22% of the all-histology trials; as for endometrioid, the trial-wide result and the MMR strata set the tier (serous is ~91% p53abn, so pMMR applies). Fader is the one serous-only randomised trial: randomised phase II with an OS HR excluding 1, held at tier 3.",
+  "scope": "Efficacy figures copied from data/trials_*.json (vault notes, full-text checked 2026-09-15); toxicity resolved from data/tox.json via tox_ref {trial, arm}; label rules from data/labels.json and data/drug_rules.json. 'base' inherits every field the record does not set from the named endometrioid record."
+ },
+ "regimens": [
+  {
+   "base": "adj_chemort",
+   "id": "usc_adj_chemort",
+   "trials": [
+    "PORTEC-3 serous subgroup",
+    "PORTEC-3 10-yr molecular",
+    "GOG-258"
+   ],
+   "tier_rules": [
+    {
+     "when": {
+      "stage_group": [
+       "I",
+       "II"
+      ],
+      "mol_class": [
+       "POLEmut",
+       "MMRd"
+      ]
+     },
+     "tier": 5,
+     "reason": "POLEmut / MMRd 'serous' behaves like its endometrioid counterpart; stage I–II OS NS trial-wide"
+    },
+    {
+     "when": {
+      "stage_group": [
+       "I",
+       "II"
+      ]
+     },
+     "tier": 3,
+     "reason": "Stage I–II: trial-wide OS NS; serous is ~91% p53abn, where post hoc OS HR 0.52 (0.30–0.91)"
+    }
+   ],
+   "qualifiers": [
+    "Serous stratum FFS 0.63 (0.36–1.12), underpowered",
+    "p53abn post hoc (proxy for serous): 10-yr OS 52.7% vs 36.6%, HR 0.52 (0.30–0.91)",
+    "GOG-258 (stage III–IVA; stage I/II serous with positive washings eligible): RFS 0.90, NS vs chemotherapy alone"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "adj_vbt_tc3",
+   "id": "usc_adj_vbt_tc3",
+   "trials": [
+    "GOG-249"
+   ],
+   "qualifiers": [
+    "15% serous; serous + clear cell cohort showed no benefit from added chemotherapy (RFS HR 0.81, 0.44–1.52)",
+    "Trial-wide OS 1.04 (90% CL 0.71–1.52)"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "adj_ebrt",
+   "id": "usc_adj_ebrt",
+   "trials": [
+    "GOG-249"
+   ],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II"
+    ]
+   },
+   "tier": 5,
+   "tier_rules": [],
+   "tox_ref": {
+    "trial": "GOG-249 (",
+    "arm": "pelvic RT"
+   },
+   "os": {
+    "benefit": "no_difference",
+    "median": "60-mo OS 0.87 vs 0.85 (vs VBT + carboplatin–paclitaxel); OS 1.04 (90% CL 0.71–1.52)",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-249"
+   },
+   "pfs": {
+    "text": "60-mo RFS 0.76 vs 0.76; fewer nodal recurrences (4% vs 9%)"
+   },
+   "qualifiers": [
+    "Serous was excluded from PORTEC-1/2 and GOG-99; GOG-249's pelvic-RT arm is the only randomised serous exposure"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "adj_tc6",
+   "id": "usc_adj_tc6",
+   "trials": [
+    "GOG-258"
+   ],
+   "qualifiers": [
+    "18% serous; no histology subgroup differed",
+    "Stage I/II serous with positive peritoneal washings was an explicit GOG-258 entry route (<3% of cohort)"
+   ],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II",
+     "III",
+     "IV"
+    ]
+   },
+   "histology": "usc"
+  },
+  {
+   "base": "adj_ap",
+   "id": "usc_adj_ap",
+   "trials": [
+    "GOG-122"
+   ],
+   "caution_default": {
+    "reason": "~21% serous; benefit less convincing in serous"
+   },
+   "histology": "usc"
+  },
+  {
+   "base": "adj_wai",
+   "id": "usc_adj_wai",
+   "trials": [
+    "GOG-122"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "adj_pembro_chemo",
+   "id": "usc_adj_pembro_chemo",
+   "trials": [
+    "KEYNOTE-B21 / ENGOT-en11"
+   ],
+   "qualifiers": [
+    "Serous included, not broken out"
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut"
+     ],
+     "effect": "exclude",
+     "reason": "POLEmut was excluded from KEYNOTE-B21"
+    },
+    {
+     "flag": "stage",
+     "in": [
+      "IVB"
+     ],
+     "effect": "exclude",
+     "reason": "KEYNOTE-B21 enrolled stage III/IVA"
+    }
+   ],
+   "histology": "usc"
+  },
+  {
+   "id": "usc_adj_obs",
+   "setting": "adjuvant",
+   "name": "Observation (stage I–II, POLEmut 'serous')",
+   "short": "Observation",
+   "drugs": [],
+   "drug_classes": [],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II"
+    ]
+   },
+   "trials": [],
+   "tox_ref": null,
+   "os": {
+    "benefit": "no_data",
+    "median": "No trial: serous was excluded from PORTEC-1/2 and GOG-99",
+    "evidence_strength": "none"
+   },
+   "pfs": {
+    "text": "—"
+   },
+   "tier": 6,
+   "evidence_basis": "extrapolated",
+   "qualifiers": [
+    "Vault note: a POLEmut 'serous' tumour behaves like its endometrioid counterpart and is observation-eligible at stage I–II under ESGO/ESTRO/ESP; no trial tabulated represents it"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut"
+     ],
+     "reason": "POLEmut 'serous': observation-eligible at stage I–II (vault note)"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "p53abn",
+      "unknown",
+      "NSMP",
+      "MMRd"
+     ],
+     "effect": "exclude",
+     "reason": "Observation applies only to POLEmut 'serous'; classify the tumour"
+    }
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "fl_tc",
+   "id": "usc_fl_tc",
+   "trials": [
+    "GOG-209",
+    "GOG-177"
+   ],
+   "tier_rules": [
+    {
+     "when": {
+      "her2": [
+       "3+",
+       "2+amp"
+      ]
+     },
+     "tier": 5,
+     "reason": "HER2-positive serous: OS worse than the same backbone + trastuzumab (Fader primary stage III–IV OS HR 0.49, 0.25–0.97; randomised phase II)"
+    },
+    {
+     "when": {
+      "mmr": [
+       "dMMR"
+      ]
+     },
+     "tier": 5,
+     "reason": "dMMR: OS worse than the same backbone + dostarlimab (RUBY dMMR OS HR 0.32, 0.17–0.63) — the backbone alone is for patients who cannot receive a checkpoint inhibitor"
+    },
+    {
+     "when": {
+      "mmr": [
+       "unknown"
+      ]
+     },
+     "tier": 5,
+     "reason": "MMR unknown: trial-wide OS worse than + dostarlimab (RUBY HR 0.69, 0.54–0.89). Record MMR: in pMMR the OS difference was 0.79 (0.60–1.04), NS"
+    }
+   ],
+   "qualifiers": [
+    "19.7% serous; exploratory OS HR 1.20 (0.91–1.59), TC vs TAP",
+    "Established by non-inferiority to TAP, not by superiority"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "fl_tap",
+   "id": "usc_fl_tap",
+   "trials": [
+    "GOG-177",
+    "GOG-209"
+   ],
+   "tier_rules": [
+    {
+     "when": {
+      "her2": [
+       "3+",
+       "2+amp"
+      ]
+     },
+     "tier": 5,
+     "reason": "HER2-positive serous: OS worse than the same backbone + trastuzumab (Fader primary stage III–IV OS HR 0.49, 0.25–0.97; randomised phase II)"
+    },
+    {
+     "when": {
+      "mmr": [
+       "dMMR"
+      ]
+     },
+     "tier": 5,
+     "reason": "dMMR: chemotherapy + dostarlimab has the OS benefit (RUBY dMMR OS HR 0.32); no checkpoint-inhibitor trial used TAP"
+    },
+    {
+     "when": {
+      "mmr": [
+       "unknown"
+      ]
+     },
+     "tier": 5,
+     "reason": "MMR unknown: record it — chemotherapy + dostarlimab beat the carboplatin–paclitaxel backbone on OS (RUBY HR 0.69)"
+    }
+   ],
+   "qualifiers": [
+    "Serous response 42% → 50% with paclitaxel vs other histologies 33% → 59%"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "fl_ap",
+   "id": "usc_fl_ap",
+   "trials": [
+    "GOG-107",
+    "GOG-177"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "fl_dostar",
+   "id": "usc_fl_dostar",
+   "trials": [
+    "RUBY"
+   ],
+   "qualifiers": [
+    "Serous not broken out",
+    "Final OS from Powell 2024 (vault extract 2024_Powell_RUBY OS)"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "fl_pembro",
+   "id": "usc_fl_pembro",
+   "trials": [
+    "NRG-GY018"
+   ],
+   "qualifiers": [
+    "Serous not broken out; pMMR PFS 0.54"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "fl_durva",
+   "id": "usc_fl_durva",
+   "trials": [
+    "DUO-E — durvalumab arm"
+   ],
+   "qualifiers": [
+    "Serous progression 79.6% (control) → 70.7%; HR 0.71 (0.46–1.11), exploratory"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "fl_durva_ola",
+   "id": "usc_fl_durva_ola",
+   "trials": [
+    "DUO-E — durvalumab + olaparib arm"
+   ],
+   "qualifiers": [
+    "Serous progression 79.6% → 57.1%; HR 0.46 (0.27–0.77), exploratory — olaparib's contribution is pMMR-only"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mmr",
+     "in": [
+      "pMMR"
+     ],
+     "reason": "pMMR serous: the clearest olaparib increment (serous HR 0.46 vs 0.71 with durvalumab alone, exploratory)"
+    }
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "fl_atezo",
+   "id": "usc_fl_atezo",
+   "trials": [
+    "AtTEnd / ENGOT-en7"
+   ],
+   "qualifiers": [
+    "Serous 16%: exploratory PFS HR 0.87 (0.52–1.45), not preplanned",
+    "ESMO 2025 ITT OS 36.0 vs 30.5 mo (median follow-up 48.9 mo) — not significant"
+   ],
+   "histology": "usc"
+  },
+  {
+   "id": "usc_fl_trastuzumab",
+   "setting": "first_line",
+   "name": "Carboplatin–paclitaxel + trastuzumab → trastuzumab maintenance",
+   "short": "TC + trastuzumab (Fader)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "trastuzumab"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "anti_her2"
+   ],
+   "gate": {
+    "her2": [
+     "3+",
+     "2+amp"
+    ]
+   },
+   "trials": [
+    "Fader primary subgroup",
+    "Fader pooled ITT",
+    "Fader recurrent subgroup"
+   ],
+   "tox_ref": {
+    "trial": "Fader NRG-GOG 3005 (",
+    "arm": "CP + trastuzumab"
+   },
+   "os": {
+    "benefit": "positive_phase2",
+    "hr": "0.49",
+    "ci95": [
+     "0.25",
+     "0.97"
+    ],
+    "median": "Primary stage III–IV (n=41): NR vs 25.4 mo. Pooled ITT 29.6 vs 24.4 mo, OS 0.58 (90% CI 0.34–0.99)",
+    "evidence_strength": "randomised_phase2",
+    "trial": "Fader primary subgroup"
+   },
+   "pfs": {
+    "text": "Primary 17.7 vs 9.3 mo, PFS 0.44 (90% CI 0.23–0.83); recurrent subgroup (n=17) 9.2 vs 7.0 mo, PFS 0.12 (90% CI 0.03–0.48), no OS benefit"
+   },
+   "tier": 3,
+   "evidence_basis": "randomised_phase2_histotype",
+   "tier_rules": [
+    {
+     "when": {
+      "status": [
+       "recurrence"
+      ]
+     },
+     "tier": 4,
+     "reason": "Recurrent subgroup (n=17): PFS 0.12 with no OS separation — n too small to read as a large effect"
+    }
+   ],
+   "qualifiers": [
+    "Serous-only randomised phase II; HER2 IHC 3+ or 2+ with FISH amplification",
+    "NRG-GY026 (HER2+ serous/carcinosarcoma, ± pertuzumab) not yet reported"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "sl_lenpem",
+   "id": "usc_sl_lenpem",
+   "trials": [
+    "KEYNOTE-775 / Study 309"
+   ],
+   "qualifiers": [
+    "Serous not broken out"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "sl_chemo",
+   "id": "usc_sl_chemo",
+   "trials": [
+    "KEYNOTE-775 / Study 309"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "sl_tdxd",
+   "id": "usc_sl_tdxd",
+   "trials": [
+    "DESTINY-PanTumor02, EC cohort"
+   ],
+   "qualifiers": [
+    "Histology not reported; HER2 is concentrated in serous (~25–40% IHC 3+ or 2+/FISH+)"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "sl_sactmt",
+   "id": "usc_sl_sactmt",
+   "trials": [
+    "TroFuse-005"
+   ],
+   "histology": "usc"
+  },
+  {
+   "base": "sl_plat_retreat",
+   "id": "usc_sl_plat_retreat",
+   "trials": [
+    "Platinum re-treatment",
+    "GOG-209"
+   ],
+   "histology": "usc"
+  }
+ ]
+}

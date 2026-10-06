@@ -1,0 +1,1128 @@
+{
+ "outcomes": {
+  "os": {
+   "label": "Histotype OS benefit",
+   "c": "var(--os)"
+  },
+  "pfs": {
+   "label": "Histotype PFS benefit only",
+   "c": "var(--pfs)"
+  },
+  "signal": {
+   "label": "Subgroup signal, unconfirmed",
+   "c": "var(--pfs)"
+  },
+  "ns": {
+   "label": "Histotype result NS / negative",
+   "c": "var(--ns)"
+  },
+  "harm": {
+   "label": "Harm",
+   "c": "var(--harm)"
+  },
+  "single": {
+   "label": "Single-arm, histotype-level",
+   "c": "var(--single)"
+  },
+  "obs": {
+   "label": "Observational / retrospective",
+   "c": "var(--fg-3)"
+  },
+  "no_subgroup": {
+   "label": "Included, not broken out",
+   "c": "var(--fg-3)"
+  },
+  "excluded": {
+   "label": "Histotype excluded",
+   "c": "var(--harm)"
+  },
+  "pending": {
+   "label": "Unpublished",
+   "c": "var(--fg-3)"
+  },
+  "extrapolated": {
+   "label": "Extrapolated",
+   "c": "var(--single)"
+  }
+ },
+ "reading": "histotype",
+ "_meta": {
+  "source": "Endometrial Clear Cell Carcinoma — Evidence Tables by Treatment Setting — vault note version v1.2, updated 2026-09-15",
+  "histology": "ccc",
+  "extracted": "2026-10-06",
+  "note": "Cells are verbatim from the vault note (markdown bold retained). 'out' and 'level' are derived; 'out' overrides are listed in tools/overrides/<hist>.json."
+ },
+ "sections": [
+  {
+   "id": "mol",
+   "title": "Molecular profile of endometrial clear cell carcinoma",
+   "intro": "Clear cell is traditionally grouped with serous as \"type II / high-risk histology\". **Molecularly, it does not belong there.** All four classes occur, and no single class is a majority in every series.",
+   "mol": [
+    {
+     "caption": "",
+     "columns": [
+      "Molecular group",
+      "Kim 2020 — ProMisE (n = 52) [1]",
+      "DeLair 2017 — pure ECCC (n = 32; 30 sequenced) [2]",
+      "PORTEC-3 clear cell, high-risk (n = 39) [3]"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "POLEmut",
+        "2% (1)",
+        "7% (2/30)",
+        "~15% (6)"
+       ],
+       "refs": []
+      },
+      {
+       "cells": [
+        "MMRd",
+        "10% (5)",
+        "19% (6/32) abnormal MMR IHC",
+        "~31% (12)"
+       ],
+       "refs": []
+      },
+      {
+       "cells": [
+        "p53abn",
+        "35% (18)",
+        "34% (11/32) abnormal p53 IHC",
+        "~31% (12)"
+       ],
+       "refs": []
+      },
+      {
+       "cells": [
+        "NSMP / p53wt",
+        "**54% (28)**",
+        "47% (15/32) after surrogate hierarchy (Table 2)",
+        "~23% (9)"
+       ],
+       "refs": []
+      },
+      {
+       "cells": [
+        "*HER2 (ERBB2)*",
+        "—",
+        "*11% amplified*",
+        "*MD Anderson: FISH amplification in 25% (3/12) of ECCC [9]*"
+       ],
+       "refs": [
+        9
+       ]
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "id": "t1",
+   "title": "1. Adjuvant",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Clear cell data",
+    "pfs": "DFS / RFS",
+    "os": "OS",
+    "hr": "HR",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "GOG-122",
+     "cite": "Randall 2006",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Doxorubicin 60 + cisplatin 50 q3w ×7 (+1 cisplatin) vs whole-abdominal RT",
+      "pop": "Stage III/IV, ≤2 cm residual",
+      "n": "396",
+      "hist": "**~4% clear cell** (17); exploratory Fig 5: clear cell PFS HR 0.50, OS 0.52 (CIs cross 1)",
+      "pfs": "5-yr PFS 50% vs 38%",
+      "os": "5-yr OS 55% vs 42%",
+      "hr": "0.68 (0.52–0.89) death, stage-adj",
+      "tox": "—"
+     },
+     "refs": [
+      11
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "PORTEC-3",
+     "cite": "de Boer 2019",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Cis-RT → carbo/taxol ×4 vs pelvic RT alone",
+      "pop": "High-risk I–III (serous/clear cell eligible at stage I with invasion)",
+      "n": "660",
+      "hist": "**62 clear cell (9.4%)**; no clear cell subgroup in extracts. The significant histology subgroup was serous only (OS HR 0.48)",
+      "pfs": "5-yr FFS 76.5% vs 69.1%",
+      "os": "5-yr 81.4% vs 76.1%",
+      "hr": "OS 0.70 (0.51–0.97); FFS 0.70 (0.52–0.94)",
+      "tox": "—"
+     },
+     "refs": [
+      14
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "↳ PORTEC-3 by molecular class",
+     "cite": "León-Castillo 2020; Post 2025",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Same",
+      "pop": "Molecular cohort",
+      "n": "39 clear cell of 410",
+      "hist": "Clear cell spread across classes (table above); the class effects apply: **p53abn benefits** (10-yr RFS HR 0.42), **MMRd does not** (1.13)",
+      "pfs": "Class × histology outcomes not reported",
+      "os": "—",
+      "hr": "—",
+      "tox": "See EMCA_Endometrioid_Algorithm_v1.2 Table 1"
+     },
+     "refs": [
+      4,
+      3
+     ],
+     "level": "molecular",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "GOG-249",
+     "cite": "Randall 2019",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Vaginal cuff brachytherapy → carbo AUC6 + paclitaxel 175 ×3 vs pelvic RT 45–50.4 Gy",
+      "pop": "HIR stage I endometrioid, stage II, **stage I–II serous / clear cell**",
+      "n": "601",
+      "hist": "**5% clear cell**; the serous + clear cell cohort showed no benefit from added chemo",
+      "pfs": "60-mo RFS 0.76 vs 0.76",
+      "os": "60-mo OS 0.85 vs 0.87",
+      "hr": "RFS 0.92 (90% CL 0.69–1.23), NS",
+      "tox": "—"
+     },
+     "refs": [
+      12
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "GOG-258",
+     "cite": "Matei 2019",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Cisplatin + 45 Gy → carbo/taxol ×4 vs carbo/taxol ×6",
+      "pop": "Stage III/IVA; **stage I/II serous or clear cell with + washings**",
+      "n": "736",
+      "hist": "**3% clear cell**; no histology subgroup differed",
+      "pfs": "5-yr RFS 59% vs 58%",
+      "os": "Immature",
+      "hr": "0.90 (90% CI 0.74–1.10), NS",
+      "tox": "—"
+     },
+     "refs": [
+      13
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "KEYNOTE-B21",
+     "cite": "Van Gorp 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Adjuvant chemo ± RT ± pembrolizumab",
+      "pop": "Stage I/II **non-endometrioid** with MI; III/IVA any histology; POLEmut excluded",
+      "n": "1095",
+      "hist": "Non-endometrioid 46% includes clear cell; clear cell fraction not reported (endometrioid vs non-endometrioid only)",
+      "pfs": "**ITT DFS negative** (2-yr 75% vs 76%)",
+      "os": "Immature",
+      "hr": "ITT 1.02 (0.79–1.32); dMMR 0.31 (0.14–0.69); pMMR 1.20 (0.91–1.57)",
+      "tox": "—"
+     },
+     "refs": [
+      15
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "Schultz 2026 — SEER, stage I RT modality",
+     "cite": "retrospective",
+     "star": false,
+     "observational": true,
+     "cols": {
+      "regimen": "Brachytherapy vs EBRT vs both",
+      "pop": "Stage I clear cell **or serous**",
+      "n": "446",
+      "hist": "Mixed serous/clear cell",
+      "pfs": "—",
+      "os": "5-yr 80.9%",
+      "hr": "Brachy vs EBRT 0.44 (0.26–0.74)",
+      "tox": "**confounded**: 60% of brachy patients also had systemic therapy vs 27% of EBRT"
+     },
+     "refs": [
+      17
+     ],
+     "level": "pooled",
+     "out": "obs",
+     "tags": []
+    },
+    {
+     "name": "Bujnak 2025 — SEER, stage I",
+     "cite": "retrospective",
+     "star": false,
+     "observational": true,
+     "cols": {
+      "regimen": "Observation vs chemo vs RT vs chemo + RT",
+      "pop": "Stage I uterine clear cell",
+      "n": "881",
+      "hist": "**Clear-cell–only cohort** (not randomized)",
+      "pfs": "DSS: no difference by adjuvant treatment",
+      "os": "10-yr OS 61% (observation) vs 74% (chemo + RT) on KM, **NS on multivariable**",
+      "hr": "Tumour ≥40 mm DSS HR 2.02",
+      "tox": "—"
+     },
+     "refs": [
+      16
+     ],
+     "level": "histotype_only",
+     "out": "obs",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "No randomized adjuvant evidence in clear cell carcinoma",
+     "md": "- Every randomized row above enrolled clear cell by eligibility, but only GOG-122 reports a clear cell result (exploratory, 17 patients, CIs crossing 1), and clear cell was 3–10% of each trial. Treating stage I–II clear cell \"like serous\" in these trials was a design decision, not a finding. The molecular data argue against it.\n- The SEER rows are the only clear-cell–specific adjuvant data. They show no disease-specific survival benefit from adjuvant therapy in stage I disease. They are uncontrolled, pre-molecular, and have no central pathology review — and with a 46% histotype confirmation rate on expert review [5], an unknown share of these \"clear cell\" cases were not clear cell at all.\n- **Practical implication:** at stage I–II, molecular class (POLEmut → de-escalate; p53abn → intensify; MMRd → immunotherapy question) is a better-supported basis for adjuvant decisions than the clear cell label. NSMP clear cell is the gap: it is not favourable [1], and no trial addresses it."
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "title": "2. Primary systemic therapy (first-line, chemo-naive advanced)",
+   "intro": "The classic GOG trials enrolled advanced **and** recurrent patients in one population, so each is listed here **and** in Table 3A, marked ↔ T3 / ↔ T2.",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Clear cell data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr": "HR",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "DUO-E — both arms",
+     "cite": "Westin 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + durvalumab → durvalumab ± olaparib vs carbo/taxol",
+      "pop": "Newly dx measurable III/IV **or recurrent** (52% recurrent)",
+      "n": "718",
+      "hist": "**Clear cell 19/718 (2.6%)** — 8 D+O / 4 durvalumab / 7 control; too few for any subgroup",
+      "pfs": "D 10.2 / D+O 15.1 vs 9.6 mo",
+      "os": "Interim D+O 0.59 (0.42–0.83)",
+      "hr": "ITT D 0.71 / D+O 0.55; dMMR 0.42 / 0.41; pMMR 0.77 / 0.57",
+      "tox": "—"
+     },
+     "refs": [
+      23
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "RUBY",
+     "cite": "Mirza 2023",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + dostarlimab vs carbo/taxol",
+      "pop": "III/IV or first recurrence; **stage IIIC1 clear cell eligible regardless of measurability**",
+      "n": "494",
+      "hist": "**17/494 (3.4%) clear cell**, all pMMR; no subgroup outcome",
+      "pfs": "24-mo PFS dMMR 61.4% vs 15.7%",
+      "os": "24-mo OS 71.3% vs 56.0% (interim)",
+      "hr": "dMMR 0.28 (0.16–0.50); overall 0.64 (0.51–0.80); pMMR 0.76 (0.59–0.98)",
+      "tox": "—"
+     },
+     "refs": [
+      22
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "GOG-177",
+     "cite": "Fleming 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "TAP vs AP",
+      "pop": "Measurable III/IV **or recurrent** (58–71% recurrent)",
+      "n": "263",
+      "hist": "**8/263 (3%) clear cell**; no subgroup outcome",
+      "pfs": "8.3 vs 5.3 mo",
+      "os": "15.3 vs 12.3 mo",
+      "hr": "PFS 0.60 (0.46–0.78); OS 0.75 (0.57–0.988)",
+      "tox": "—"
+     },
+     "refs": [
+      19
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "NRG-GY018",
+     "cite": "Eskander 2023",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + pembrolizumab vs carbo/taxol",
+      "pop": "III/IVA measurable, IVB/recurrent; **any histology except carcinosarcoma**",
+      "n": "816",
+      "hist": "**38/813 (4.7%) clear cell** (dMMR 1, pMMR 37); no subgroup outcome",
+      "pfs": "dMMR NR vs 7.6 mo; pMMR 13.1 vs 8.7 mo",
+      "os": "—",
+      "hr": "dMMR 0.30 (0.19–0.48); pMMR 0.54 (0.41–0.71)",
+      "tox": "—"
+     },
+     "refs": [
+      21
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "GOG-107",
+     "cite": "Thigpen 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Doxorubicin 60 + cisplatin 50 q3w vs doxorubicin 60",
+      "pop": "Stage III/IV **or recurrent**, chemo-naive",
+      "n": "281",
+      "hist": "**5–6% clear cell**; no subgroup outcome",
+      "pfs": "5.7 vs 3.8 mo",
+      "os": "9.0 vs 9.2 mo (NS)",
+      "hr": "PFS 0.736 (0.577–0.939); OS 0.928 NS",
+      "tox": "—"
+     },
+     "refs": [
+      18
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "AtTEnd / ENGOT-en7",
+     "cite": "Colombo 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + atezolizumab → atezolizumab vs placebo",
+      "pop": "Advanced/recurrent EC or carcinosarcoma; no prior chemo for recurrence",
+      "n": "551 (2:1)",
+      "hist": "**Clear cell 17/549 (3.1%)** (12 atezo / 5 placebo); pooled into \"Other\" in forest plot",
+      "pfs": "ITT 10.1 vs 8.9 mo",
+      "os": "Interim 38.7 vs 30.2 mo, HR 0.82 (0.63–1.07)",
+      "hr": "dMMR 0.36 (0.23–0.57); ITT 0.74 (0.61–0.91)",
+      "tox": "—"
+     },
+     "refs": [
+      24
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "GOG-209",
+     "cite": "Miller 2020",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carboplatin AUC6 + paclitaxel 175 vs TAP",
+      "pop": "Stage III/IV **or recurrent** (27% recurrent), chemo-naive",
+      "n": "1328",
+      "hist": "**47/1328 (3.5%) clear cell**; exploratory OS HR 0.86 (0.43–1.76), TC vs TAP (Fig 4)",
+      "pfs": "13 vs 14 mo",
+      "os": "37 vs 41 mo",
+      "hr": "OS 1.002 (90% CI 0.9–1.12) **non-inferior**",
+      "tox": "—"
+     },
+     "refs": [
+      20
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "Fader",
+     "cite": "NRG-GOG 3005, 2018/2020",
+     "star": false,
+     "observational": true,
+     "cols": {
+      "regimen": "Carbo/taxol ± trastuzumab",
+      "pop": "HER2+ **serous only**",
+      "n": "58 eval.",
+      "hist": "**Clear cell excluded** — no randomized HER2 data exist for clear cell, although ~25% of ECCC may be HER2-amplified [9]",
+      "pfs": "—",
+      "os": "—",
+      "hr": "—",
+      "tox": "See serous note"
+     },
+     "refs": [
+      25
+     ],
+     "level": "excluded",
+     "out": "excluded",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "Interpretation traps",
+     "md": "- **MMR status is the only usable modifier.** Only GOG-209 reports a clear cell outcome (OS HR 0.86, 0.43–1.76; n = 47, exploratory), but all the modern trials report dMMR vs pMMR. About 10–31% of clear cell tumours (more in mixed endometrioid/clear cell) are MMRd [1][3][7]. For those, the dMMR HRs (0.28–0.42) are the applicable result. For pMMR clear cell, the pMMR HRs are the nearest read-across but come overwhelmingly from endometrioid and serous patients.\n- **Carbo/taxol is standard here by extrapolation**, not by any clear cell signal. GOG-209 non-inferiority was shown in a population with a small (3.5%) clear cell fraction."
+    }
+   ]
+  },
+  {
+   "id": "t3",
+   "title": "3. Recurrent disease",
+   "intro": "Recurrent disease is **not one setting**. The GOG trials treated recurrence with first-line cytotoxic therapy in chemo-naive patients; the modern trials treat recurrence after platinum and increasingly after a checkpoint inhibitor. For clear cell, a further split matters: **pooled gynecologic clear cell trials** (mostly ovarian) versus **endometrial trials** (where clear cell is a small fraction).",
+   "container": true,
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "Why this split exists",
+     "md": "GOG-107, GOG-177 and GOG-209 all **excluded prior cytotoxic chemotherapy**. Their recurrent patients were chemo-naive. Reading their medians as salvage-line expectations overestimates what a pretreated patient can expect — GOG-209's own subgroups show median OS of 20.4–22.0 months in measurable/recurrent patients versus 113 months in the non-measurable, non-recurrent group."
+    }
+   ]
+  },
+  {
+   "id": "t3a",
+   "title": "3A. First-line systemic therapy **for** recurrent disease (cytotoxic-naive)",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Prior systemic therapy",
+    "n": "n",
+    "recurrent_fraction": "Recurrent fraction",
+    "hist": "Clear cell data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr": "HR",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "GOG-177",
+     "cite": "Fleming 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "TAP vs AP",
+      "pop": "**None**",
+      "n": "263",
+      "recurrent_fraction": "**58–71%**",
+      "hist": "8/263 (3%) clear cell",
+      "pfs": "8.3 vs 5.3 mo",
+      "os": "15.3 vs 12.3 mo",
+      "hr": "PFS 0.60 (0.46–0.78); OS 0.75 (0.57–0.988)"
+     },
+     "refs": [
+      19
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "GOG-107",
+     "cite": "Thigpen 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Doxorubicin + cisplatin vs doxorubicin",
+      "pop": "**None** (hormonal or 1 biologic allowed)",
+      "n": "281",
+      "recurrent_fraction": "Not reported",
+      "hist": "5–6% clear cell",
+      "pfs": "5.7 vs 3.8 mo",
+      "os": "9.0 vs 9.2 mo",
+      "hr": "PFS 0.736 (0.577–0.939)"
+     },
+     "refs": [
+      18
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "GOG-209",
+     "cite": "Miller 2020",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol vs TAP",
+      "pop": "**None**",
+      "n": "1328",
+      "recurrent_fraction": "**27%**",
+      "hist": "3.5% clear cell; exploratory OS HR 0.86 (0.43–1.76)",
+      "pfs": "13 vs 14 mo",
+      "os": "Measurable/recurrent subgroup 20.4 vs 22.0 mo",
+      "hr": "OS 1.002 (90% CI 0.9–1.12) non-inferior"
+     },
+     "refs": [
+      20
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    }
+   ],
+   "notes": []
+  },
+  {
+   "id": "t3b",
+   "title": "3B. Second line and beyond (post-platinum ± post-PD-(L)1)",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "prior_systemic_therapy_required": "Prior systemic therapy required",
+    "n": "n",
+    "hist": "Clear cell data",
+    "pfs": "PFS",
+    "os": "OS",
+    "response_hr": "Response / HR",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "KEYNOTE-775",
+     "cite": "Makker 2022",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Lenvatinib 20 mg + pembrolizumab vs doxorubicin or weekly paclitaxel",
+      "prior_systemic_therapy_required": "≥1 prior **platinum**",
+      "n": "827",
+      "hist": "**6% clear cell** (~50); benefit consistent across histology subgroups; clear cell HR **not reported** — supplement Figs S4–S5 split only endometrioid vs non-endometrioid (non-endometrioid pMMR PFS 0.56 (0.43–0.73), OS 0.56 (0.42–0.74)); pMMR clear cell 29 vs 17",
+      "pfs": "pMMR 6.6 vs 3.8 mo",
+      "os": "pMMR 17.4 vs 12.0 mo",
+      "response_hr": "OS pMMR 0.68 (0.56–0.84); all 0.62 (0.51–0.75)",
+      "tox": "—"
+     },
+     "refs": [
+      26
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "DESTINY-PanTumor02, EC cohort",
+     "cite": "Meric-Bernstam 2024",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "T-DXd 5.4 mg/kg q3w (single arm)",
+      "prior_systemic_therapy_required": "Median 2 prior lines",
+      "n": "40",
+      "hist": "HER2 IHC 3+/2+; histology not reported",
+      "pfs": "11.1 mo (EC cohort)",
+      "os": "26.0 mo (EC cohort)",
+      "response_hr": "ORR 57.5%; IHC 3+ 84.6% (n=13)",
+      "tox": "—"
+     },
+     "refs": [
+      34
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "MoST-CIRCUIT",
+     "cite": "Gao 2025",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Nivolumab 3 mg/kg + ipilimumab 1 mg/kg q3w ×4 → nivolumab 480 mg q4w (single arm)",
+      "prior_systemic_therapy_required": "0–1 prior line (32% naive)",
+      "n": "28 (26 eval.)",
+      "hist": "Pooled: **4 endometrial**; **ECCC ORR 50% (95% CI 9–91)**, i.e. 2/4; 93% pMMR/MSS",
+      "pfs": "Overall median 10 mo; 6-mo PFS 58%",
+      "os": "NR",
+      "response_hr": "Overall ORR 54% (35–71)",
+      "tox": "**1 fatal myocarditis**; G≥3 irAE ~35%"
+     },
+     "refs": [
+      28
+     ],
+     "level": "pooled",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "GARNET cohort A1",
+     "cite": "Oaknin 2020",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Dostarlimab (single arm)",
+      "prior_systemic_therapy_required": "Post-platinum doublet; ≤2 prior lines",
+      "n": "71 eval.",
+      "hist": "dMMR only; **type II (non-endometrioid) ORR 47.6% (25.7–70.2), n=21** — no clear cell category in eTable 2 (serous 4, unspecified 11)",
+      "pfs": "8.1 mo",
+      "os": "12-mo OS 72.7%",
+      "response_hr": "ORR 42.3%",
+      "tox": "—"
+     },
+     "refs": [
+      31
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "LARA",
+     "cite": "Ngoi 2026",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Pembrolizumab 200 mg q3w + lenvatinib 20 mg (single arm)",
+      "prior_systemic_therapy_required": "≥1 prior platinum; ICI-naive",
+      "n": "27 (25 eval.)",
+      "hist": "Pooled gynecologic clear cell: **3 endometrial (11%)**, 24 ovarian; all pMMR/MSS; endometrial best response **1 PR, 1 SD, 1 PD** (Fig 2)",
+      "pfs": "—",
+      "os": "—",
+      "response_hr": "ORR at 24 wk 40% (21–61)",
+      "tox": "G3–4 TRAE 52%"
+     },
+     "refs": [
+      27
+     ],
+     "level": "pooled",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "GOG-229E",
+     "cite": "Aghajanian 2011",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Bevacizumab 15 mg/kg (single arm)",
+      "prior_systemic_therapy_required": "1–2 prior cytotoxic",
+      "n": "52",
+      "hist": "**Clear cell 7.7% (4)**; **1 of 7 responders was clear cell** (PR)",
+      "pfs": "4.17 mo",
+      "os": "10.55 mo",
+      "response_hr": "ORR 13.5%",
+      "tox": "—"
+     },
+     "refs": [
+      32
+     ],
+     "level": "subgroup",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "DART / SWOG S1609",
+     "cite": "Chae 2026",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Nivolumab 240 mg q2w + ipilimumab 1 mg/kg q6w (single arm)",
+      "prior_systemic_therapy_required": "Median 2 prior lines (1–8)",
+      "n": "32",
+      "hist": "Pooled: **8 endometrial — ORR 0%, CBR 0%**, median PFS 2.0 mo, median OS 4.3 mo; all 3 responders ovarian",
+      "pfs": "Overall 2.7 mo",
+      "os": "Overall 13.7 mo (21.7 mo cited elsewhere in paper)",
+      "response_hr": "Overall ORR 9.4%",
+      "tox": "G≥3 TRAE 53%"
+     },
+     "refs": [
+      29
+     ],
+     "level": "pooled",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "NRG/GOG-0283",
+     "cite": "O'Cearbhaill 2023",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Dasatinib 140 mg daily (single arm, by BAF250a/ARID1A status)",
+      "prior_systemic_therapy_required": "Recurrent/persistent",
+      "n": "28",
+      "hist": "Pooled: **6 endometrial** (Table 1; text says 17.9%), all BAF250a-retained; the sole PR was BAF250a-loss, so **endometrial ORR 0**",
+      "pfs": "—",
+      "os": "—",
+      "response_hr": "1 PR; SD 28%; PD 54%",
+      "tox": "**inactive**"
+     },
+     "refs": [
+      30
+     ],
+     "level": "pooled",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "TroFuse-005",
+     "cite": "topline 2026-05-18",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Sac-TMT 4 mg/kg q2w vs doxorubicin or paclitaxel",
+      "prior_systemic_therapy_required": "**Platinum AND anti–PD-(L)1**",
+      "n": "776",
+      "hist": "Not broken out",
+      "pfs": "Met",
+      "os": "Met",
+      "response_hr": "Not yet released",
+      "tox": "—"
+     },
+     "refs": [],
+     "level": "included",
+     "out": "pending",
+     "tags": []
+    },
+    {
+     "name": "Platinum re-treatment",
+     "cite": "",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Carboplatin + paclitaxel",
+      "prior_systemic_therapy_required": "Platinum-sensitive relapse",
+      "n": "—",
+      "hist": "Not broken out",
+      "pfs": "—",
+      "os": "—",
+      "response_hr": "—",
+      "tox": "**No 2L trial data.** Extrapolated from GOG-209, a **chemo-naive** trial (row in 3A)"
+     },
+     "refs": [
+      20
+     ],
+     "level": "included",
+     "out": "extrapolated",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "info",
+     "title": "Reading notes",
+     "md": "- **Count the endometrial patients, not the cohort.** Across the three pooled clear cell immunotherapy trials, endometrial primaries total **15** (LARA 3, MoST-CIRCUIT 4, DART 8). Known objective responses: **3 of 15** (MoST-CIRCUIT 2/4; DART 0/8; LARA 1/3). The cohort-level ORRs (40–54%) are ovarian results.\n- **The same drugs gave opposite endometrial results.** Nivolumab/ipilimumab produced 2/4 responses at q3w induction dosing and 0/8 at q6w continuous dosing in more heavily pretreated patients. Neither denominator supports a conclusion.\n- **The better-supported 2L routes are the all-histology ones:** lenvatinib/pembrolizumab (KEYNOTE-775, ~50 clear cell patients inside a positive trial) for pMMR, and PD-1 monotherapy for dMMR clear cell (GARNET type II ORR 47.6%). LARA supports lenvatinib/pembrolizumab across gynecologic clear cell, but with only 3 endometrial patients.\n- **HER2 is an open question, not a gap to ignore.** About a quarter of ECCC may be FISH-amplified [9], clear cell was excluded from the only HER2 RCT (Fader), and DESTINY-PanTumor02 did not report histology. Test HER2 in recurrent ECCC; T-DXd evidence is tumour-agnostic, not clear-cell–specific.\n- **Hormonal therapy is omitted:** clear cell is almost always ER-negative (8% ER+ after expert review [5]). This does not apply to tumours reclassified as endometrioid.\n- The platinum-re-treatment row stays ⚠️: widely used practice that rests on extrapolation across the 3A/3B boundary."
+    }
+   ]
+  },
+  {
+   "id": "t4",
+   "title": "4. Neoadjuvant",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Clear cell data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr": "HR"
+   },
+   "rows": [],
+   "notes": []
+  }
+ ],
+ "references": [
+  [
+   1,
+   "Kim SR, et al. Molecular subtypes of clear cell carcinoma of the endometrium: opportunities for prognostic and predictive stratification.",
+   "Gynecol Oncol",
+   "2020;158:3–11",
+   "32331700"
+  ],
+  [
+   2,
+   "DeLair DF, et al. The genetic landscape of endometrial clear cell carcinomas.",
+   "J Pathol",
+   "2017;243:230–241",
+   "28718916"
+  ],
+  [
+   3,
+   "León-Castillo A, et al. Molecular classification of the PORTEC-3 trial for high-risk endometrial cancer.",
+   "J Clin Oncol",
+   "2020;38:3388–3397",
+   "32749941"
+  ],
+  [
+   4,
+   "Post CCB, et al. PORTEC-3 10-year outcomes and post-hoc analysis by molecular classification.",
+   "Lancet Oncol",
+   "2025;26:1370–1381",
+   "40921169"
+  ],
+  [
+   5,
+   "Han G, et al. Endometrial carcinomas with clear cells: a study of a heterogeneous group of tumors including interobserver variability, mutation analysis, and immunohistochemistry with HNF-1β.",
+   "Int J Gynecol Pathol",
+   "2015;34:323–333",
+   "25851704"
+  ],
+  [
+   6,
+   "Hoang LN, et al. Interobserver agreement in endometrial carcinoma histotype diagnosis varies depending on the TCGA-based molecular subgroup.",
+   "Am J Surg Pathol",
+   "2017;41:245–252",
+   "28079598"
+  ],
+  [
+   7,
+   "Köbel M, et al. Frequent mismatch repair protein deficiency in mixed endometrioid and clear cell carcinoma of the endometrium.",
+   "Int J Gynecol Pathol",
+   "2017;36:555–561",
+   "28114191"
+  ],
+  [
+   8,
+   "Hamilton CA, et al. Uterine papillary serous and clear cell carcinomas predict for poorer survival compared to grade 3 endometrioid corpus cancers.",
+   "Br J Cancer",
+   "2006;94:642–646",
+   "16495918"
+  ],
+  [
+   9,
+   "Mohamed KS, et al. HER2 immunohistochemical expression and FISH testing in clear cell carcinoma of the gynecologic tract.",
+   "Appl Immunohistochem Mol Morphol",
+   "2026 (online ahead of print)",
+   "42474091"
+  ],
+  [
+   10,
+   "Blanc-Durand F, et al. Unveiling commonalities: exploring shared characteristics in clear-cell carcinomas of the gynecologic tract.",
+   "Clin Cancer Res",
+   "2024;30:4557–4565",
+   "39141515"
+  ],
+  [
+   11,
+   "Randall ME, et al. GOG-122.",
+   "J Clin Oncol",
+   "2006;24:36–44",
+   "16330675"
+  ],
+  [
+   12,
+   "Randall ME, et al. GOG-249.",
+   "J Clin Oncol",
+   "2019;37:1810–1818",
+   "30995174"
+  ],
+  [
+   13,
+   "Matei D, et al. GOG-258.",
+   "N Engl J Med",
+   "2019;380:2317–2326",
+   "31189035"
+  ],
+  [
+   14,
+   "de Boer SM, et al. PORTEC-3 patterns of recurrence and post-hoc survival analysis.",
+   "Lancet Oncol",
+   "2019;20:1273–1285",
+   "31345626"
+  ],
+  [
+   15,
+   "Van Gorp T, et al. KEYNOTE-B21 / ENGOT-en11 / GOG-3053.",
+   "Ann Oncol",
+   "2024;35:968–980",
+   "39284383"
+  ],
+  [
+   16,
+   "Bujnak AC, et al. Adjuvant treatment in stage I clear cell endometrial carcinoma: a population-based study of survival outcomes.",
+   "Gynecol Oncol",
+   "2025;196:85–91",
+   "40184713"
+  ],
+  [
+   17,
+   "Schultz B, et al. Postoperative radiation therapy in women with FIGO stage I clear cell and papillary serous carcinomas of the uterus: an analysis of the SEER database.",
+   "J Gynecol Oncol",
+   "2026;37:e53",
+   "41575333"
+  ],
+  [
+   18,
+   "Thigpen JT, et al. GOG-107.",
+   "J Clin Oncol",
+   "2004;22:3902–3908",
+   "15459211"
+  ],
+  [
+   19,
+   "Fleming GF, et al. GOG-177.",
+   "J Clin Oncol",
+   "2004;22:2159–2166",
+   "15169803"
+  ],
+  [
+   20,
+   "Miller DS, et al. GOG-0209 final OS.",
+   "J Clin Oncol",
+   "2020;38:3841–3850",
+   "33078978"
+  ],
+  [
+   21,
+   "Eskander RN, et al. NRG-GY018 / KEYNOTE-868.",
+   "N Engl J Med",
+   "2023;388:2159–2170",
+   "36972022"
+  ],
+  [
+   22,
+   "Mirza MR, et al. RUBY / ENGOT-EN6 / GOG-3031.",
+   "N Engl J Med",
+   "2023;388:2145–2158",
+   "36972026"
+  ],
+  [
+   23,
+   "Westin SN, et al. DUO-E / GOG-3041 / ENGOT-EN10.",
+   "J Clin Oncol",
+   "2024;42:283–299",
+   "37864337"
+  ],
+  [
+   24,
+   "Colombo N, et al. AtTEnd / ENGOT-en7.",
+   "Lancet Oncol",
+   "2024;25:1135–1146",
+   "39102832"
+  ],
+  [
+   25,
+   "Fader AN, et al. NRG-GOG 3005 updated OS.",
+   "Clin Cancer Res",
+   "2020;26:3928–3935",
+   "32601075"
+  ],
+  [
+   26,
+   "Makker V, et al. KEYNOTE-775 / Study 309.",
+   "N Engl J Med",
+   "2022;386:437–448",
+   "35045221"
+  ],
+  [
+   27,
+   "Ngoi NYL, et al. Pembrolizumab plus lenvatinib in recurrent gynaecological clear cell carcinoma (LARA): a multicentre, single-arm, phase 2 trial.",
+   "Lancet Oncol",
+   "2026;27:201–211",
+   "41548565"
+  ],
+  [
+   28,
+   "Gao B, et al. Nivolumab and ipilimumab combination treatment in advanced ovarian and endometrial clear cell cancers (MoST-CIRCUIT).",
+   "JAMA Oncol",
+   "2025;11:982–989",
+   "40608313"
+  ],
+  [
+   29,
+   "Chae YK, et al. DART/SWOG/NCI phase II anti-CTLA-4/PD-1 trial: clear cell carcinomas of ovary, endometrium, cervix.",
+   "J Immunother Cancer",
+   "2026;14:e012805",
+   "41672597"
+  ],
+  [
+   30,
+   "O'Cearbhaill RE, et al. Phase 2 study of dasatinib in recurrent clear cell carcinoma of the ovary, fallopian tube, peritoneum or endometrium (NRG/GOG-0283).",
+   "Gynecol Oncol",
+   "2023;176:16–24",
+   "37418832"
+  ],
+  [
+   31,
+   "Oaknin A, et al. GARNET cohort A1.",
+   "JAMA Oncol",
+   "2020;6:1766–1772",
+   "33001143"
+  ],
+  [
+   32,
+   "Aghajanian C, et al. GOG-229E.",
+   "J Clin Oncol",
+   "2011;29:2259–2265",
+   "21537039"
+  ],
+  [
+   33,
+   "Merck. TroFuse-005 topline press release, 2026-05-18. — ⚠️ Full data not yet presented; no publication",
+   "",
+   "",
+   ""
+  ],
+  [
+   34,
+   "Meric-Bernstam F, et al. DESTINY-PanTumor02.",
+   "J Clin Oncol",
+   "2024;42:47–58",
+   "37870536"
+  ]
+ ]
+}

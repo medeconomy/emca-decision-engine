@@ -1,0 +1,1805 @@
+{
+ "outcomes": {
+  "os": {
+   "label": "Histotype OS benefit",
+   "c": "var(--os)"
+  },
+  "pfs": {
+   "label": "Histotype PFS benefit only",
+   "c": "var(--pfs)"
+  },
+  "signal": {
+   "label": "Subgroup signal, unconfirmed",
+   "c": "var(--pfs)"
+  },
+  "ns": {
+   "label": "Histotype result NS / negative",
+   "c": "var(--ns)"
+  },
+  "harm": {
+   "label": "Harm",
+   "c": "var(--harm)"
+  },
+  "single": {
+   "label": "Single-arm, histotype-level",
+   "c": "var(--single)"
+  },
+  "obs": {
+   "label": "Observational / retrospective",
+   "c": "var(--fg-3)"
+  },
+  "no_subgroup": {
+   "label": "Included, not broken out",
+   "c": "var(--fg-3)"
+  },
+  "excluded": {
+   "label": "Histotype excluded",
+   "c": "var(--harm)"
+  },
+  "pending": {
+   "label": "Unpublished",
+   "c": "var(--fg-3)"
+  },
+  "extrapolated": {
+   "label": "Extrapolated",
+   "c": "var(--single)"
+  }
+ },
+ "reading": "histotype",
+ "_meta": {
+  "source": "Uterine Carcinosarcoma — Evidence Tables by Treatment Setting — vault note version v1.2, updated 2026-09-19",
+  "histology": "ucs",
+  "extracted": "2026-10-06",
+  "note": "Cells are verbatim from the vault note (markdown bold retained). 'out' and 'level' are derived; 'out' overrides are listed in tools/overrides/<hist>.json."
+ },
+ "sections": [
+  {
+   "id": "mol",
+   "title": "Molecular profile of uterine carcinosarcoma",
+   "intro": "Carcinosarcoma is, molecularly, a serous-like p53-aberrant carcinoma with extreme copy-number instability. **Median ploidy 3.3, with ≥1 whole-genome doubling in 90% of tumours — the highest of any TCGA tumour type** (vs 54% in high-grade serous ovarian, P<0.001) [1]. By mutation signature, 43/55 classifiable TCGA cases (78%) were serous-like and 12 (22%) endometrioid-like; all 10 stage IV cases were serous-like [1].",
+   "mol": [
+    {
+     "caption": "",
+     "columns": [
+      "Molecular group",
+      "Uterine carcinosarcoma (%)",
+      "Source"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "p53abn / copy-number high",
+        "TP53 mutated in **all but 5 of 57 (91%)** [1]; TP53 86% in a 168-case commercial panel [15]; **37/37 (100%)** in a population-based series [8]; CNH 64/109 (59%) by genomic subtype [2]",
+        "TCGA [1]; Crane [15]; Huvila [8]; Gotoh [2]"
+       ],
+       "refs": [
+        1,
+        15,
+        8,
+        2
+       ]
+      },
+      {
+       "cells": [
+        "POLEmut",
+        "**1.8% (1/57)** TCGA [1] vs **10.1% (11/109)** in the Japanese JFCR cohort [2]",
+        "[1]; [2]"
+       ],
+       "refs": [
+        1,
+        2
+       ]
+      },
+      {
+       "cells": [
+        "MMRd / MSI-H",
+        "**3.5% (2/57)** TCGA [1]; **4% (4/103)** [11]; **6.2% (17/276)** MSKCC [10]; 4% [15] — vs **22.0% (24/109)** JFCR [2]",
+        "[1,2,10,11,15]"
+       ],
+       "refs": []
+      },
+      {
+       "cells": [
+        "NSMP / copy-number low",
+        "~**3.6%** on re-analysis of TCGA; **10/109 (9.2%)** CNL in JFCR [2]",
+        "[2]"
+       ],
+       "refs": [
+        2
+       ]
+      },
+      {
+       "cells": [
+        "*HER2 IHC 3+*",
+        "*~6–11%* (3/48, 6% [19]; 10/89, 11% [18]; 12/148, 8% [20])*",
+        "*[18,19,20]*"
+       ],
+       "refs": [
+        18
+       ]
+      },
+      {
+       "cells": [
+        "*HER2 IHC 2+*",
+        "*~25–26%* (22/89, 25% [18]; 38/148, 26% [20])*",
+        "*[18,20]*"
+       ],
+       "refs": [
+        18
+       ]
+      },
+      {
+       "cells": [
+        "*HER2-positive overall (IHC and/or ISH)*",
+        "*~13–23%, depending on scoring criteria* (13/80, 16% by 2013 breast criteria vs 10/80, 13% by 2007 [17]; 7/48, 15% by CISH [19]; 10/44, 23% by FISH in a selected cohort [18]); *ERBB2 amplified 9%* [15]",
+        "*[15,17,18,19]*"
+       ],
+       "refs": [
+        18
+       ]
+      }
+     ]
+    }
+   ],
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "The non-p53abn minority is small but treatment-relevant — do not report a single number",
+     "md": "**MMRd and POLE rates differ ~5-fold between North American and Japanese cohorts** (MMRd 3.5–6% vs 22%; POLE 1.8% vs 10.1%) [1,2,10,11,15]. Gotoh attributes this to the carcinoma component — 85.0% of JFCR uterine CS had an **endometrioid** component vs 81.3% serous/undifferentiated in TCGA UCS — and raises ethnic/cohort differences [2]. MMRd carcinosarcomas are usually p53 wild-type (7/10 tested at MSKCC [10]; 4/4 in [11]), and all molecular classes occur in tumours with sarcomatous components [12]. For a Taiwanese practice the Japanese distribution may be the more relevant prior, which raises the expected yield of MMR testing. **An MMRd or POLEmut result should be acted on as a treatment modifier**, like the same class in any other endometrial carcinoma."
+    },
+    {
+     "kind": "info",
+     "title": "Practical consequence for testing",
+     "md": "Molecular classification does **not** stratify treatment within carcinosarcoma the way it does in endometrioid carcinoma — almost every case lands in p53abn. Its value in UCS is (a) **MMR status as a treatment modifier** for chemo-immunotherapy, (b) **POLEmut** as the rare class with no recurrences in pooled data [13], and (c) **p53-aberrancy as the trigger for HER2 testing**: ESGO-ESTRO-ESP 2025 recommends HER2 testing in all advanced/recurrent p53abn endometrial carcinomas and in serous carcinomas and carcinosarcomas [74]. For HER2-directed therapy, the IHC score and ISH result are not interchangeable in UCS: heterogeneity is common, and amplification was found in only 50% of IHC 3+ tumours in one 148-case series [17,18,20]. Because STATICE showed responses down to IHC 1+ (§3B), T-DXd eligibility is an IHC question, not an amplification question."
+    }
+   ]
+  },
+  {
+   "id": "t1",
+   "title": "1. Adjuvant",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Carcinosarcoma data",
+    "dfs_rfs_pfs": "DFS / RFS / PFS",
+    "os": "OS",
+    "hr": "HR",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "GOG-150",
+     "cite": "Wolfson 2007",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Whole-abdominal irradiation vs cisplatin + ifosfamide + mesna ×3",
+      "pop": "Stage I–IV UCS, ≤1 cm postsurgical residuum and/or no extra-abdominal spread",
+      "n": "232 enrolled / **206 eligible** (WAI 105, CIM 101); stage I 31%, II 13%, III 45%, IV 12%",
+      "hist": "**CS-only trial**",
+      "dfs_rfs_pfs": "5-yr crude recurrence **58% vs 52%**; stage/age-adjusted recurrence rate 21% lower with CIM",
+      "os": "death rate 29% lower with CIM",
+      "hr": "recurrence RH 0.789 (0.530–1.176), P=.245; death RH 0.712 (0.484–1.048), P=.085 — **both NS, 2-tailed**",
+      "tox": "—"
+     },
+     "refs": [
+      36
+     ],
+     "level": "histotype_only",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "GOG-0261 / NRG",
+     "cite": "Powell 2022",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carboplatin AUC6 + paclitaxel 175 vs paclitaxel 135 + ifosfamide 1.6 g/m² D1–3, q3w ×6–10",
+      "pop": "UCS **or ovarian CS**, chemo-naive. UCS stratum: stage I 40%, II 6%, III 31%, IV 15%, **recurrent 8%**",
+      "n": "536 enrolled / **449 eligible UCS** (PC 228, PI 221); OCS 101 enrolled / 90 eligible",
+      "hist": "**CS-only trial** — the pivotal one",
+      "dfs_rfs_pfs": "**16 vs 12 mo; superior, HR 0.73 (95% CI 0.58–0.93)**, P<.01 for both non-inferiority and superiority",
+      "os": "**37 vs 29 mo**",
+      "hr": "OS HR **0.87 (90% CI 0.70–1.075)**; P<.01 for **non-inferiority**, P>.1 for superiority",
+      "tox": "margin HR 1.2, one-sided α=.05, 80% power at 264 events"
+     },
+     "refs": [
+      37
+     ],
+     "level": "histotype_only",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "↳ GOG-0261 ovarian CS stratum",
+     "cite": "",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Same",
+      "pop": "Ovarian carcinosarcoma",
+      "n": "90 eligible",
+      "hist": "*Ovarian, not uterine*",
+      "dfs_rfs_pfs": "*15 vs 10 mo*",
+      "os": "*30 vs 25 mo*",
+      "hr": "*OS aHR 1.15 (0.67–1.95); PFS aHR 1.01 (0.61–1.67); **not statistically significant***",
+      "tox": "*limited precision — hypothesis-generating only*"
+     },
+     "refs": [
+      37
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "KEYNOTE-B21 / ENGOT-en11 / GOG-3053",
+     "cite": "Van Gorp 2024",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Adjuvant chemo ± pembrolizumab ± RT",
+      "pop": "Newly dx high-risk: FIGO I/II non-endometrioid or endometrioid with p53/TP53 abnormality, or III/IVA any histology",
+      "n": "1095",
+      "hist": "**CS explicitly eligible** (protocol names \"Carcinoma or Carcinosarcoma (Mixed Mullerian Tumor)\"; pure sarcomas and adenosarcoma excluded) — **CS n and subgroup not reported**",
+      "dfs_rfs_pfs": "**Primary DFS negative**: HR 1.02 (0.79–1.32), P=.570; 2-yr DFS 75% vs 76%. dMMR 0.31 (0.14–0.69); pMMR 1.20 (0.91–1.57)",
+      "os": "—",
+      "hr": "—",
+      "tox": "Not adopted for adjuvant use in CS"
+     },
+     "refs": [
+      55
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "PORTEC-3",
+     "cite": "de Boer 2018",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Cisplatin-RT → carbo/paclitaxel ×4 vs RT alone",
+      "pop": "High-risk FIGO 2009 I–III",
+      "n": "660 evaluable",
+      "hist": "❌ **Carcinosarcoma NOT eligible.** Eligible histologies were endometrioid grade 3 with deep MI and/or LVSI, endometrioid stage II–III, or **stage I–III serous or clear cell** only. Verified in both publications",
+      "dfs_rfs_pfs": "5-yr FFS 76.5% vs 69.1% (2019 update)",
+      "os": "5-yr OS 81.4% vs 76.1%",
+      "hr": "adj OS HR 0.70 (0.51–0.97); FFS 0.70 (0.52–0.94)",
+      "tox": "—"
+     },
+     "refs": [],
+     "level": "excluded",
+     "out": "excluded",
+     "tags": []
+    },
+    {
+     "name": "NRG-GY026",
+     "cite": "NCT05256225",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/paclitaxel ± SC trastuzumab ± SC pertuzumab/trastuzumab, 6–10 cycles q3w, ~1 yr maintenance",
+      "pop": "**HER2-positive** endometrial cancer, FIGO 2009 IA–IVB, non-recurrent, chemo-naive; **carcinosarcoma explicitly eligible**; dMMR **excluded**",
+      "n": "est. 360",
+      "hist": "**CS explicitly eligible** — the trial that will settle HER2-directed therapy in this histology",
+      "dfs_rfs_pfs": "Not yet reported",
+      "os": "—",
+      "hr": "—",
+      "tox": "Recruiting as of 2026-07; est. primary completion **2027-10-31**; no interim readout"
+     },
+     "refs": [],
+     "level": "included",
+     "out": "pending",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "The adjuvant standard rests on a non-significant trial plus a non-inferiority trial",
+     "md": "**GOG-150 did not reach significance on either endpoint.** Chemotherapy displaced whole-abdominal irradiation as the adjuvant backbone on a *trend* (death RH 0.712, P=.085) [36]. **GOG-0261 then established carboplatin/paclitaxel by non-inferiority against paclitaxel/ifosfamide, not by superiority over anything** [37] — its PFS *was* significantly superior to ifosfamide/paclitaxel, but ifosfamide/paclitaxel is the comparator, not observation. Do not read \"37 vs 29 months\" as the benefit of adjuvant chemotherapy. **GOG-0261 is 46% stage I–II and 8% recurrent.** It is simultaneously the adjuvant trial, the advanced-disease trial and part of the first-line-for-recurrence trial in this disease, which is why it is duplicated into Tables 2 and 3A. Never split its numbers across tables. ⚠️ A widely cited review characterises GOG-261's PFS benefit as concentrated \"particularly in stages III–IV\" [16]. **The full text does not support \"particularly\":** the stage III–IV subgroup had PFS HR 0.65 (0.48–0.88) and OS HR 0.74 (0.54–1.01, NS), but there was no statistically significant heterogeneity across subgroups [37]. Do not assert a stage-concentrated benefit. ⚠️ Toxicity in GOG-0261 is reported only qualitatively in the abstract: similar overall, with **more haematologic toxicity on carbo/paclitaxel** and **more confusion and genitourinary haemorrhage on paclitaxel/ifosfamide**. Full text (Table 2, treated UCS, PC vs PI): grade 3–4 haematologic **82% vs 50%** (P<.01); neurologic 7% vs 11%; haemorrhage 0% vs 1%."
+    },
+    {
+     "kind": "info",
+     "title": "PORTEC-3 is not carcinosarcoma evidence — and its PDFs are currently ambiguous in this vault",
+     "md": "Carcinosarcoma was never eligible for PORTEC-3 [41]; the p53abn post-hoc analysis that EMCA_Serous_Algorithm_v1.2 uses as a serous proxy therefore **cannot** be used as a carcinosarcoma proxy, even though UCS is ~90% p53abn. The row is retained deliberately: a marked-excluded row is more informative than an absent one. `GO_PDFs/` currently holds six PORTEC-3 PDFs (`2016_deBoer_The Lancet Oncology.pdf`, `2018_deBoer_The Lancet Oncology.pdf`, `2019_deBoer_The Lancet Oncology.pdf`, `2020_León-Castillo_Journal of Clinical Oncology.pdf`, `2021_Post_International Journal of Radiation Oncology Biology Physics.pdf`, `2025_Post_The Lancet Oncology.pdf`) with matching `GO_summaries/` extracts. **The file↔paper mapping was verified on 2026-09-19** by reading page 1 of each PDF and matching the printed title, authors and journal citation line — all six map correctly, and there is a single 2018 file (no `_dup` copy exists). See Open items."
+    },
+    {
+     "kind": "info",
+     "title": "There is no \"low-risk\" carcinosarcoma",
+     "md": "97 cases of carcinosarcoma **without myometrial invasion** (FIGO 2009 IA; FIGO 2023 IC), 11 centres: tumour confined to a polyp in 28.9%, confined to endometrium in 56.7%, and **no residual disease in the hysterectomy specimen in 14.4%**. Outcome: **29.9% recurred, mostly distant; 5-yr RFS 63.5% (53.4–75.4); 5-yr OS 72.0% (62.6–82.9)**. No significant difference in RFS or OS by tumour status (P=.99, P=.43) — including the 14 with no residual tumour at all. Receipt of chemotherapy: **RFS P=.08, OS P=.07 — not statistically significant** [35]. Read both halves. Even a carcinosarcoma with zero myoinvasion carries ~30% recurrence and ~28% 5-year mortality, which is the strongest argument against observing any UCS. And simultaneously: **no study has ever demonstrated a statistically significant chemotherapy benefit in this subgroup.** Both facts belong in the consent conversation. In practice ~40% of US patients receive no adjuvant therapy at all — 42.0% of 5614 stage I cases [29], 40.5% of 4272 stage I–III cases (70.8% no chemotherapy) [46], 39.9% of 10,609 all-stage cases [47]. That reflects under-treatment and selection, not evidence of safety."
+    }
+   ]
+  },
+  {
+   "id": "t1b",
+   "title": "1B. Adjuvant radiotherapy — retrospective evidence only",
+   "intro": "There is **no randomized trial of adjuvant RT vs observation in UCS, and none of adjuvant chemotherapy ± RT in UCS.** GOG-150 is the only RCT with an RT arm and it had no no-RT control [36]. This is the single largest evidence gap in the disease, so the retrospective series are admitted here (*italicised*, as in EMCA_ClearCell_Algorithm_v1.2), each uncontrolled and pre-molecular.",
+   "columns": {
+    "trial": "Series",
+    "comparison": "Comparison",
+    "n": "n",
+    "hist": "Carcinosarcoma data",
+    "result": "Result",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "NCDB, all stages, patterns of care",
+     "cite": "",
+     "star": false,
+     "observational": true,
+     "cols": {
+      "comparison": "*Chemo / RT / chemoradiation / none*",
+      "n": "*10,609*",
+      "hist": "*CS-only*",
+      "result": "*Lowest adjusted hazard of death in the **chemoradiation** group: adj HR vs none **0.58** (0.53–0.63); chemo 0.80 (0.74–0.85); RT 0.78 (0.73–0.84). **39.9% received no adjuvant therapy**; strongest predictor of death was stage*"
+     },
+     "refs": [
+      47
+     ],
+     "level": "histotype_only",
+     "out": "obs",
+     "tags": []
+    },
+    {
+     "name": "NCDB, all stages, by RT modality",
+     "cite": "",
+     "star": false,
+     "observational": true,
+     "cols": {
+      "comparison": "EBRT alone / BT alone / EBRT+BT vs none",
+      "n": "*2303*",
+      "hist": "*CS-only*",
+      "result": "*Only the **combination** reached significance: EBRT+BT HR **0.72** (0.58–0.89); EBRT alone 0.93 (0.79–1.10), NS; BT alone 0.84 (0.68–1.03), NS. Propensity-matched: EBRT+BT 0.74 (0.58–0.96)*"
+     },
+     "refs": [
+      44
+     ],
+     "level": "histotype_only",
+     "out": "obs",
+     "tags": []
+    },
+    {
+     "name": "NCDB, stage IA unfavourable histology",
+     "cite": "",
+     "star": false,
+     "observational": true,
+     "cols": {
+      "comparison": "Adjuvant BT vs none",
+      "n": "*5711 (clear cell + serous + **CS** pooled)*",
+      "hist": "***pooled**; CS subset (n=2701): BT HR 0.80, P=.047 (CI not reported); 3-yr OS 80.8% vs 71.4%, P<.001*",
+      "result": "*3-yr OS 87% vs 78% (P<0.001); multivariate HR 0.75 (0.65–0.87); benefit \"maintained across histologies\"*"
+     },
+     "refs": [
+      45
+     ],
+     "level": "pooled",
+     "out": "obs",
+     "tags": []
+    },
+    {
+     "name": "NCDB, stage I",
+     "cite": "",
+     "star": false,
+     "observational": true,
+     "cols": {
+      "comparison": "Vaginal brachytherapy; multiagent chemo",
+      "n": "*5614*",
+      "hist": "*CS-only*",
+      "result": "*VBT HR **0.83** (0.70–0.97), P=.02; chemo HR 0.62 (0.54–0.73). Highest 5-yr survival with **both**: 74.1% (68.3–80.3)*"
+     },
+     "refs": [
+      29
+     ],
+     "level": "histotype_only",
+     "out": "obs",
+     "tags": []
+    },
+    {
+     "name": "Single-centre, UCS vs G3 endometrioid",
+     "cite": "",
+     "star": false,
+     "observational": true,
+     "cols": {
+      "comparison": "*RT + chemo vs chemo or RT alone*",
+      "n": "*60 UCS / 115 G3EC*",
+      "hist": "*CS-only*",
+      "result": "*5-yr OS **71.0% vs 35.8%**, P=.028. UCS worse OS than G3EC overall (HR 2.4, 1.0–5.8, P=.039, stage-stratified)*"
+     },
+     "refs": [
+      48
+     ],
+     "level": "histotype_only",
+     "out": "obs",
+     "tags": []
+    },
+    {
+     "name": "Multicentre, chemo vs chemoradiation",
+     "cite": "",
+     "star": false,
+     "observational": true,
+     "cols": {
+      "comparison": "*Chemoradiation (88) vs chemo (60), balanced for stage, cytoreduction, delays*",
+      "n": "*148 stage I–IV*",
+      "hist": "*CS-only*",
+      "result": "*Median PFS 15 vs 11 mo; median OS **26 vs 20 mo**; 2-yr PFS 22.5% vs 13.6% (P=.006); 2-yr OS 50.0% vs 35.6% (P=.018), favouring chemoradiation. Commonest recurrence site **abdomen (50%)**. Subanalysis: \"**sandwich**\" chemo–RT–chemo OS **34 mo** vs 14 mo (chemo→RT) and 14 mo (RT→chemo), P=.038*"
+     },
+     "refs": [
+      43
+     ],
+     "level": "histotype_only",
+     "out": "obs",
+     "tags": []
+    },
+    {
+     "name": "SEER",
+     "cite": "",
+     "star": false,
+     "observational": true,
+     "cols": {
+      "comparison": "Adjuvant RT vs none, ± LND",
+      "n": "*1855 stage I–III*",
+      "hist": "*CS-only*",
+      "result": "***No OS benefit from RT**, with or without LND*"
+     },
+     "refs": [
+      28
+     ],
+     "level": "histotype_only",
+     "out": "obs",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "⭐ The one place radiotherapy in UCS has a defensible indication",
+     "md": "443 **stage I** UCS from a 26-institution cohort. On multivariate analysis **chemotherapy — but not radiotherapy — independently reduced both local (adj-HR 0.46, 0.25–0.83, P=.01) and distant recurrence (adj-HR 0.41, 0.27–0.62, P<0.001)**. Chemo+RT vs chemo alone overall: local recurrence 5.1% vs 10.1%, adj-HR 0.46 (0.13–1.58), **P=.22, NS**. **But there is an interaction.** Radiotherapy significantly decreased local recurrence when tumours had high-grade carcinoma, **sarcoma-component dominance**, or deep myometrial invasion (all P<.05); and adding RT to chemotherapy reduced local recurrence versus chemotherapy alone **only in the presence of multiple risk factors — 5-yr cumulative local recurrence 2.5% vs 21.8%, HR 0.12 (0.02–0.90), P=.013 — and not with none or one factor (P=.36)** [42]. This reconciles the whole literature: RT does not improve survival on average (OS [28]; PFS on multivariate analysis [23]), because most recurrences are distant (5-yr distant 28.1% vs local 13.3% [42]) and fall outside the field; but in **sarcoma-dominant, high-grade, deeply invasive stage I** disease the loco-regional modality earns its place — consistent with the finding that sarcoma components spread loco-regionally while carcinoma components spread lymphatically [23]. Retrospective and subgroup-derived, but biologically coherent. **Sarcoma dominance is therefore a pathology field worth asking for explicitly.**"
+    },
+    {
+     "kind": "info",
+     "title": "One registry result to flag and not repeat",
+     "md": "SARCUT reports adjuvant chemotherapy associated with **worse** DFS (HR 1.84, 1.27–2.67) [34]. This is almost certainly confounding by indication — sicker, higher-burden patients received chemotherapy — and it contradicts GOG-0261 and every Matsuo analysis. **Do not report it as a treatment effect.**"
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "title": "2. Primary systemic therapy (first-line, chemo-naive advanced)",
+   "intro": "The GOG carcinosarcoma trials enrolled advanced **and** recurrent patients in one population, so each is listed here **and** in Table 3A — marked ↔ T3A / ↔ T2. They are the same rows, not different analyses.",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Carcinosarcoma data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr_response": "HR / response",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "DUO-E / ENGOT-EN10 / GOG-3041",
+     "cite": "Westin 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/paclitaxel + durvalumab → durvalumab ± **olaparib** maintenance vs carbo/paclitaxel",
+      "pop": "Newly dx measurable III/IV or recurrent EC. Protocol: \"**All histologies, including carcinosarcomas, will be allowed. Sarcomas will not be allowed.**\"",
+      "n": "718 (241/238/239)",
+      "hist": "**CS eligible; CS n 12/238 (5.0%) durva, 18/239 (7.5%) durva+olaparib, 21/241 (8.7%) control. ❌ No CS subgroup** — forest-plot histology split is endometrioid / serous / other (CS pooled into other)",
+      "pfs": "durva **0.71** (0.57–0.89) P=.003; durva+olaparib **0.55** (0.43–0.69) P<.0001. pMMR 0.77 / **0.57**; dMMR 0.42 / 0.41",
+      "os": "interim (~28% mature) 0.77 (0.56–1.07) / **0.59 (0.42–0.83)**",
+      "hr_response": "—",
+      "tox": "Olaparib's contribution is pMMR-only (see EMCA_Serous_Algorithm_v1.2 Table 2)"
+     },
+     "refs": [
+      53,
+      8
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "GOG-161",
+     "cite": "Homesley 2007",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Ifosfamide 1.6 D1–3 + paclitaxel 135 + filgrastim vs ifosfamide 2.0 D1–3, q21d ×8",
+      "pop": "Measurable stage III/IV, persistent or recurrent UCS; **no prior chemo for UCS**; 52% recurrent/persistent",
+      "n": "214 enrolled / **179 eligible**",
+      "hist": "**CS-only trial — the only UCS trial with a significant OS gain**",
+      "pfs": "**5.8 vs 3.6 mo**",
+      "os": "**13.5 vs 8.4 mo**",
+      "hr_response": "death HR **0.69 (0.49–0.97), P=.03**; progression 0.71 (0.51–0.97), P=.03. Response 45% vs 29%, PS-stratified OR 2.21 (P=.017)",
+      "tox": "Sensory neuropathy G1–4 **30% vs 8%**"
+     },
+     "refs": [
+      39
+     ],
+     "level": "histotype_only",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "RUBY / ENGOT-EN6 / GOG-3031",
+     "cite": "Mirza 2023; Powell 2024 OS",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/paclitaxel + dostarlimab ×6 → dostarlimab maintenance vs carbo/paclitaxel",
+      "pop": "Primary advanced III/IV or first-recurrent EC. **Carcinosarcoma explicitly named as a qualifying histology** for primary stage IIIC1 entry",
+      "n": "494",
+      "hist": "**CS eligible — published CS count: 25/245 (10.2%) dostarlimab vs 19/249 (7.6%) placebo.** ❌ **No CS efficacy subgroup** — prespecified subgroups were MMR/MSI, prior pelvic RT and disease status, **not histology**",
+      "pfs": "ITT HR **0.64** (0.51–0.80); dMMR/MSI-H **0.28** (0.16–0.50)",
+      "os": "**44.6 vs 28.2 mo**, HR **0.69** (0.54–0.89), P=.0020; dMMR/MSI-H 0.32 (0.17–0.63); MMRp/MSS 0.79 (0.60–1.04)",
+      "hr_response": "PFS2 HR 0.66 (0.52–0.84)",
+      "tox": "—"
+     },
+     "refs": [
+      49
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "AtTEnd / ENGOT-en7",
+     "cite": "Colombo 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo AUC5–6 + paclitaxel 175 + atezolizumab 1200 mg ×6–8 → atezo maintenance vs placebo",
+      "pop": "\"Advanced or recurrent endometrial **carcinoma or carcinosarcoma**\", ECOG 0–2; only uterine leiomyosarcoma excluded. **Randomisation stratified by histological subtype**",
+      "n": "551 rand. / 549 analysed (2:1)",
+      "hist": "**CS eligible; histology (endometrioid vs other) a stratification factor. CS n 35/360 (10%) vs 15/189 (8%).** CS PFS subgroup (overall population, not preplanned): HR **0.88 (0.45–1.73)**, histology P-interaction .74 — exploratory",
+      "pfs": "ITT 10.1 vs 8.9 mo, HR **0.74** (0.61–0.91), P=.022; dMMR NE vs 6.9 mo, **0.36** (0.23–0.57), P=.0005; **pMMR 0.92 (0.73–1.16), NS**",
+      "os": "interim 38.7 vs 30.2 mo, HR 0.82 (0.63–1.07), log-rank P=.048 — **did not cross the stopping boundary**",
+      "hr_response": "—",
+      "tox": "⚠️ EMCA_Serous_Algorithm_v1.2 carries a later ESMO 2025 OS update (36.0 vs 30.5 mo at 48.9 mo f/u) — reconcile, see Open items"
+     },
+     "refs": [
+      54,
+      8
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "GOG-108",
+     "cite": "Sutton 2000",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Ifosfamide 1.5 g/m²/d ×5 + mesna ± cisplatin 20 mg/m²/d ×5, q3w ×8",
+      "pop": "Advanced, persistent or recurrent UCS; **no prior chemo**",
+      "n": "224 entered / **194 evaluable**",
+      "hist": "**CS-only trial**",
+      "pfs": "RR **0.73** (95% upper CL 0.94), **P=.02 one-tailed**",
+      "os": "RR 0.80 (95% upper CL 1.03), P=.071 — **NS**",
+      "hr_response": "Response **36% → 54%**; adjusted relative OR of response 1.82 (95% lower CL 1.06), P=.03 one-tailed",
+      "tox": "—"
+     },
+     "refs": [
+      38
+     ],
+     "level": "histotype_only",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-0261",
+     "cite": "Powell 2022",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo AUC6 + paclitaxel 175 vs paclitaxel 135 + ifosfamide 1.6 D1–3",
+      "pop": "UCS or ovarian CS; 46% stage I–II, 31% III, 15% IV, 8% recurrent",
+      "n": "449 eligible UCS",
+      "hist": "**CS-only trial; current standard**",
+      "pfs": "16 vs 12 mo, HR 0.73, superior",
+      "os": "37 vs 29 mo",
+      "hr_response": "OS 0.87 (90% CI 0.70–1.075), **non-inferior**",
+      "tox": "—"
+     },
+     "refs": [
+      37
+     ],
+     "level": "histotype_only",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "RUBY Part 2",
+     "cite": "Powell 2026",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/paclitaxel + dostarlimab → **dostarlimab + niraparib** maintenance vs control",
+      "pop": "Same population",
+      "n": "291 (192:99)",
+      "hist": "CS eligible (capped at 10%): **CS 18/192 (9.4%) vs 10/99 (10.1%)**; no CS efficacy data",
+      "pfs": "HR **0.60** (0.43–0.82), P<.001; pMMR/MSS 0.63 (0.44–0.91), P=.006",
+      "os": "at 36.2 mo **HR 1.2 (0.81–1.78) — no OS benefit**",
+      "hr_response": "—",
+      "tox": "G≥3 TRAE 70.7% vs 37.5%; discontinuation for AE 38.7% vs 11.5%"
+     },
+     "refs": [
+      51
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "GOG-232B",
+     "cite": "Powell 2010",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carboplatin AUC6 + paclitaxel 175 q3w (single arm)",
+      "pop": "Advanced (III/IV), persistent or recurrent measurable UCS, no prior chemo",
+      "n": "55 entered / **46 evaluable**",
+      "hist": "**CS-only trial** — the phase II that justified GOG-0261",
+      "pfs": "**7.6 mo**",
+      "os": "**14.7 mo**",
+      "hr_response": "**ORR 54% (95% CI 37–67)**: CR 13%, PR 41%",
+      "tox": "59% completed ≥6 cycles"
+     },
+     "refs": [
+      40
+     ],
+     "level": "histotype_only",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "NRG-GY018 / KEYNOTE-868",
+     "cite": "Eskander 2023",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/paclitaxel + pembrolizumab vs carbo/paclitaxel",
+      "pop": "Advanced, metastatic or recurrent EC \"**of any histologic subtype except for carcinosarcoma**\"",
+      "n": "—",
+      "hist": "❌ **CS EXCLUDED BY DESIGN.** No carcinosarcoma row in the histology table",
+      "pfs": "pMMR 0.54",
+      "os": "—",
+      "hr_response": "—",
+      "tox": "**This trial's result cannot be applied to carcinosarcoma.** The DUO-E authors note the contrast explicitly"
+     },
+     "refs": [
+      52
+     ],
+     "level": "excluded",
+     "out": "excluded",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "⭐ The single most clinically actionable point in this note",
+     "md": "**The three positive first-line chemo-immunotherapy trials are not interchangeable for carcinosarcoma.** RUBY, DUO-E and AtTEnd enrolled carcinosarcoma; **NRG-GY018 excluded it.** Pembrolizumab + chemotherapy therefore has no carcinosarcoma evidence from its pivotal trial, whereas dostarlimab (RUBY) and durvalumab (DUO-E, dMMR) do. → **For carcinosarcoma the carried chemo-IO option is dostarlimab + carbo/paclitaxel (and durvalumab + carbo/paclitaxel if dMMR) — not pembrolizumab + carbo/paclitaxel.** This is the easiest error to make at the bedside, because the four regimens are otherwise near-identical. Second caution: **\"eligible\" is not \"shown to work\".** RUBY, DUO-E and AtTEnd all published carcinosarcoma counts, but only AtTEnd published a carcinosarcoma efficacy estimate — an unplanned PFS subgroup of 50 patients, HR 0.88 (0.45–1.73), uninformative. Otherwise the trial-wide HRs are all that exists, and they are not carcinosarcoma HRs."
+    },
+    {
+     "kind": "info",
+     "title": "Reading the historical GOG rows",
+     "md": "- **GOG-108's P values are one-tailed** and the authors' own conclusion was that the PFS gain was \"small\" and \"the added toxicity may not justify the use of this combination\" — grade 3–4 granulocytopenia 60% vs 36%, and treatment may have contributed to 6 deaths on full-dose 5-day ifosfamide/cisplatin [38].\n- **GOG-161 is the only UCS trial ever to show a significant OS gain** (13.5 vs 8.4 mo, HR 0.69) [39]. Ifosfamide/paclitaxel was therefore the regimen \"with established superiority\" that GOG-0261 had to match — which is why GOG-0261 was designed as non-inferiority, and why its 37-month median OS in a 46%-early-stage population is not comparable to GOG-161's 13.5 months in measurable advanced/recurrent disease.\n- **Outcomes have not moved in four decades.** 5-yr OS 31.9% (1975) → 33.8% (2012); incidence rising (APC 2000–2016 1.7%, 95% CI 1.2–2.2); UCS now >5% of endometrial cancer. Across 26 trials in recurrent/metastatic UCS, median RR 37.5% and median PFS 5.9 mo after first line, falling to **5.5% and 1.8 mo** in later lines [16]."
+    }
+   ]
+  },
+  {
+   "id": "t3",
+   "title": "3. Recurrent disease",
+   "intro": "Recurrent disease is **not one setting**. The GOG carcinosarcoma trials treated recurrence with first-line cytotoxic therapy in patients who had never had chemotherapy; the modern trials treat recurrence after platinum and, increasingly, after a checkpoint inhibitor. Table 3 is therefore split by **line of therapy**, not by \"recurrent\" as a label.",
+   "container": true,
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "Why this split exists, and why it bites harder in carcinosarcoma",
+     "md": "GOG-108 and GOG-232B **excluded prior cytotoxic chemotherapy**; GOG-0261 enrolled chemo-naive patients, 8% of whom were recurrent. Their recurrent patients received a platinum or ifosfamide doublet as their *first* systemic therapy. Reading GOG-0261's 37-month median OS as a salvage-line expectation would be a large error — GOG-161's 13.5 months in measurable advanced/recurrent disease is the closer comparator, and later-line medians are ~1.8 months of PFS [16]. **The carcinosarcoma-specific problem is worse than for serous.** In EMCA_Serous_Algorithm_v1.2 the 3B rows are all-histology trials with a serous stratum. Here, most of the 3B rows are trials that **excluded carcinosarcoma outright**. Every registrational second-line regimen in endometrial cancer — lenvatinib/pembrolizumab, dostarlimab monotherapy, pembrolizumab monotherapy — was developed in a population that barred this histology, while the approvals themselves do not specify histologic subtype [73]. Label-level use in UCS is extrapolation across an exclusion criterion, which is a different and weaker thing than extrapolation across an unreported subgroup."
+    }
+   ]
+  },
+  {
+   "id": "t3a",
+   "title": "3A. First-line systemic therapy **for** recurrent disease (cytotoxic-naive)",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "prior_systemic_therapy_required": "Prior systemic therapy required",
+    "n": "n",
+    "recurrent_fraction": "Recurrent fraction",
+    "hist": "Carcinosarcoma data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr": "HR",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "GOG-161",
+     "cite": "Homesley 2007",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Ifosfamide + paclitaxel vs ifosfamide",
+      "prior_systemic_therapy_required": "**None** (prior chemo for UCS excluded; prior RT allowed)",
+      "n": "179 eligible",
+      "recurrent_fraction": "**52%** recurrent/persistent (93/179)",
+      "hist": "CS-only",
+      "pfs": "5.8 vs 3.6 mo",
+      "os": "13.5 vs 8.4 mo",
+      "hr": "death 0.69 (0.49–0.97); progression 0.71 (0.51–0.97)"
+     },
+     "refs": [
+      39
+     ],
+     "level": "histotype_only",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "GOG-108",
+     "cite": "Sutton 2000",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Ifosfamide ± cisplatin",
+      "prior_systemic_therapy_required": "**None**",
+      "n": "194 evaluable",
+      "recurrent_fraction": "\"advanced **or** recurrent\"; fraction not reported",
+      "hist": "CS-only",
+      "pfs": "Response 36% → 54%; PFS RR 0.73 (upper CL 0.94), P=.02 (1-tailed)",
+      "os": "OS RR 0.80 (upper CL 1.03), NS",
+      "hr": "—"
+     },
+     "refs": [
+      38
+     ],
+     "level": "histotype_only",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-0261",
+     "cite": "Powell 2022",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/paclitaxel vs paclitaxel/ifosfamide",
+      "prior_systemic_therapy_required": "**None** (chemo-naive)",
+      "n": "449 eligible UCS",
+      "recurrent_fraction": "**8%**",
+      "hist": "CS-only",
+      "pfs": "16 vs 12 mo",
+      "os": "37 vs 29 mo",
+      "hr": "OS 0.87 (90% CI 0.70–1.075), non-inferior; PFS 0.73 superior"
+     },
+     "refs": [
+      37
+     ],
+     "level": "histotype_only",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-232B",
+     "cite": "Powell 2010",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/paclitaxel, single arm",
+      "prior_systemic_therapy_required": "**None**",
+      "n": "46 evaluable",
+      "recurrent_fraction": "**35%** (16/46)",
+      "hist": "CS-only",
+      "pfs": "ORR 54% (37–67); 7.6 mo",
+      "os": "14.7 mo",
+      "hr": "—"
+     },
+     "refs": [
+      40
+     ],
+     "level": "histotype_only",
+     "out": "single",
+     "tags": []
+    }
+   ],
+   "notes": []
+  },
+  {
+   "id": "t3b",
+   "title": "3B. Second line and beyond (post-platinum ± post-PD-(L)1)",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen",
+    "prior_systemic_therapy_required": "Prior systemic therapy required",
+    "n": "n",
+    "hist": "Carcinosarcoma data",
+    "pfs": "PFS",
+    "os": "OS",
+    "orr_hr": "ORR / HR",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "DESTINY-PanTumor02 endometrial cohort",
+     "cite": "Meric-Bernstam 2024",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "T-DXd 5.4 mg/kg q3w",
+      "prior_systemic_therapy_required": "≥1 prior systemic regimen",
+      "n": "40 (single arm)",
+      "hist": "**CS not reported — never mentioned in the publication or protocol, and no endometrial histology table published** — it is unknowable whether any CS patients were enrolled",
+      "pfs": "11.1 mo",
+      "os": "26.0 mo (highest of 7 cohorts)",
+      "orr_hr": "ORR 57.5%; **central IHC 3+ (n=13) ORR 84.6% (54.6–98.1)**",
+      "tox": "One fatal adjudicated drug-related ILD occurred in this cohort"
+     },
+     "refs": [
+      60
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "STATICE / NCCH1615",
+     "cite": "Nishikawa 2023",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "**Trastuzumab deruxtecan** 6.4 → **5.4 mg/kg** q3w (dose changed mid-study; 5.4 preferred)",
+      "prior_systemic_therapy_required": "Prior standard chemotherapy; HER2 IHC ≥1+ centrally tested by **gastroesophageal** ASCO/CAP criteria (lateral/basolateral staining accepted); FISH not required",
+      "n": "84 screened → 34 enrolled → 33 treated → **32 evaluable**",
+      "hist": "⭐ **CS-ONLY TRIAL — the strongest UCS-specific evidence in the disease.** HER2-high (IHC 2+/3+) n=22 primary; HER2-low (IHC 1+) n=10 exploratory",
+      "pfs": "HER2-high **6.2 mo** (4.0–8.8); HER2-low 6.7 mo (2.6–13.8); all 6.7 mo",
+      "os": "HER2-high **13.3 mo** (8.8–NR); HER2-low **not reached** (9.8–NR); all 15.8 mo",
+      "orr_hr": "**ORR (central) 54.5% (32.2–75.6) HER2-high; 70.0% (34.8–93.3) HER2-low.** DCR 100% both. Median DoR 6.9 / 8.1 mo.",
+      "tox": "**Efficacy regardless of HER2 status**"
+     },
+     "refs": [
+      56
+     ],
+     "level": "histotype_only",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "↳ STATICE toxicity",
+     "cite": "",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Same",
+      "prior_systemic_therapy_required": "—",
+      "n": "33 safety",
+      "hist": "*CS-only*",
+      "pfs": "—",
+      "os": "—",
+      "orr_hr": "—",
+      "tox": "*G≥3 AE **61%** overall (93% at 6.4 vs 37% at 5.4 mg/kg): neutropenia 27%, anaemia 24%, lymphopenia 21%. **ILD/pneumonitis 9/33 (27%)** — G1–2 in 24%, **G3 in 3%**, no G4/5, no AE-related deaths; 36% at 6.4 vs 21% at 5.4 mg/kg. Discontinuation for AE 33%, ILD the commonest cause (18%). **Events were not independently adjudicated** (stated limitation); 27% exceeds the 10–15% pooled T-DXd rate but matches ~30% in Japanese HER2+ breast cancer*"
+     },
+     "refs": [
+      56
+     ],
+     "level": "histotype_only",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "KEYNOTE-158 endometrial cohort",
+     "cite": "O'Malley 2022",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Pembrolizumab monotherapy, MSI-H",
+      "prior_systemic_therapy_required": "≥1 prior",
+      "n": "79 evaluable",
+      "hist": "**CS status not reported** — cohort D excluded \"sarcomas and mesenchymal tumors\" without naming carcinosarcoma; cohort K (68/79 of the efficacy population) was any MSI-H solid tumour; exclusion is inferential. **No histology breakdown**",
+      "pfs": "13.1 mo",
+      "os": "not reached",
+      "orr_hr": "ORR **48% (37–60)**, DoR not reached",
+      "tox": "—"
+     },
+     "refs": [
+      59
+     ],
+     "level": "included",
+     "out": "no_subgroup",
+     "tags": []
+    },
+    {
+     "name": "Sacituzumab govitecan",
+     "cite": "Santin 2026, phase II",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "SG",
+      "prior_systemic_therapy_required": "Recurrent uterine cancer; 96% pMMR; **50% prior pembrolizumab/dostarlimab**",
+      "n": "50 evaluable",
+      "hist": "⭐ **CS 11/50 (22%) with a reported CS-specific result: ORR 9% (1/11)** vs serous 33% (7/21) and endometrioid 36% (4/11); histology difference NS (P=.32). **TROP2 protein was lower in CS**",
+      "pfs": "overall 5.5 mo",
+      "os": "overall 17.5 mo",
+      "orr_hr": "overall ORR 28% (2 CR, 12 PR), CBR 52%, DoR 9.3 mo",
+      "tox": "G3–4 TEAE 88%"
+     },
+     "refs": [
+      61
+     ],
+     "level": "subgroup",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "DOMEC",
+     "cite": "Post 2022",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Durvalumab + olaparib",
+      "prior_systemic_therapy_required": "Metastatic or recurrent EC",
+      "n": "55 enrolled / 50 evaluable",
+      "hist": "**CS eligible** (\"endometrial cancer **or carcinosarcoma of the endometrium**\"); **CS 7/50 (14%)** — no CS efficacy numbers (PFS by histology shown only as KM curve; one p53abn CS responded >17 mo)",
+      "pfs": "3.4 mo",
+      "os": "8.0 mo",
+      "orr_hr": "ORR 16%",
+      "tox": "**Primary endpoint not met**: PFS6 34% (target ≥50%); G3 TRAE 16%"
+     },
+     "refs": [
+      65
+     ],
+     "level": "included",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "Pazopanib",
+     "cite": "Campos 2014, GOG",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Pazopanib",
+      "prior_systemic_therapy_required": "≤2 prior lines",
+      "n": "22 enrolled / **19 evaluable**",
+      "hist": "**CS-ONLY trial — and negative**",
+      "pfs": "**2.0 mo**; PFS ≥6 mo in 3/19 (15.8%)",
+      "os": "**8.7 mo**",
+      "orr_hr": "**ORR 0% (90% CI 0–14.6)**",
+      "tox": "\"Minimal activity\""
+     },
+     "refs": [
+      64
+     ],
+     "level": "histotype_only",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "Pembrolizumab-based therapy in UCS",
+     "cite": "Lai 2026",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "*Pembrolizumab-based, post-platinum*",
+      "prior_systemic_therapy_required": "*Platinum*",
+      "n": "*147 metastatic/recurrent UCS; 42 (28.6%) exposed*",
+      "hist": "***CS-only, but retrospective/real-world***",
+      "pfs": "*—*",
+      "os": "*—*",
+      "orr_hr": "*Survival-after-recurrence multivariable HR 0.44 (0.24–0.83), P=.01; OS HR 0.48 (0.26–0.89), P=.02. **IPTW time-dependent Cox: SAR HR 0.56 (0.33–0.96), P=.035, but the OS association lost significance***",
+      "tox": "—"
+     },
+     "refs": [],
+     "level": "histotype_only",
+     "out": "obs",
+     "tags": []
+    },
+    {
+     "name": "KEYNOTE-775 / Study 309",
+     "cite": "Makker 2022",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Lenvatinib 20 mg + pembrolizumab vs doxorubicin or weekly paclitaxel",
+      "prior_systemic_therapy_required": "≥1 prior **platinum** regimen",
+      "n": "—",
+      "hist": "❌ **CS EXCLUDED** — protocol exclusion criterion names \"carcinosarcoma (malignant mixed mullerian tumor)\". FDA approval does not specify histology [73]",
+      "pfs": "—",
+      "os": "18.0 vs 12.2 mo",
+      "orr_hr": "OS HR 0.70 (0.58–0.83)",
+      "tox": "**not generalizable to CS.** Nearest CS signal is a 12-patient retrospective series: 3 PR, 4 SD [73]"
+     },
+     "refs": [
+      57,
+      73
+     ],
+     "level": "excluded",
+     "out": "excluded",
+     "tags": []
+    },
+    {
+     "name": "GARNET A1",
+     "cite": "Oaknin 2022",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Dostarlimab monotherapy",
+      "prior_systemic_therapy_required": "Prior platinum",
+      "n": "129 dMMR/MSI-H (+161 MMRp/MSS)",
+      "hist": "❌ **CS EXCLUDED** — \"all endometrial cancer histologies allowed **except endometrial sarcoma (including carcinosarcoma)**\" — yet 2 CS (1.3%) appear in the MMRp cohort baseline table",
+      "pfs": "—",
+      "os": "—",
+      "orr_hr": "ORR **43.5% (34.0–53.4)** dMMR (11 CR, 36 PR); MMRp/MSS 14.1%",
+      "tox": "G≥3 TRAE 16.6%"
+     },
+     "refs": [
+      58
+     ],
+     "level": "excluded",
+     "out": "excluded",
+     "tags": []
+    },
+    {
+     "name": "TROPiCS-03 endometrial analysis",
+     "cite": "Santin 2024",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Sacituzumab govitecan",
+      "prior_systemic_therapy_required": "Platinum and anti–PD-(L)1",
+      "n": "41",
+      "hist": "❌ **CS EXCLUDED** — \"key exclusion criteria included carcinosarcoma\"",
+      "pfs": "4.8 mo",
+      "os": "—",
+      "orr_hr": "ORR 22% (9/41, all PR); CBR 32%; DoR 8.8 mo",
+      "tox": "G≥3 TRAE 73%"
+     },
+     "refs": [
+      62
+     ],
+     "level": "excluded",
+     "out": "excluded",
+     "tags": []
+    },
+    {
+     "name": "ADAGIO",
+     "cite": "Liu 2025",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Adavosertib 300 mg once daily",
+      "prior_systemic_therapy_required": "Recurrent/persistent **uterine serous** carcinoma",
+      "n": "104 evaluable",
+      "hist": "❌ **CS EXCLUDED** — \"subjects with carcinosarcomas are not eligible\"",
+      "pfs": "**2.8 mo**",
+      "os": "—",
+      "orr_hr": "ORR (BICR) 26.0% (17.9–35.5); DoR 4.7 mo",
+      "tox": "G≥3 TRAE 60.6%; \"not well tolerated\" at this dose. ⚠️ **Do not apply the \"adavosertib ORR ~29% in USC\" figure to carcinosarcoma**"
+     },
+     "refs": [
+      63
+     ],
+     "level": "excluded",
+     "out": "excluded",
+     "tags": []
+    },
+    {
+     "name": "TroFuse-005 / MK-2870-005 / ENGOT-en23 / GOG-3095",
+     "cite": "",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Sacituzumab **tirumotecan** vs doxorubicin or paclitaxel",
+      "prior_systemic_therapy_required": "Platinum **AND** anti–PD-(L)1",
+      "n": "710 est.",
+      "hist": "**CS explicitly eligible** (\"endometrial **carcinoma or carcinosarcoma**\"; pure sarcomas excluded)",
+      "pfs": "Met",
+      "os": "Met",
+      "orr_hr": "NR",
+      "tox": "Merck press release 2026-05-18: both primary endpoints (OS, PFS) plus ORR met. **No HRs, no publication, no CS subgroup**"
+     },
+     "refs": [],
+     "level": "included",
+     "out": "pending",
+     "tags": []
+    },
+    {
+     "name": "Carbo/paclitaxel + trastuzumab",
+     "cite": "extrapolated",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/paclitaxel + trastuzumab",
+      "prior_systemic_therapy_required": "HER2-positive",
+      "n": "58 eval. (serous)",
+      "hist": "❌ **CS NOT eligible for NRG-GOG 3005** (uterine serous only)",
+      "pfs": "see EMCA_Serous_Algorithm_v1.2 T2",
+      "os": "—",
+      "orr_hr": "—",
+      "tox": "**Used in HER2+ carcinosarcoma anyway**, on the reasoning that most UCS have a serous epithelial component and 10–20% are HER2-positive [73]. Explicitly an extrapolation"
+     },
+     "refs": [
+      73
+     ],
+     "level": "excluded",
+     "out": "excluded",
+     "tags": []
+    },
+    {
+     "name": "Carbo/paclitaxel + bevacizumab",
+     "cite": "extrapolated",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "+ bevacizumab",
+      "prior_systemic_therapy_required": "—",
+      "n": "213 (p53 analysis)",
+      "hist": "❌ **CS excluded from GOG-0086P** — carcinosarcoma is absent from the enumerated eligible cell types",
+      "pfs": "—",
+      "os": "—",
+      "orr_hr": "Benefit concentrated in **p53-overexpressing** tumours: PFS HR 0.46 (0.26–0.88), OS 0.31 (0.16–0.62)",
+      "tox": "Since ~90% of UCS is p53abn this is the usual justification — but it is **extrapolation across an exclusion criterion**"
+     },
+     "refs": [],
+     "level": "excluded",
+     "out": "excluded",
+     "tags": []
+    },
+    {
+     "name": "ASCENT-GYN-01 / GOG-3104 / ENGOT-en26",
+     "cite": "Eskander 2026, design",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Sacituzumab govitecan vs physician's choice",
+      "prior_systemic_therapy_required": "Platinum and immunotherapy",
+      "n": "~640",
+      "hist": "**CS explicitly eligible**",
+      "pfs": "—",
+      "os": "—",
+      "orr_hr": "—",
+      "tox": "Dual primary PFS (BICR) and OS; results est. ~2029"
+     },
+     "refs": [
+      67
+     ],
+     "level": "included",
+     "out": "pending",
+     "tags": []
+    },
+    {
+     "name": "NCT05147558",
+     "cite": "MSK",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Lenvatinib + pembrolizumab",
+      "prior_systemic_therapy_required": "Prior anti–PD-(L)1 and prior VEGF-TKI **excluded**",
+      "n": "40 est.",
+      "hist": "**CS-ONLY trial** (uterine or ovarian carcinosarcoma)",
+      "pfs": "—",
+      "os": "—",
+      "orr_hr": "—",
+      "tox": "Active, not recruiting; est. completion 2026-12. **No results**"
+     },
+     "refs": [],
+     "level": "histotype_only",
+     "out": "pending",
+     "tags": []
+    },
+    {
+     "name": "NCT05559879",
+     "cite": "UAB; Turner 2026, design",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Cabozantinib 40 mg + dostarlimab",
+      "prior_systemic_therapy_required": "≥1 prior chemo; prior immunotherapy allowed, prior cabozantinib excluded",
+      "n": "37",
+      "hist": "**CS-ONLY trial** (gynecologic carcinosarcoma, any primary site)",
+      "pfs": "—",
+      "os": "—",
+      "orr_hr": "—",
+      "tox": "Recruiting; est. completion 2027-04. **Trial-in-progress paper only, no efficacy**"
+     },
+     "refs": [
+      69
+     ],
+     "level": "histotype_only",
+     "out": "pending",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "info",
+     "title": "Reading notes for 3B",
+     "md": "- **T-DXd is the one place carcinosarcoma has better evidence than most histotypes.** STATICE is a dedicated UCS trial, and it is positive at a threshold **lower** than for serous: responses occurred at IHC 1+ (ORR 70%, n=10). The HER2-low cohort is n=10 — a wide confidence interval (34.8–93.3), not a precise 70%. Preclinical bystander-killing data in UCS lines support activity independent of uniform HER2 expression.\n- **The 27% ILD rate is the number to quote in consent**, not the 10–15% pooled T-DXd figure — and note it was not independently adjudicated, and was 36% at the 6.4 mg/kg dose versus 21% at the 5.4 mg/kg dose now used [56].\n- **TROP2 is a real target with a disappointing carcinosarcoma result so far.** TROP2 is detectable in ≥90% of archival UCS and UCS organoids/PDX respond to sacituzumab govitecan [68] — yet the clinical CS stratum gave 1/11 responses, with lower TROP2 protein in CS than in serous [61]. TroFuse-005 (sac-TMT, CS eligible, both primary endpoints met) is the readout that matters; it is currently **press-release only**.\n- **Three of the six \"standard\" salvage options in this table explicitly barred carcinosarcoma** (KEYNOTE-775, GARNET, TROPiCS-03), and ADAGIO and GOG-0086P did too. This is the boundary clinicians cross without noticing, because the approvals are histology-agnostic while the trials were not.\n- Hormonal options are omitted, as in EMCA_Serous_Algorithm_v1.2: UCS is typically ER/PR-low and there is no carcinosarcoma-specific evidence."
+    },
+    {
+     "kind": "info",
+     "title": "Verification provenance for the STATICE row",
+     "md": "The **medians and ORRs, the 61% grade ≥3 rate and the ILD split (grades 1–2 in 8/33 = 24%, grade 3 in 1/33 = 3%) were read directly from the PubMed abstract on 2026-09-14 and match this note exactly.** The **confidence intervals on median PFS/OS, the per-dose breakdowns (ORR 61.5% at 5.4 vs 44.4% at 6.4 mg/kg; G≥3 AE 93% vs 37%; ILD 36% vs 21%), the median DoR values and the 100% DCR come from the full text, not the abstract** — the paper is held locally (2023_Nishikawa_Journal of Clinical Oncology.pdf) with an extract at 2023_Nishikawa_STATICE, so they are checkable, but they were not independently confirmed in this session. Note also that HER2-low median PFS (6.7 mo) and whole-cohort median PFS (6.7 mo) coincide — that is a coincidence of rounding, not a transcription error."
+    }
+   ]
+  },
+  {
+   "id": "t4",
+   "title": "4. Neoadjuvant",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Carcinosarcoma data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr": "HR"
+   },
+   "rows": [],
+   "notes": []
+  }
+ ],
+ "references": [
+  [
+   1,
+   "Cherniack AD, Shen H, Walter V, et al.; Cancer Genome Atlas Research Network. Integrated molecular characterization of uterine carcinosarcoma.",
+   "Cancer Cell",
+   "2017;31(3):411–423",
+   "28292439"
+  ],
+  [
+   2,
+   "Gotoh O, Sugiyama Y, Takazawa Y, et al. Clinically relevant molecular subtypes and genomic alteration-independent differentiation in gynecologic carcinosarcoma.",
+   "Nat Commun",
+   "2019;10(1):4965",
+   "31672974"
+  ],
+  [
+   3,
+   "McCluggage WG. Malignant biphasic uterine tumours: carcinosarcomas or metaplastic carcinomas?",
+   "J Clin Pathol",
+   "2002;55(5):321–325",
+   "11986333"
+  ],
+  [
+   4,
+   "Fujii H, Yoshida M, Gong ZX, et al. Frequent genetic heterogeneity in the clonal evolution of gynecological carcinosarcoma and its influence on phenotypic diversity.",
+   "Cancer Res",
+   "2000;60(1):114–120",
+   "10646862"
+  ],
+  [
+   5,
+   "McConechy MK, Hoang LN, Chui MH, et al. In-depth molecular profiling of the biphasic components of uterine carcinosarcomas.",
+   "J Pathol Clin Res",
+   "2015;1(3):173–185",
+   "27499902"
+  ],
+  [
+   6,
+   "Zhao S, Bellone S, Lopez S, et al. Mutational landscape of uterine and ovarian carcinosarcomas implicates histone genes in epithelial-mesenchymal transition.",
+   "Proc Natl Acad Sci U S A",
+   "2016;113(43):12238–12243",
+   "27791010"
+  ],
+  [
+   7,
+   "Jones S, Stransky N, McCord CL, et al. Genomic analyses of gynaecologic carcinosarcomas reveal frequent mutations in chromatin remodelling genes.",
+   "Nat Commun",
+   "2014;5:5006",
+   "25233892"
+  ],
+  [
+   8,
+   "Huvila J, Jamieson A, Pors J, Hoang L, Mirkovic J, Cochrane D, McAlpine JN, Gilks CB. Endometrial carcinosarcomas are almost exclusively of p53abn molecular subtype after exclusion of mimics.",
+   "Int J Gynecol Pathol",
+   "2024;43(5):506–514",
+   "38303106"
+  ],
+  [
+   9,
+   "De Boeck A, Nohr E, El-Hallani S, Ghatage P, Lee CH, Köbel M. POLE-mutated endometrial \"carcinosarcoma\".",
+   "Int J Gynecol Pathol",
+   "2025;44(1):72–78",
+   "38833721"
+  ],
+  [
+   10,
+   "Segura SE, Pedra Nobre S, Hussein YR, Abu-Rustum NR, Weigelt B, Soslow RA, DeLair DF. DNA mismatch repair-deficient endometrial carcinosarcomas portend distinct clinical, morphologic, and molecular features compared with traditional carcinosarcomas.",
+   "Am J Surg Pathol",
+   "2020;44(11):1573–1579",
+   "32804882"
+  ],
+  [
+   11,
+   "Jenkins TM, Hanley KZ, Schwartz LE, Cantrell LA, Stoler MH, Mills AM. Mismatch repair deficiency in uterine carcinosarcoma: a multi-institution retrospective review.",
+   "Am J Surg Pathol",
+   "2020;44(6):782–792",
+   "31934920"
+  ],
+  [
+   12,
+   "Hammer PM, Wang A, Vermij L, et al. Molecular classification outperforms histologic classification in prognostication of high-grade endometrial carcinomas with undifferentiated and sarcomatous components.",
+   "Am J Surg Pathol",
+   "2024;48(8):953–964",
+   "38780000"
+  ],
+  [
+   13,
+   "Travaglino A, Raffone A, Raimondo D, et al. Prognostic value of the TCGA molecular classification in uterine carcinosarcoma.",
+   "Int J Gynaecol Obstet",
+   "2022;158(1):13–20",
+   "34536971"
+  ],
+  [
+   14,
+   "Hoang LN, Kinloch MA, Leo JM, et al. Interobserver agreement in endometrial carcinoma histotype diagnosis varies depending on The Cancer Genome Atlas (TCGA)-based molecular subgroup.",
+   "Am J Surg Pathol",
+   "2017;41(2):245–252",
+   "28079598"
+  ],
+  [
+   15,
+   "Crane E, Naumann W, Tait D, Higgins R, Herzog T, Brown J. Molecular variations in uterine carcinosarcomas identify therapeutic opportunities.",
+   "Int J Gynecol Cancer",
+   "2020;30(4):480–484",
+   "32114514"
+  ],
+  [
+   16,
+   "Matsuzaki S, Klar M, Matsuzaki S, Roman LD, Sood AK, Matsuo K. Uterine carcinosarcoma: contemporary clinical summary, molecular updates, and future research opportunity.",
+   "Gynecol Oncol",
+   "2021;160(2):586–601",
+   "33183764"
+  ],
+  [
+   17,
+   "Rottmann D, Snir OL, Wu X, Wong S, Hui P, Santin AD, Buza N. HER2 testing of gynecologic carcinosarcomas: tumor stratification for potential targeted therapy.",
+   "Mod Pathol",
+   "2020;33(1):118–127",
+   "31477811"
+  ],
+  [
+   18,
+   "Yoshida H, Nishikawa T, Matsumoto K, et al. Histopathological features of HER2 overexpression in uterine carcinosarcoma: proposal for requirements in HER2 testing for targeted therapy.",
+   "Virchows Arch",
+   "2021;478(6):1161–1171",
+   "33423127"
+  ],
+  [
+   19,
+   "Jenkins TM, Cantrell LA, Stoler MH, Mills AM. HER2 overexpression and amplification in uterine carcinosarcomas with serous morphology.",
+   "Am J Surg Pathol",
+   "2022;46(4):435–442",
+   "35125452"
+  ],
+  [
+   20,
+   "Mizoguchi C, Nishikawa T, Yoshida H, Yasuda M, Kato T, Hasegawa K, Yonemori K. HER2-negative or low expression as an unfavorable prognostic factor in patients with stage I/II uterine carcinosarcoma.",
+   "J Gynecol Oncol",
+   "2025;36(1):e14",
+   "38991945"
+  ],
+  [
+   21,
+   "Ferguson SE, Tornos C, Hummer A, Barakat RR, Soslow RA. Prognostic features of surgical stage I uterine carcinosarcoma.",
+   "Am J Surg Pathol",
+   "2007;31(11):1653–1661",
+   "18059221"
+  ],
+  [
+   22,
+   "Rosati A, Vargiu V, Certelli C, et al. Is the sarcomatous component (homologous vs heterologous) the prognostic \"driving force\" in early-stage uterine carcinosarcomas? A retrospective multicenter study.",
+   "J Cancer Res Clin Oncol",
+   "2023;149(9):6479–6488",
+   "36773091"
+  ],
+  [
+   23,
+   "Matsuo K, Takazawa Y, Ross MS, et al. Significance of histologic pattern of carcinoma and sarcoma components on survival outcomes of uterine carcinosarcoma.",
+   "Ann Oncol",
+   "2016;27(7):1257–1266",
+   "27052653"
+  ],
+  [
+   24,
+   "Matsuo K, Takazawa Y, Ross MS, et al. Characterizing sarcoma dominance pattern in uterine carcinosarcoma: homologous versus heterologous element.",
+   "Surg Oncol",
+   "2018;27(3):433–440",
+   "30217299"
+  ],
+  [
+   25,
+   "Berek JS, Matias-Guiu X, Creutzberg C, et al.; Endometrial Cancer Staging Subcommittee, FIGO Women's Cancer Committee. FIGO staging of endometrial cancer: 2023.",
+   "Int J Gynaecol Obstet",
+   "2023;162(2):383–394",
+   "37337978"
+  ],
+  [
+   26,
+   "Berton-Rigaud D, Devouassoux-Shisheboran M, Ledermann JA, et al. Gynecologic Cancer InterGroup (GCIG) consensus review for uterine and ovarian carcinosarcoma.",
+   "Int J Gynecol Cancer",
+   "2014;24(9 Suppl 3):S55–S60",
+   "25341582"
+  ],
+  [
+   27,
+   "Park JY, Kim DY, Kim JH, Kim YM, Kim YT, Nam JH. The role of pelvic and/or para-aortic lymphadenectomy in surgical management of apparently early carcinosarcoma of uterus.",
+   "Ann Surg Oncol",
+   "2010;17(3):861–868",
+   "19921530"
+  ],
+  [
+   28,
+   "Nemani D, Mitra N, Guo M, Lin L. Assessing the effects of lymphadenectomy and radiation therapy in patients with uterine carcinosarcoma: a SEER analysis.",
+   "Gynecol Oncol",
+   "2008;111(1):82–88",
+   "18674808"
+  ],
+  [
+   29,
+   "Seagle BL, Kanis M, Kocherginsky M, Strauss JB, Shahabi S. Stage I uterine carcinosarcoma: matched cohort analyses for lymphadenectomy, chemotherapy, and brachytherapy.",
+   "Gynecol Oncol",
+   "2017;145(1):71–77",
+   "28317560"
+  ],
+  [
+   30,
+   "Zammarrelli WA 3rd, Greenman M, Rios-Doria E, et al. Sentinel lymph node biopsy alone compared to systematic lymphadenectomy in patients with uterine carcinosarcoma.",
+   "Gynecol Oncol",
+   "2022;165(2):287–292",
+   "35232588"
+  ],
+  [
+   31,
+   "Schiavone MB, Zivanovic O, Zhou Q, et al. Survival of patients with uterine carcinosarcoma undergoing sentinel lymph node mapping.",
+   "Ann Surg Oncol",
+   "2016;23(1):196–202",
+   "25994210"
+  ],
+  [
+   32,
+   "Cusimano MC, Vicus D, Pulman K, et al. Assessment of sentinel lymph node biopsy vs lymphadenectomy for intermediate- and high-grade endometrial cancer staging (SENTOR).",
+   "JAMA Surg",
+   "2021;156(2):157–164",
+   "33175109"
+  ],
+  [
+   33,
+   "Nasioudis D, Heyward Q, Gysler S, et al. Is there a benefit of performing an omentectomy for clinical stage I high-grade endometrial carcinoma?",
+   "Surg Oncol",
+   "2021;37:101534",
+   "33667893"
+  ],
+  [
+   34,
+   "Gracia M, Yildirim Y, Macuks R, et al.; SARCUT Study Group. Influence of clinical and surgical factors on uterine carcinosarcoma survival.",
+   "Cancers (Basel)",
+   "2023;15(5):1463",
+   "36900255"
+  ],
+  [
+   35,
+   "Cucinella G, Zammarrelli WA 3rd, Nasioudis D, et al. Endometrial carcinosarcoma without myoinvasion.",
+   "Int J Gynecol Cancer",
+   "2025;35(10):101971",
+   "40731228"
+  ],
+  [
+   36,
+   "Wolfson AH, Brady MF, Rocereto T, Mannel RS, Lee YC, Futoran RJ, Cohn DE, Ioffe OB. A Gynecologic Oncology Group randomized phase III trial of whole abdominal irradiation (WAI) vs. cisplatin-ifosfamide and mesna (CIM) as post-surgical therapy in stage I–IV carcinosarcoma of the uterus (**GOG-150**).",
+   "Gynecol Oncol",
+   "2007;107(2):177–185",
+   "17822748"
+  ],
+  [
+   37,
+   "Powell MA, Filiaci VL, Hensley ML, et al. Randomized phase III trial of paclitaxel and carboplatin versus paclitaxel and ifosfamide in patients with carcinosarcoma of the uterus or ovary: an NRG Oncology trial (**GOG-0261**).",
+   "J Clin Oncol",
+   "2022;40(9):968–977",
+   "35007153"
+  ],
+  [
+   38,
+   "Sutton G, Brunetto VL, Kilgore L, et al. A phase III trial of ifosfamide with or without cisplatin in carcinosarcoma of the uterus: a Gynecologic Oncology Group study (**GOG-108**).",
+   "Gynecol Oncol",
+   "2000;79(2):147–153",
+   "11063636"
+  ],
+  [
+   39,
+   "Homesley HD, Filiaci V, Markman M, et al.; Gynecologic Oncology Group. Phase III trial of ifosfamide with or without paclitaxel in advanced uterine carcinosarcoma (**GOG-161**).",
+   "J Clin Oncol",
+   "2007;25(5):526–531",
+   "17290061"
+  ],
+  [
+   40,
+   "Powell MA, Filiaci VL, Rose PG, et al. Phase II evaluation of paclitaxel and carboplatin in the treatment of carcinosarcoma of the uterus: a Gynecologic Oncology Group study (**GOG-232B**).",
+   "J Clin Oncol",
+   "2010;28(16):2727–2731",
+   "20421537"
+  ],
+  [
+   41,
+   "de Boer SM, Powell ME, Mileshkin L, et al.; PORTEC study group. Adjuvant chemoradiotherapy versus radiotherapy alone for women with high-risk endometrial cancer (**PORTEC-3**): final results.",
+   "Lancet Oncol",
+   "2018;19(3):295–309",
+   "29449189"
+  ],
+  [
+   42,
+   "Matsuo K, Omatsu K, Ross MS, et al. Impact of adjuvant therapy on recurrence patterns in stage I uterine carcinosarcoma.",
+   "Gynecol Oncol",
+   "2017;145(1):78–87",
+   "28215838"
+  ],
+  [
+   43,
+   "McEachron J, Heyman T, Shanahan L, et al. Multimodality adjuvant therapy and survival outcomes in stage I–IV uterine carcinosarcoma.",
+   "Int J Gynecol Cancer",
+   "2020;30(7):1012–1017",
+   "32447295"
+  ],
+  [
+   44,
+   "Stokes WA, Jones BL, Schefter TE, Fisher CM. Impact of radiotherapy modalities on outcomes in the adjuvant management of uterine carcinosarcoma: a National Cancer Database analysis.",
+   "Brachytherapy",
+   "2018;17(1):194–200",
+   "29097136"
+  ],
+  [
+   45,
+   "Shinde A, Li R, Amini A, et al. Improved survival with adjuvant brachytherapy in stage IA endometrial cancer of unfavorable histology.",
+   "Gynecol Oncol",
+   "2018;151(1):82–90",
+   "30170976"
+  ],
+  [
+   46,
+   "Stokes WA, Robin TP, Jackson MW, et al. Patterns of adjuvant therapy utilization in uterine carcinosarcoma stages I to III: a National Cancer Database analysis.",
+   "Am J Clin Oncol",
+   "2018;41(10):927–932",
+   "28654573"
+  ],
+  [
+   47,
+   "Rauh-Hain JA, Starbuck KD, Meyer LA, et al. Patterns of care, predictors and outcomes of chemotherapy for uterine carcinosarcoma: a National Cancer Database analysis.",
+   "Gynecol Oncol",
+   "2015;139(1):84–89",
+   "26307402"
+  ],
+  [
+   48,
+   "Zhu J, Wen H, Bi R, Wu X. Clinicopathological characteristics, treatment and outcomes in uterine carcinosarcoma and grade 3 endometrial cancer patients: a comparative study.",
+   "J Gynecol Oncol",
+   "2016;27(2):e18",
+   "26463439"
+  ],
+  [
+   49,
+   "Mirza MR, Chase DM, Slomovitz BM, et al.; RUBY Investigators. Dostarlimab for primary advanced or recurrent endometrial cancer (**RUBY / ENGOT-EN6 / GOG-3031**).",
+   "N Engl J Med",
+   "2023;388(23):2145–2158",
+   "36972026"
+  ],
+  [
+   50,
+   "Powell MA, Bjorge L, Willmott L, et al. Overall survival in patients with endometrial cancer treated with dostarlimab plus carboplatin-paclitaxel in the randomized ENGOT-EN6/GOG-3031/RUBY trial.",
+   "Ann Oncol",
+   "2024;35(8):728–738",
+   "38866180"
+  ],
+  [
+   51,
+   "Powell MA, Ghamande S, Hanker LC, et al. PARP inhibitor maintenance therapy with niraparib in patients with primary advanced or recurrent endometrial cancer receiving dostarlimab plus chemotherapy (**RUBY Part 2**).",
+   "Int J Gynecol Cancer",
+   "2026;36(8):104774",
+   "42391799"
+  ],
+  [
+   52,
+   "Eskander RN, Sill MW, Beffa L, et al. Pembrolizumab plus chemotherapy in advanced endometrial cancer (**NRG-GY018 / KEYNOTE-868**).",
+   "N Engl J Med",
+   "2023;388(23):2159–2170",
+   "36972022"
+  ],
+  [
+   53,
+   "Westin SN, Moore K, Chon HS, et al.; DUO-E Investigators. Durvalumab plus carboplatin/paclitaxel followed by maintenance durvalumab with or without olaparib as first-line treatment for advanced endometrial cancer: the phase III **DUO-E** trial.",
+   "J Clin Oncol",
+   "2024;42(3):283–299",
+   "37864337"
+  ],
+  [
+   54,
+   "Colombo N, Biagioli E, Harano K, et al.; AtTEnd study group. Atezolizumab and chemotherapy for advanced or recurrent endometrial cancer (**AtTEnd / ENGOT-en7**): a randomised, double-blind, placebo-controlled, phase 3 trial.",
+   "Lancet Oncol",
+   "2024;25(9):1135–1146",
+   "39102832"
+  ],
+  [
+   55,
+   "Van Gorp T, Cibula D, Lv W, et al. **ENGOT-en11 / GOG-3053 / KEYNOTE-B21**: a randomised, double-blind, phase III study of pembrolizumab or placebo plus adjuvant chemotherapy with or without radiotherapy in patients with newly diagnosed, high-risk endometrial cancer.",
+   "Ann Oncol",
+   "2024;35(11):968–980",
+   "39284383"
+  ],
+  [
+   56,
+   "Nishikawa T, Hasegawa K, Matsumoto K, et al. Trastuzumab deruxtecan for human epidermal growth factor receptor 2-expressing advanced or recurrent uterine carcinosarcoma (**NCCH1615**): the **STATICE** trial.",
+   "J Clin Oncol",
+   "2023;41(15):2789–2799",
+   "36977309"
+  ],
+  [
+   57,
+   "Makker V, Colombo N, Casado Herráez A, et al.; Study 309–KEYNOTE-775 Investigators. Lenvatinib plus pembrolizumab for advanced endometrial cancer (**KEYNOTE-775 / Study 309**).",
+   "N Engl J Med",
+   "2022;386(5):437–448",
+   "35045221"
+  ],
+  [
+   58,
+   "Oaknin A, Gilbert L, Tinker AV, et al. Safety and antitumor activity of dostarlimab in patients with advanced or recurrent dMMR/MSI-H or MMRp/MSS endometrial cancer: interim results from **GARNET**.",
+   "J Immunother Cancer",
+   "2022;10(1):e003777",
+   "35064011"
+  ],
+  [
+   59,
+   "O'Malley DM, Bariani GM, Cassier PA, et al. Pembrolizumab in patients with microsatellite instability-high advanced endometrial cancer: results from the **KEYNOTE-158** study.",
+   "J Clin Oncol",
+   "2022;40(7):752–761",
+   "34990208"
+  ],
+  [
+   60,
+   "Meric-Bernstam F, Makker V, Oaknin A, et al. Efficacy and safety of trastuzumab deruxtecan in patients with HER2-expressing solid tumors: primary results from the **DESTINY-PanTumor02** phase II trial.",
+   "J Clin Oncol",
+   "2024;42(1):47–58",
+   "37870536"
+  ],
+  [
+   61,
+   "Santin AD, Roque DM, Siegel ER, et al. A phase II evaluation of the efficacy and safety of sacituzumab govitecan in patients with recurrent uterine cancer.",
+   "Clin Cancer Res",
+   "2026;32(15):3169–3178",
+   "42132892"
+  ],
+  [
+   62,
+   "Santin AD, Corr BR, Spira A, et al. Efficacy and safety of sacituzumab govitecan in patients with advanced solid tumors (**TROPiCS-03**): analysis in patients with advanced endometrial cancer.",
+   "J Clin Oncol",
+   "2024;42(29):3421–3429",
+   "39083724"
+  ],
+  [
+   63,
+   "Liu JF, Colombo N, Oza AM, et al. **ADAGIO**: a phase IIb, open-label, single-arm, multicenter study assessing the efficacy and safety of adavosertib as treatment for recurrent or persistent uterine serous carcinoma.",
+   "J Clin Oncol",
+   "2025;43(26):2897–2907",
+   "40262070"
+  ],
+  [
+   64,
+   "Campos SM, Brady WE, Moxley KM, et al. A phase II evaluation of pazopanib in the treatment of recurrent or persistent carcinosarcoma of the uterus: a Gynecologic Oncology Group study.",
+   "Gynecol Oncol",
+   "2014;133(3):537–541",
+   "24594074"
+  ],
+  [
+   65,
+   "Post CCB, Westermann AM, Boere IA, et al. Efficacy and safety of durvalumab with olaparib in metastatic or recurrent endometrial cancer (phase II **DOMEC** trial).",
+   "Gynecol Oncol",
+   "2022;165(2):223–229",
+   "35287967"
+  ],
+  [
+   66,
+   "Thiel KW, Devor EJ, Filiaci VL, et al. TP53 sequencing and p53 immunohistochemistry predict outcomes when bevacizumab is added to frontline chemotherapy in endometrial cancer: an NRG Oncology/Gynecologic Oncology Group study (**GOG-0086P**).",
+   "J Clin Oncol",
+   "2022;40(28):3289–3300",
+   "35658479"
+  ],
+  [
+   67,
+   "Eskander RN, Corr B, Cibula D, et al. A randomized, phase III study of sacituzumab govitecan versus treatment of the physician's choice in patients with endometrial cancer after platinum-based chemotherapy and immunotherapy: the **ASCENT-GYN-01** study (GOG-3104/ENGOT-en26/APGOT-EN2).",
+   "Int J Gynecol Cancer",
+   "2026;36(6):102654",
+   "41073155"
+  ],
+  [
+   68,
+   "Moufarrij S, Dopeso H, Brown DN, et al. TROP2 expression and therapeutic targeting in uterine carcinosarcoma.",
+   "Gynecol Oncol",
+   "2025;197:129–138",
+   "40344963"
+  ],
+  [
+   69,
+   "Turner KA, Edwards CC, Ketch PW, et al. A phase Ib/II single-arm study of cabozantinib plus dostarlimab in women with recurrent gynecologic carcinosarcoma.",
+   "Gynecol Oncol",
+   "2026;209:107–110",
+   "42127734"
+  ],
+  [
+   70,
+   "Lai YL, Lim S, Chang K, et al. Association between pembrolizumab-based therapy exposure and survival outcomes in metastatic or recurrent uterine carcinosarcoma: a multi-center real-world study.",
+   "Int J Gynecol Cancer",
+   "2026;36(9):104869",
+   "42613237"
+  ],
+  [
+   71,
+   "Merck. TroFuse-005 / MK-2870-005 topline press release, 2026-05-18. — ⚠️ Press release only; no publication, no HRs, no carcinosarcoma subgroup. PubMed has no record for \"TroFuse-005\"",
+   "",
+   "",
+   ""
+  ],
+  [
+   72,
+   "*(Removed 2026-09-15: NCCN Guidelines Insights citation, not linked under the no-NCCN rule; number kept so later numbering is unchanged.)*",
+   "",
+   "",
+   ""
+  ],
+  [
+   73,
+   "Toboni M, Kurnit K, Erickson B, Powell M, Secord AA, Fader AN. Updates and controversies in the management of uterine serous carcinoma and uterine carcinosarcoma.",
+   "Int J Gynecol Cancer",
+   "2025;35(3):101672",
+   "40056788"
+  ],
+  [
+   74,
+   "Concin N, Matias-Guiu X, Cibula D, et al. ESGO-ESTRO-ESP guidelines for the management of patients with endometrial carcinoma: **update 2025**.",
+   "Lancet Oncol",
+   "2025;26(8):e423–e435",
+   "40744042"
+  ],
+  [
+   75,
+   "Oaknin A, Bosse TJ, Creutzberg CL, et al.; ESMO Guidelines Committee. Endometrial cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up.",
+   "Ann Oncol",
+   "2022;33(9):860–877",
+   "35690222"
+  ],
+  [
+   76,
+   "Bogani G, Ray-Coquard I, Concin N, et al. Endometrial carcinosarcoma.",
+   "Int J Gynecol Cancer",
+   "2023;33(2):147–174",
+   "36585027"
+  ],
+  [
+   77,
+   "**NRG-GY026** (NCT05256225). Carboplatin/paclitaxel ± subcutaneous trastuzumab ± pertuzumab/trastuzumab in HER2-positive endometrial cancer **including carcinosarcoma**. Recruiting as of 2026-07; estimated primary completion 2027-10-31. — No publication; ClinicalTrials.gov registry record only",
+   "",
+   "",
+   ""
+  ]
+ ]
+}

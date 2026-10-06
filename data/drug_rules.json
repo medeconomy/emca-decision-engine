@@ -1,0 +1,422 @@
+{
+ "_meta": {
+  "source": "data/labels.json (DailyMed SPL; OVCA records fetched 2026-10-05, new records 2026-10-06)",
+  "built": "2026-10-06",
+  "use": "Applied to every regimen that contains the drug, in addition to the regimen's own trial-specific risk_rules.",
+  "effects": {
+   "exclude": "label §4 contraindication, or a label instruction not to start",
+   "caution": "a label stop/hold rule the patient's baseline is already close to"
+  }
+ },
+ "carboplatin": [
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "exclude",
+   "reason": "Label: do not repeat until neutrophils ≥2,000 and platelets ≥100,000"
+  },
+  {
+   "flag": "renal_crcl",
+   "lt": 15,
+   "effect": "caution",
+   "reason": "Label: CrCl <15 mL/min — data too limited for a dose recommendation"
+  }
+ ],
+ "cisplatin": [
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "exclude",
+   "reason": "Label: withhold until platelets ≥100,000 and WBC ≥4,000"
+  },
+  {
+   "flag": "neuropathy_grade",
+   "gte": 2,
+   "effect": "caution",
+   "reason": "Label §2.5: consider permanent discontinuation for grade 3–4 neuropathy; baseline G2 leaves little margin"
+  },
+  {
+   "flag": "renal_crcl",
+   "lt": 60,
+   "effect": "exclude",
+   "reason": "Label: impaired creatinine clearance → consider alternative treatment"
+  }
+ ],
+ "paclitaxel": [
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "exclude",
+   "reason": "Label: do not treat solid tumours with baseline neutrophils <1,500/mm³"
+  },
+  {
+   "flag": "hepatic_impairment",
+   "in": [
+    "severe"
+   ],
+   "effect": "exclude",
+   "reason": "Label Table 17: transaminases ≥10×ULN or bilirubin >5×ULN → not recommended"
+  },
+  {
+   "flag": "neuropathy_grade",
+   "gte": 2,
+   "effect": "caution",
+   "reason": "Label: severe neuropathy → 20% dose reduction"
+  }
+ ],
+ "doxorubicin": [
+  {
+   "flag": "cardiac_lvef_low",
+   "effect": "exclude",
+   "reason": "Label §4: severe myocardial insufficiency or MI within 4–6 weeks; §2.3 cardiomyopathy → discontinue"
+  },
+  {
+   "flag": "hepatic_impairment",
+   "in": [
+    "severe"
+   ],
+   "effect": "exclude",
+   "reason": "Label §4: severe hepatic impairment (Child-Pugh C or bilirubin >5 mg/dL)"
+  },
+  {
+   "flag": "hepatic_impairment",
+   "in": [
+    "mild",
+    "moderate"
+   ],
+   "effect": "caution",
+   "reason": "Label Table 1: dose reduced by bilirubin (1.2–3 and 3.1–5 mg/dL)"
+  },
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "exclude",
+   "reason": "Label §4: severe persistent drug-induced myelosuppression"
+  }
+ ],
+ "topotecan": [
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "exclude",
+   "reason": "Label: first cycle only if neutrophils ≥1,500 and platelets ≥100,000"
+  },
+  {
+   "flag": "ild_or_pneumonitis",
+   "effect": "caution",
+   "reason": "Label 5.2: confirmed ILD → permanent discontinuation"
+  },
+  {
+   "flag": "renal_crcl",
+   "lt": 40,
+   "effect": "caution",
+   "reason": "Label 2.6: CrCl 20–39 → reduced dose"
+  }
+ ],
+ "ifosfamide": [
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "exclude",
+   "reason": "IFEX §2.2: repeat only after recovery from haematologic toxicity"
+  },
+  {
+   "flag": "renal_crcl",
+   "lt": 60,
+   "effect": "caution",
+   "reason": "Ifosfamide nephrotoxicity (and cisplatin where combined)"
+  }
+ ],
+ "bevacizumab": [
+  {
+   "flag": "gi_fistula_or_obstruction_risk",
+   "effect": "exclude",
+   "reason": "AVASTIN §2: GI perforation → discontinue"
+  },
+  {
+   "flag": "surgery_within_28d",
+   "effect": "exclude",
+   "reason": "AVASTIN §2: start ≥28 days after major surgery and when the wound is healed"
+  },
+  {
+   "flag": "uncontrolled_htn_or_proteinuria",
+   "effect": "exclude",
+   "reason": "AVASTIN §2: proteinuria ≥2 g/24 h → withhold; hypertensive crisis → discontinue"
+  },
+  {
+   "flag": "cardiac_lvef_low",
+   "effect": "caution",
+   "reason": "AVASTIN §2: congestive heart failure → discontinue"
+  }
+ ],
+ "olaparib": [
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "exclude",
+   "reason": "Label 5.1: do not start until haematologic toxicity from prior chemotherapy has recovered to ≤G1"
+  },
+  {
+   "flag": "prior_mds_aml",
+   "effect": "exclude",
+   "reason": "Label 5.1: confirmed MDS/AML → permanent discontinuation"
+  },
+  {
+   "flag": "ild_or_pneumonitis",
+   "effect": "caution",
+   "reason": "Label 5.2: confirmed pneumonitis → discontinue"
+  },
+  {
+   "flag": "renal_crcl",
+   "lt": 51,
+   "effect": "caution",
+   "reason": "Label 2.5: CrCl 31–50 → 200 mg BID; <31 not studied"
+  }
+ ],
+ "niraparib": [
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "exclude",
+   "reason": "Label 5.2: do not start until recovered to ≤G1"
+  },
+  {
+   "flag": "prior_mds_aml",
+   "effect": "exclude",
+   "reason": "Label: confirmed MDS/AML → permanent discontinuation"
+  },
+  {
+   "flag": "uncontrolled_htn_or_proteinuria",
+   "effect": "caution",
+   "reason": "Label 5.3: hypertension and hypertensive crisis"
+  }
+ ],
+ "pembrolizumab": [
+  {
+   "flag": "ild_or_pneumonitis",
+   "effect": "caution",
+   "reason": "KEYTRUDA §2.3: pneumonitis G3–4 → permanent discontinuation"
+  },
+  {
+   "flag": "active_autoimmune_disease",
+   "effect": "caution",
+   "reason": "Checkpoint-inhibitor trials excluded active autoimmune disease; the label has no contraindication"
+  },
+  {
+   "flag": "systemic_glucocorticoid_dependence",
+   "effect": "caution",
+   "reason": "KEYTRUDA §2.3: permanent discontinuation if prednisone cannot be reduced to ≤10 mg/day within 12 weeks"
+  }
+ ],
+ "dostarlimab": [
+  {
+   "flag": "ild_or_pneumonitis",
+   "effect": "caution",
+   "reason": "JEMPERLI §2: pneumonitis G3–4 or recurrent G2 → permanent discontinuation"
+  },
+  {
+   "flag": "active_autoimmune_disease",
+   "effect": "caution",
+   "reason": "Checkpoint-inhibitor trials excluded active autoimmune disease; JEMPERLI §4 lists no contraindication"
+  },
+  {
+   "flag": "cardiac_lvef_low",
+   "effect": "caution",
+   "reason": "JEMPERLI §2: myocarditis G2–4 → permanent discontinuation"
+  }
+ ],
+ "atezolizumab": [
+  {
+   "flag": "ild_or_pneumonitis",
+   "effect": "caution",
+   "reason": "TECENTRIQ §2: pneumonitis G3–4 → permanent discontinuation"
+  },
+  {
+   "flag": "active_autoimmune_disease",
+   "effect": "caution",
+   "reason": "Checkpoint-inhibitor trials excluded active autoimmune disease; TECENTRIQ §4 lists no contraindication"
+  },
+  {
+   "flag": "cardiac_lvef_low",
+   "effect": "caution",
+   "reason": "TECENTRIQ §2: myocarditis or pericarditis G2–4 → permanent discontinuation"
+  }
+ ],
+ "durvalumab": [
+  {
+   "flag": "active_autoimmune_disease",
+   "effect": "caution",
+   "reason": "Checkpoint-inhibitor trials excluded active autoimmune disease; the label has no contraindication"
+  },
+  {
+   "flag": "ild_or_pneumonitis",
+   "effect": "caution",
+   "reason": "IMFINZI §2: pneumonitis G3–4 → permanent discontinuation"
+  }
+ ],
+ "nivolumab": [
+  {
+   "flag": "ild_or_pneumonitis",
+   "effect": "caution",
+   "reason": "OPDIVO/YERVOY §2.3: pneumonitis G3–4 → permanent discontinuation of both drugs"
+  },
+  {
+   "flag": "active_autoimmune_disease",
+   "effect": "caution",
+   "reason": "Checkpoint-inhibitor trials excluded active autoimmune disease"
+  },
+  {
+   "flag": "hepatic_impairment",
+   "in": [
+    "moderate",
+    "severe"
+   ],
+   "effect": "caution",
+   "reason": "Combination label: AST/ALT >5×ULN → permanent discontinuation of both"
+  },
+  {
+   "flag": "systemic_glucocorticoid_dependence",
+   "effect": "caution",
+   "reason": "Label: permanent discontinuation if prednisone cannot be reduced to ≤10 mg/day within 12 weeks"
+  }
+ ],
+ "ipilimumab": [
+  {
+   "flag": "cardiac_lvef_low",
+   "effect": "caution",
+   "reason": "YERVOY §2.3: myocarditis G2–4 → permanent discontinuation"
+  }
+ ],
+ "lenvatinib": [
+  {
+   "flag": "cardiac_lvef_low",
+   "effect": "exclude",
+   "reason": "LENVIMA §2.7: cardiac dysfunction G4 and arterial thromboembolism of any grade → permanent discontinuation"
+  },
+  {
+   "flag": "gi_fistula_or_obstruction_risk",
+   "effect": "exclude",
+   "reason": "LENVIMA §2.7: GI perforation any grade / fistula G3–4 → permanent discontinuation"
+  },
+  {
+   "flag": "hepatic_impairment",
+   "in": [
+    "severe"
+   ],
+   "effect": "caution",
+   "reason": "LENVIMA §2.9: reduced starting dose in severe hepatic impairment; hepatic failure → permanent discontinuation"
+  },
+  {
+   "flag": "uncontrolled_htn_or_proteinuria",
+   "effect": "exclude",
+   "reason": "LENVIMA §2.7: G4 hypertension → permanent discontinuation; proteinuria ≥2 g/24 h → withhold"
+  }
+ ],
+ "trastuzumab": [
+  {
+   "flag": "cardiac_lvef_low",
+   "effect": "exclude",
+   "reason": "HERCEPTIN §2.5: withhold for LVEF decline; permanent discontinuation for persistent decline"
+  }
+ ],
+ "trastuzumab_deruxtecan": [
+  {
+   "flag": "cardiac_lvef_low",
+   "effect": "exclude",
+   "reason": "Label Table 3: LVEF <40% or symptomatic CHF → permanent discontinuation"
+  },
+  {
+   "flag": "ild_or_pneumonitis",
+   "effect": "exclude",
+   "reason": "Label Table 3: any symptomatic (≥G2) ILD → permanent discontinuation"
+  },
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "caution",
+   "reason": "Label Table 3: G3 neutropenia → interrupt"
+  }
+ ],
+ "everolimus": [
+  {
+   "flag": "ild_or_pneumonitis",
+   "effect": "caution",
+   "reason": "AFINITOR §2: non-infectious pneumonitis G2–3 → withhold and reduce; G4 → permanent discontinuation"
+  }
+ ],
+ "selinexor": [
+  {
+   "flag": "ocular_disease",
+   "effect": "caution",
+   "reason": "XPOVIO §2: ocular toxicity ≥G3 (excluding cataract) → permanent discontinuation"
+  },
+  {
+   "flag": "hepatic_impairment",
+   "in": [
+    "severe"
+   ],
+   "effect": "caution",
+   "reason": "XPOVIO §2: severe hepatic impairment → reduced starting dose (Table 5)"
+  }
+ ],
+ "medroxyprogesterone_acetate": [
+  {
+   "flag": "vte_history",
+   "effect": "exclude",
+   "reason": "PROVERA §4: active DVT or PE, or a history of these conditions"
+  },
+  {
+   "flag": "hepatic_impairment",
+   "in": [
+    "mild",
+    "moderate",
+    "severe"
+   ],
+   "effect": "exclude",
+   "reason": "PROVERA §4: known liver impairment or disease"
+  }
+ ],
+ "tamoxifen": [
+  {
+   "flag": "vte_history",
+   "effect": "caution",
+   "reason": "Tamoxifen §4: history of DVT/PE is a contraindication for the risk-reduction and DCIS indications only"
+  }
+ ],
+ "sacituzumab_govitecan": [
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "caution",
+   "reason": "TRODELVY §2: neutropenia G3–4 or febrile neutropenia → withhold"
+  }
+ ],
+ "pazopanib": [
+  {
+   "flag": "ild_or_pneumonitis",
+   "effect": "exclude",
+   "reason": "VOTRIENT §2: ILD/pneumonitis of any grade → permanent discontinuation"
+  },
+  {
+   "flag": "gi_fistula_or_obstruction_risk",
+   "effect": "exclude",
+   "reason": "VOTRIENT §2: GI perforation of any grade → permanent discontinuation"
+  },
+  {
+   "flag": "uncontrolled_htn_or_proteinuria",
+   "effect": "exclude",
+   "reason": "VOTRIENT §2: hypertensive crisis → permanent discontinuation; proteinuria ≥3 g/24 h → withhold"
+  },
+  {
+   "flag": "cardiac_lvef_low",
+   "effect": "caution",
+   "reason": "VOTRIENT §2: LV systolic dysfunction G4 → permanent discontinuation"
+  },
+  {
+   "flag": "hepatic_impairment",
+   "in": [
+    "moderate",
+    "severe"
+   ],
+   "effect": "caution",
+   "reason": "VOTRIENT §2: ALT >3×ULN with bilirubin >2×ULN → permanent discontinuation"
+  }
+ ],
+ "dasatinib": [
+  {
+   "flag": "cytopenia_baseline",
+   "effect": "caution",
+   "reason": "SPRYCEL §2 myelosuppression steps (CML label; no solid-tumour schedule)"
+  }
+ ]
+}

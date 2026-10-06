@@ -1,0 +1,557 @@
+{
+ "_meta": {
+  "histology": "ccc",
+  "label": "Clear cell carcinoma",
+  "source_note": "EMCA_ClearCell_Algorithm_v1.2",
+  "built": "2026-10-06",
+  "settings": [
+   {
+    "key": "adjuvant",
+    "label": "Adjuvant after hysterectomy (stage I–IVA)"
+   },
+   {
+    "key": "first_line",
+    "label": "First-line systemic: stage III–IV or first recurrence, chemotherapy-naive for advanced disease"
+   },
+   {
+    "key": "maintenance",
+    "label": "Maintenance after response to first-line platinum"
+   },
+   {
+    "key": "second_line",
+    "label": "Second line and beyond (after platinum ± PD-(L)1)"
+   },
+   {
+    "key": "fertility_sparing",
+    "label": "Fertility-sparing (primary non-surgical)"
+   }
+  ],
+  "tiers": {
+   "1": "OS benefit, replicated (≥2 randomised trials or a class effect confirmed by non-inferiority)",
+   "2": "OS benefit, single phase 3 (CI excludes 1 as printed), or non-inferior to a regimen that has one",
+   "3": "OS benefit only in a subgroup (molecular post hoc, randomised phase II) or borderline",
+   "4": "PFS / RFS / local-control benefit only; no OS benefit shown",
+   "5": "No efficacy difference vs the comparator (non-inferior / NS), or the comparator that lost: chosen on toxicity or when the better option cannot be given",
+   "6": "No phase 3: single-arm, randomised phase II without an OS result, observational, extrapolated, or press release only",
+   "7": "Do not use: OS worse than the alternative, negative trial, or histotype excluded from the pivotal trial"
+  },
+  "tier_reading": "Clear cell is 3–10% of each trial and no randomised trial reports a usable clear cell result, so tiers 1–4 are empty by construction (OVCA histotype rule). Tier 5 = randomised clear-cell-containing cohort with no difference (GOG-249 serous + clear cell); tier 6 = included, not broken out, single-arm, pooled gynaecologic clear cell, observational; tier 7 = negative or histotype excluded. Molecular class is the more reproducible axis: only 46% of 'clear cell' stayed clear cell on expert review.",
+  "scope": "Efficacy figures copied from data/trials_*.json (vault notes, full-text checked 2026-09-15); toxicity resolved from data/tox.json via tox_ref {trial, arm}; label rules from data/labels.json and data/drug_rules.json. 'base' inherits every field the record does not set from the named endometrioid record."
+ },
+ "regimens": [
+  {
+   "base": "adj_chemort",
+   "id": "ccc_adj_chemort",
+   "trials": [
+    "PORTEC-3",
+    "↳ PORTEC-3 by molecular class"
+   ],
+   "tier": 6,
+   "tier_rules": [],
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "62 clear cell (9.4%); no clear cell subgroup. The significant histology subgroup was serous only (OS HR 0.48)",
+    "The molecular class effects apply to clear cell: p53abn benefits (RFS HR 0.42), MMRd does not (1.13)"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "adj_vbt_tc3",
+   "id": "ccc_adj_vbt_tc3",
+   "trials": [
+    "GOG-249"
+   ],
+   "tier": 5,
+   "evidence_basis": "histotype_subgroup",
+   "qualifiers": [
+    "5% clear cell; the serous + clear cell cohort showed no benefit from added chemotherapy (RFS HR 0.81, 0.44–1.52)"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "adj_ebrt",
+   "id": "ccc_adj_ebrt",
+   "trials": [
+    "GOG-249"
+   ],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II"
+    ]
+   },
+   "tier": 5,
+   "tier_rules": [],
+   "tox_ref": {
+    "trial": "GOG-249 (",
+    "arm": "pelvic RT"
+   },
+   "evidence_basis": "histotype_subgroup",
+   "os": {
+    "benefit": "no_difference",
+    "median": "Serous + clear cell cohort: VBT + chemotherapy no better than pelvic RT (RFS HR 0.81, 0.44–1.52)",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-249"
+   },
+   "pfs": {
+    "text": "Trial-wide 60-mo RFS 0.76 vs 0.76"
+   },
+   "qualifiers": [
+    "Clear cell was excluded from PORTEC-1/2 and GOG-99"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "id": "ccc_adj_obs",
+   "setting": "adjuvant",
+   "name": "Observation (stage I)",
+   "short": "Observation",
+   "drugs": [],
+   "drug_classes": [],
+   "gate": {
+    "stage_group": [
+     "I"
+    ]
+   },
+   "trials": [
+    "Bujnak 2025 — SEER, stage I"
+   ],
+   "tox_ref": null,
+   "os": {
+    "benefit": "observational",
+    "median": "10-yr OS 61% (observation) vs 74% (chemo + RT) on KM; NS on multivariable; DSS no difference by adjuvant treatment",
+    "evidence_strength": "retrospective",
+    "trial": "Bujnak 2025 — SEER, stage I"
+   },
+   "pfs": {
+    "text": "—"
+   },
+   "tier": 6,
+   "evidence_basis": "observational",
+   "qualifiers": [
+    "Clear-cell-only SEER cohort (n=881): uncontrolled, pre-molecular, no central pathology review — only 46% of 'clear cell' stayed clear cell on expert review"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut"
+     ],
+     "reason": "POLEmut: 10-yr RFS 100% vs 96.4% across PORTEC-3 arms — de-escalation candidate"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "p53abn"
+     ],
+     "effect": "caution",
+     "reason": "p53abn: chemotherapy benefit whatever the histology (PORTEC-3 post hoc RFS HR 0.42, 0.24–0.74)"
+    },
+    {
+     "flag": "mol_class",
+     "in": [
+      "NSMP"
+     ],
+     "effect": "caution",
+     "reason": "NSMP clear cell is not favourable: older, more advanced, more LVSI and nodal disease, more ER-negative, markedly worse outcomes"
+    }
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "adj_tc6",
+   "id": "ccc_adj_tc6",
+   "trials": [
+    "GOG-258"
+   ],
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "3% clear cell; no histology subgroup differed"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "adj_ap",
+   "id": "ccc_adj_ap",
+   "trials": [
+    "GOG-122"
+   ],
+   "tier": 6,
+   "evidence_basis": "histotype_subgroup",
+   "qualifiers": [
+    "~4% clear cell (17): exploratory PFS HR 0.50, OS 0.52 — CIs cross 1"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "adj_wai",
+   "id": "ccc_adj_wai",
+   "trials": [
+    "GOG-122"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "adj_pembro_chemo",
+   "id": "ccc_adj_pembro_chemo",
+   "trials": [
+    "KEYNOTE-B21"
+   ],
+   "evidence_basis": "included_not_broken_out",
+   "tier_rules": [
+    {
+     "when": {
+      "mmr": [
+       "dMMR"
+      ]
+     },
+     "tier": 6,
+     "reason": "dMMR DFS 0.31 (0.14–0.69) trial-wide, within a negative trial; clear cell not broken out"
+    }
+   ],
+   "qualifiers": [
+    "Non-endometrioid 46% includes clear cell; clear cell fraction not reported"
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut"
+     ],
+     "effect": "exclude",
+     "reason": "POLEmut was excluded from KEYNOTE-B21"
+    },
+    {
+     "flag": "stage",
+     "in": [
+      "IVB"
+     ],
+     "effect": "exclude",
+     "reason": "KEYNOTE-B21 enrolled stage III/IVA"
+    }
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "fl_tc",
+   "id": "ccc_fl_tc",
+   "trials": [
+    "GOG-209",
+    "GOG-177"
+   ],
+   "tier": 6,
+   "tier_rules": [],
+   "evidence_basis": "histotype_subgroup",
+   "qualifiers": [
+    "47/1328 (3.5%) clear cell; exploratory OS HR 0.86 (0.43–1.76), TC vs TAP",
+    "Standard here by extrapolation, not by any clear cell signal"
+   ],
+   "risk_rules": [
+    {
+     "flag": "mmr",
+     "in": [
+      "dMMR"
+     ],
+     "effect": "caution",
+     "reason": "dMMR: chemotherapy + dostarlimab had the OS benefit trial-wide (RUBY dMMR OS HR 0.32)"
+    }
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "fl_tap",
+   "id": "ccc_fl_tap",
+   "trials": [
+    "GOG-177",
+    "GOG-209"
+   ],
+   "tier": 6,
+   "tier_rules": [],
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "8/263 (3%) clear cell; no subgroup outcome"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "fl_dostar",
+   "id": "ccc_fl_dostar",
+   "trials": [
+    "RUBY"
+   ],
+   "tier": 6,
+   "tier_rules": [],
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "17/494 (3.4%) clear cell, all pMMR; stage IIIC1 clear cell eligible regardless of measurability"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "fl_pembro",
+   "id": "ccc_fl_pembro",
+   "trials": [
+    "NRG-GY018"
+   ],
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "38/813 (4.7%) clear cell (dMMR 1, pMMR 37)"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "fl_durva",
+   "id": "ccc_fl_durva",
+   "trials": [
+    "DUO-E — both arms"
+   ],
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "Clear cell 19/718 (2.6%): 8 D+O / 4 durvalumab / 7 control"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "fl_durva_ola",
+   "id": "ccc_fl_durva_ola",
+   "trials": [
+    "DUO-E — both arms"
+   ],
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "Clear cell 19/718 (2.6%): 8 D+O / 4 durvalumab / 7 control"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "fl_atezo",
+   "id": "ccc_fl_atezo",
+   "trials": [
+    "AtTEnd / ENGOT-en7"
+   ],
+   "tier": 6,
+   "tier_rules": [
+    {
+     "when": {
+      "mmr": [
+       "pMMR"
+      ]
+     },
+     "tier": 7,
+     "reason": "pMMR: PFS 0.92 (0.73–1.16), NS trial-wide"
+    }
+   ],
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "Clear cell 17/549 (3.1%), pooled into 'Other' in the forest plot"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "id": "ccc_fl_trastuzumab",
+   "setting": "first_line",
+   "name": "Carboplatin–paclitaxel + trastuzumab",
+   "short": "TC + trastuzumab",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "trastuzumab"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "anti_her2"
+   ],
+   "gate": {
+    "her2": [
+     "3+",
+     "2+amp"
+    ]
+   },
+   "trials": [
+    "Fader"
+   ],
+   "tox_ref": {
+    "trial": "Fader NRG-GOG 3005 (",
+    "arm": "CP + trastuzumab"
+   },
+   "os": {
+    "benefit": "excluded",
+    "median": "Clear cell excluded from the only HER2 RCT (serous only)",
+    "evidence_strength": "excluded_from_trials",
+    "trial": "Fader"
+   },
+   "pfs": {
+    "text": "—"
+   },
+   "tier": 7,
+   "evidence_basis": "excluded_from_trial",
+   "exclude_default": {
+    "reason": "Clear cell was excluded from Fader (NRG-GOG 3005); no randomised HER2 data for clear cell, although ~25% of ECCC may be HER2-amplified"
+   },
+   "histology": "ccc"
+  },
+  {
+   "base": "sl_lenpem",
+   "id": "ccc_sl_lenpem",
+   "trials": [
+    "KEYNOTE-775",
+    "LARA"
+   ],
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "~50 clear cell (6%) inside a positive trial; clear cell HR not reported (non-endometrioid pMMR OS 0.56, 0.42–0.74)",
+    "LARA pooled gynaecologic clear cell: 3 endometrial — 1 PR, 1 SD, 1 PD"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "sl_chemo",
+   "id": "ccc_sl_chemo",
+   "trials": [
+    "KEYNOTE-775"
+   ],
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "histology": "ccc"
+  },
+  {
+   "base": "sl_dostar_mono",
+   "id": "ccc_sl_dostar_mono",
+   "trials": [
+    "GARNET cohort A1"
+   ],
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "dMMR type II (non-endometrioid) ORR 47.6% (25.7–70.2), n=21 — no clear cell category"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "sl_tdxd",
+   "id": "ccc_sl_tdxd",
+   "trials": [
+    "DESTINY-PanTumor02, EC cohort"
+   ],
+   "qualifiers": [
+    "Tumour-agnostic evidence; ~25% of ECCC may be FISH-amplified — test HER2 in recurrent ECCC"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "id": "ccc_sl_nivoipi",
+   "setting": "second_line",
+   "name": "Nivolumab 3 mg/kg + ipilimumab 1 mg/kg q3w ×4 → nivolumab",
+   "short": "Nivolumab + ipilimumab (MoST-CIRCUIT)",
+   "drugs": [
+    "nivolumab",
+    "ipilimumab"
+   ],
+   "drug_classes": [
+    "io"
+   ],
+   "gate": {},
+   "trials": [
+    "MoST-CIRCUIT",
+    "DART / SWOG S1609"
+   ],
+   "tox_ref": {
+    "trial": "MoST-CIRCUIT"
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "MoST-CIRCUIT NR; DART endometrial median OS 4.3 mo",
+    "evidence_strength": "phase2",
+    "trial": "MoST-CIRCUIT"
+   },
+   "pfs": {
+    "text": "Endometrial clear cell: MoST-CIRCUIT 2/4 responses (q3w induction); DART 0/8 (q6w ipilimumab, more pretreated)"
+   },
+   "tier": 6,
+   "evidence_basis": "pooled_histotype",
+   "caution_default": {
+    "reason": "1 fatal myocarditis in MoST-CIRCUIT; the cohort ORRs (40–54%) are ovarian results — endometrial 2/12 across both trials"
+   },
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "ccc"
+  },
+  {
+   "id": "ccc_sl_dasatinib",
+   "setting": "second_line",
+   "name": "Dasatinib 140 mg daily",
+   "short": "Dasatinib (NRG/GOG-0283)",
+   "drugs": [
+    "dasatinib"
+   ],
+   "drug_classes": [
+    "src"
+   ],
+   "gate": {},
+   "trials": [
+    "NRG/GOG-0283"
+   ],
+   "tox_ref": {
+    "trial": "NRG/GOG-0283"
+   },
+   "os": {
+    "benefit": "negative",
+    "median": "—",
+    "evidence_strength": "phase2",
+    "trial": "NRG/GOG-0283"
+   },
+   "pfs": {
+    "text": "Endometrial ORR 0 (6 patients, all BAF250a-retained); the sole PR was BAF250a-loss"
+   },
+   "tier": 7,
+   "evidence_basis": "pooled_histotype",
+   "exclude_default": {
+    "reason": "Inactive: endometrial ORR 0"
+   },
+   "histology": "ccc"
+  },
+  {
+   "base": "sl_bev",
+   "id": "ccc_sl_bev",
+   "trials": [
+    "GOG-229E"
+   ],
+   "qualifiers": [
+    "Clear cell 7.7% (4); 1 of 7 responders was clear cell (PR)"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "sl_sactmt",
+   "id": "ccc_sl_sactmt",
+   "trials": [
+    "TroFuse-005"
+   ],
+   "histology": "ccc"
+  },
+  {
+   "base": "sl_plat_retreat",
+   "id": "ccc_sl_plat_retreat",
+   "trials": [
+    "Platinum re-treatment",
+    "GOG-209"
+   ],
+   "histology": "ccc"
+  }
+ ]
+}

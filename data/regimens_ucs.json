@@ -1,0 +1,962 @@
+{
+ "_meta": {
+  "histology": "ucs",
+  "label": "Carcinosarcoma",
+  "source_note": "EMCA_Carcinosarcoma_Algorithm_v1.2",
+  "built": "2026-10-06",
+  "settings": [
+   {
+    "key": "adjuvant",
+    "label": "Adjuvant after hysterectomy (stage I–IVA)"
+   },
+   {
+    "key": "first_line",
+    "label": "First-line systemic: stage III–IV or first recurrence, chemotherapy-naive for advanced disease"
+   },
+   {
+    "key": "maintenance",
+    "label": "Maintenance after response to first-line platinum"
+   },
+   {
+    "key": "second_line",
+    "label": "Second line and beyond (after platinum ± PD-(L)1)"
+   },
+   {
+    "key": "fertility_sparing",
+    "label": "Fertility-sparing (primary non-surgical)"
+   }
+  ],
+  "tiers": {
+   "1": "OS benefit, replicated (≥2 randomised trials or a class effect confirmed by non-inferiority)",
+   "2": "OS benefit, single phase 3 (CI excludes 1 as printed), or non-inferior to a regimen that has one",
+   "3": "OS benefit only in a subgroup (molecular post hoc, randomised phase II) or borderline",
+   "4": "PFS / RFS / local-control benefit only; no OS benefit shown",
+   "5": "No efficacy difference vs the comparator (non-inferior / NS), or the comparator that lost: chosen on toxicity or when the better option cannot be given",
+   "6": "No phase 3: single-arm, randomised phase II without an OS result, observational, extrapolated, or press release only",
+   "7": "Do not use: OS worse than the alternative, negative trial, or histotype excluded from the pivotal trial"
+  },
+  "tier_reading": "Carcinosarcoma has its own randomised trials (GOG-161, GOG-0261, GOG-108, GOG-150), which set the tiers; all-histology trials that enrolled carcinosarcoma without a subgroup are tier 6, and trials that excluded it (NRG-GY018, KEYNOTE-775, GARNET, PORTEC-3, Fader, GOG-86P) are tier 7. Every confirmed carcinosarcoma is p53abn in the Canadian cohort: a non-p53abn result should trigger pathology review.",
+  "scope": "Efficacy figures copied from data/trials_*.json (vault notes, full-text checked 2026-09-15); toxicity resolved from data/tox.json via tox_ref {trial, arm}; label rules from data/labels.json and data/drug_rules.json. 'base' inherits every field the record does not set from the named endometrioid record."
+ },
+ "regimens": [
+  {
+   "id": "ucs_tc",
+   "settings": [
+    "adjuvant",
+    "first_line"
+   ],
+   "name": "Carboplatin AUC6 + paclitaxel 175 q3w ×6–10",
+   "short": "TC (GOG-0261)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-0261 / NRG",
+    "GOG-0261",
+    "GOG-232B"
+   ],
+   "tox_ref": {
+    "trial": "GOG-0261 (",
+    "arm": "carboplatin/paclitaxel"
+   },
+   "os": {
+    "benefit": "non_inferior",
+    "hr": "0.87",
+    "ci90": [
+     "0.70",
+     "1.075"
+    ],
+    "median": "37 vs 29 mo vs paclitaxel–ifosfamide (non-inferior; P>.1 for superiority). Ifosfamide–paclitaxel had beaten ifosfamide on OS in GOG-161 (HR 0.69)",
+    "evidence_strength": "non_inferior_to_os_positive",
+    "trial": "GOG-0261"
+   },
+   "pfs": {
+    "text": "16 vs 12 mo; superior, HR 0.73 (0.58–0.93)"
+   },
+   "tier": 2,
+   "evidence_basis": "histotype_rct",
+   "tier_rules": [
+    {
+     "when": {
+      "setting": [
+       "adjuvant"
+      ]
+     },
+     "tier": 5,
+     "reason": "Adjuvant: no OS difference vs paclitaxel–ifosfamide, and chemotherapy vs whole-abdominal RT was NS (GOG-150 death RH 0.712, P=.085); GOG-161's OS gain was in measurable advanced disease"
+    }
+   ],
+   "qualifiers": [
+    "CS-only trial: 46% stage I–II, 8% recurrent — never split its numbers across settings",
+    "Stage III–IV PFS 0.65 (0.48–0.88), OS 0.74 (0.54–1.01); no significant heterogeneity — do not assert a stage-concentrated benefit",
+    "Grade 3–4 haematologic 82% vs 50% (treated UCS)",
+    "GOG-232B single arm: ORR 54% (37–67), PFS 7.6, OS 14.7 mo"
+   ],
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_pi",
+   "settings": [
+    "adjuvant",
+    "first_line"
+   ],
+   "name": "Paclitaxel 135 + ifosfamide 1.6 g/m² D1–3 (+ filgrastim) q3w",
+   "short": "Ifosfamide + paclitaxel (GOG-161 / GOG-0261 control)",
+   "drugs": [
+    "paclitaxel",
+    "ifosfamide",
+    "filgrastim"
+   ],
+   "drug_classes": [
+    "taxane",
+    "alkylator"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-161",
+    "GOG-0261 / NRG",
+    "GOG-0261"
+   ],
+   "tox_ref": {
+    "trial": "GOG-0261 (",
+    "arm": "paclitaxel/ifosfamide"
+   },
+   "os": {
+    "benefit": "positive",
+    "hr": "0.69",
+    "ci95": [
+     "0.49",
+     "0.97"
+    ],
+    "median": "GOG-161: 13.5 vs 8.4 mo vs ifosfamide alone (the only UCS trial with a significant OS gain); GOG-0261: 29 vs 37 mo vs TC, non-inferior",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-161"
+   },
+   "pfs": {
+    "text": "GOG-161 5.8 vs 3.6 mo, HR 0.71 (0.51–0.97); GOG-0261 PFS worse than TC (12 vs 16 mo, HR 0.73 favouring TC)"
+   },
+   "tier": 5,
+   "evidence_basis": "histotype_rct",
+   "caution_default": {
+    "reason": "PFS worse than carboplatin–paclitaxel (GOG-0261); more confusion and genitourinary haemorrhage; GOG-161 sensory neuropathy G1–4 30% vs 8%"
+   },
+   "qualifiers": [
+    "OS no different from TC (GOG-0261 non-inferiority), PFS worse — kept for patients who cannot receive carboplatin"
+   ],
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_cim",
+   "settings": [
+    "adjuvant"
+   ],
+   "name": "Cisplatin + ifosfamide + mesna ×3",
+   "short": "CIM (GOG-150)",
+   "drugs": [
+    "cisplatin",
+    "ifosfamide"
+   ],
+   "drug_classes": [
+    "platinum",
+    "alkylator"
+   ],
+   "gate": {
+    "residual": [
+     "none",
+     "le2"
+    ]
+   },
+   "trials": [
+    "GOG-150"
+   ],
+   "tox_ref": {
+    "trial": "GOG-150 (",
+    "arm": "CIM"
+   },
+   "os": {
+    "benefit": "trend",
+    "hr": "0.712",
+    "ci95": [
+     "0.484",
+     "1.048"
+    ],
+    "median": "Death rate 29% lower vs whole-abdominal RT, P=.085 — NS",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-150"
+   },
+   "pfs": {
+    "text": "Recurrence RH 0.789 (0.530–1.176), P=.245; 5-yr crude recurrence 52% vs 58%"
+   },
+   "tier": 5,
+   "evidence_basis": "histotype_rct",
+   "caution_default": {
+    "reason": "Never compared with carboplatin–paclitaxel, which GOG-0261 made the standard (46% of its patients stage I–II)"
+   },
+   "qualifiers": [
+    "GOG-150 entry: ≤1 cm residual and/or no extra-abdominal spread",
+    "Superseded by carboplatin–paclitaxel (GOG-0261)"
+   ],
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_adj_wai",
+   "setting": "adjuvant",
+   "name": "Whole-abdominal irradiation",
+   "short": "WAI (GOG-150 control)",
+   "drugs": [],
+   "drug_classes": [
+    "radiotherapy"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-150"
+   ],
+   "tox_ref": {
+    "trial": "GOG-150 (",
+    "arm": "WAI"
+   },
+   "os": {
+    "benefit": "no_difference",
+    "median": "Death rate 29% higher than with CIM, P=.085 — NS",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-150"
+   },
+   "pfs": {
+    "text": "5-yr crude recurrence 58% vs 52%"
+   },
+   "tier": 5,
+   "evidence_basis": "histotype_rct",
+   "caution_default": {
+    "reason": "Displaced by chemotherapy on a trend (GOG-150); the only RCT with an RT arm in UCS"
+   },
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_adj_rt_add",
+   "setting": "adjuvant",
+   "name": "Add pelvic RT (EBRT ± brachytherapy) to chemotherapy",
+   "short": "Chemotherapy + RT (retrospective)",
+   "drugs": [],
+   "drug_classes": [
+    "radiotherapy"
+   ],
+   "gate": {},
+   "trials": [
+    "NCDB, all stages, by RT modality",
+    "Multicentre, chemo vs chemoradiation",
+    "NCDB, stage I",
+    "SEER"
+   ],
+   "tox_ref": null,
+   "os": {
+    "benefit": "observational",
+    "median": "NCDB EBRT + BT HR 0.72 (0.58–0.89); EBRT or BT alone NS. SEER: no OS benefit from RT",
+    "evidence_strength": "retrospective",
+    "trial": "NCDB, all stages, by RT modality"
+   },
+   "pfs": {
+    "text": "Multicentre: chemoradiation 2-yr PFS 22.5% vs 13.6%; 'sandwich' OS 34 vs 14 mo (retrospective)"
+   },
+   "tier": 6,
+   "evidence_basis": "observational",
+   "qualifiers": [
+    "No randomised trial of adjuvant RT vs observation, or of chemotherapy ± RT, in UCS",
+    "26-institution stage I cohort (note ⭐): RT + chemotherapy cut local recurrence only with multiple risk factors (5-yr 2.5% vs 21.8%, HR 0.12, 0.02–0.90) — high-grade carcinoma, sarcoma dominance, deep invasion"
+   ],
+   "prefer_when": [
+    {
+     "flag": "all",
+     "all": [
+      {
+       "flag": "stage_group",
+       "in": [
+        "I"
+       ]
+      },
+      {
+       "flag": "sarc",
+       "in": [
+        "yes"
+       ]
+      },
+      {
+       "flag": "mi",
+       "in": [
+        "ge50"
+       ]
+      }
+     ],
+     "reason": "Stage I, sarcoma-dominant, deep invasion: the one subgroup where RT added to chemotherapy reduced local recurrence"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "sarc",
+     "in": [
+      "unknown"
+     ],
+     "effect": "caution",
+     "reason": "Ask pathology for sarcoma-component dominance: it is one of the risk factors that predicts RT benefit"
+    }
+   ],
+   "histology": "ucs"
+  },
+  {
+   "base": "adj_chemort",
+   "id": "ucs_adj_chemort",
+   "trials": [
+    "PORTEC-3"
+   ],
+   "tier": 7,
+   "tier_rules": [],
+   "evidence_basis": "excluded_from_trial",
+   "prefer_when": [],
+   "risk_rules": [],
+   "exclude_default": {
+    "reason": "Carcinosarcoma excluded from PORTEC-3 and GOG-258: the ESGO grade-I chemoradiation recommendation reflects those trials' strength, not carcinosarcoma evidence; the p53abn proxy cannot be borrowed"
+   },
+   "histology": "ucs"
+  },
+  {
+   "base": "adj_pembro_chemo",
+   "id": "ucs_adj_pembro_chemo",
+   "trials": [
+    "KEYNOTE-B21 / ENGOT-en11 / GOG-3053"
+   ],
+   "evidence_basis": "included_not_broken_out",
+   "tier_rules": [
+    {
+     "when": {
+      "mmr": [
+       "dMMR"
+      ]
+     },
+     "tier": 6,
+     "reason": "dMMR DFS 0.31 (0.14–0.69) trial-wide, within a negative trial; carcinosarcoma not broken out"
+    }
+   ],
+   "qualifiers": [
+    "CS explicitly eligible; CS n and subgroup not reported; not adopted for adjuvant use in CS"
+   ],
+   "risk_rules": [
+    {
+     "flag": "stage",
+     "in": [
+      "IVB"
+     ],
+     "effect": "exclude",
+     "reason": "KEYNOTE-B21 enrolled stage III/IVA"
+    }
+   ],
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_fl_icis",
+   "settings": [
+    "first_line"
+   ],
+   "name": "Ifosfamide 1.5 g/m²/d ×5 + mesna + cisplatin 20 mg/m²/d ×5",
+   "short": "Ifosfamide + cisplatin (GOG-108)",
+   "drugs": [
+    "ifosfamide",
+    "cisplatin"
+   ],
+   "drug_classes": [
+    "alkylator",
+    "platinum"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-108"
+   ],
+   "tox_ref": {
+    "trial": "GOG-108 (",
+    "arm": "ifosfamide + cisplatin"
+   },
+   "os": {
+    "benefit": "no_difference",
+    "median": "OS RR 0.80 (95% upper CL 1.03), P=.071 vs ifosfamide — NS",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-108"
+   },
+   "pfs": {
+    "text": "PFS RR 0.73 (upper CL 0.94), P=.02 one-tailed; response 36% → 54%"
+   },
+   "tier": 5,
+   "evidence_basis": "histotype_rct",
+   "caution_default": {
+    "reason": "Granulocytopenia G3–4 60% vs 36%; treatment may have contributed to 6 deaths — the authors judged the gain not worth the toxicity"
+   },
+   "histology": "ucs"
+  },
+  {
+   "base": "fl_dostar",
+   "id": "ucs_fl_dostar",
+   "trials": [
+    "RUBY / ENGOT-EN6 / GOG-3031"
+   ],
+   "tier": 6,
+   "tier_rules": [],
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "CS eligible: 25/245 (10.2%) vs 19/249 (7.6%); no CS efficacy subgroup",
+    "Vault note: the carried chemo-IO option for carcinosarcoma (with durvalumab if dMMR) — not pembrolizumab"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mmr",
+     "in": [
+      "dMMR",
+      "pMMR",
+      "unknown"
+     ],
+     "reason": "Enrolled carcinosarcoma (GY018 did not)"
+    }
+   ],
+   "histology": "ucs"
+  },
+  {
+   "base": "fl_durva",
+   "id": "ucs_fl_durva",
+   "trials": [
+    "DUO-E / ENGOT-EN10 / GOG-3041"
+   ],
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "CS 12/238 (5.0%); no CS subgroup (pooled into 'other')"
+   ],
+   "histology": "ucs"
+  },
+  {
+   "base": "fl_durva_ola",
+   "id": "ucs_fl_durva_ola",
+   "trials": [
+    "DUO-E / ENGOT-EN10 / GOG-3041"
+   ],
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "qualifiers": [
+    "CS 18/239 (7.5%); no CS subgroup"
+   ],
+   "histology": "ucs"
+  },
+  {
+   "base": "fl_atezo",
+   "id": "ucs_fl_atezo",
+   "trials": [
+    "AtTEnd / ENGOT-en7"
+   ],
+   "tier": 6,
+   "tier_rules": [
+    {
+     "when": {
+      "mmr": [
+       "pMMR"
+      ]
+     },
+     "tier": 7,
+     "reason": "pMMR: PFS 0.92 (0.73–1.16), NS trial-wide"
+    }
+   ],
+   "evidence_basis": "histotype_subgroup",
+   "qualifiers": [
+    "CS 35/360 vs 15/189; CS PFS HR 0.88 (0.45–1.73), not preplanned, P-interaction .74 — uninformative"
+   ],
+   "histology": "ucs"
+  },
+  {
+   "base": "fl_pembro",
+   "id": "ucs_fl_pembro",
+   "trials": [
+    "NRG-GY018 / KEYNOTE-868"
+   ],
+   "tier": 7,
+   "tier_rules": [],
+   "evidence_basis": "excluded_from_trial",
+   "risk_rules": [],
+   "exclude_default": {
+    "reason": "Carcinosarcoma excluded from NRG-GY018 by design: 'any histologic subtype except for carcinosarcoma' — the easiest bedside error, because the four chemo-IO regimens are otherwise near-identical"
+   },
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_fl_dostar_nira",
+   "settings": [
+    "first_line"
+   ],
+   "name": "Carboplatin–paclitaxel + dostarlimab → dostarlimab + niraparib maintenance",
+   "short": "RUBY Part 2",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "dostarlimab",
+    "niraparib"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "io",
+    "parpi"
+   ],
+   "gate": {},
+   "trials": [
+    "RUBY Part 2"
+   ],
+   "tox_ref": {
+    "trial": "RUBY Part 2"
+   },
+   "os": {
+    "benefit": "no_difference",
+    "hr": "1.2",
+    "ci95": [
+     "0.81",
+     "1.78"
+    ],
+    "median": "At 36.2 mo — no OS benefit",
+    "evidence_strength": "single_phase3",
+    "trial": "RUBY Part 2"
+   },
+   "pfs": {
+    "text": "HR 0.60 (0.43–0.82); pMMR/MSS 0.63 (0.44–0.91)"
+   },
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "caution_default": {
+    "reason": "Trial-wide OS HR 1.2 (0.81–1.78); G≥3 TRAE 70.7% vs 37.5%, discontinuation for AE 38.7% vs 11.5%"
+   },
+   "qualifiers": [
+    "CS 18/192 (9.4%) vs 10/99; no CS efficacy data"
+   ],
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_sl_tdxd",
+   "setting": "second_line",
+   "name": "Trastuzumab deruxtecan 5.4 mg/kg q3w",
+   "short": "T-DXd (STATICE)",
+   "drugs": [
+    "trastuzumab_deruxtecan"
+   ],
+   "drug_classes": [
+    "adc_her2"
+   ],
+   "gate": {
+    "her2": [
+     "3+",
+     "2+amp",
+     "2+",
+     "1+"
+    ]
+   },
+   "trials": [
+    "STATICE / NCCH1615",
+    "↳ STATICE toxicity",
+    "DESTINY-PanTumor02 endometrial cohort"
+   ],
+   "tox_ref": {
+    "trial": "STATICE"
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "HER2-high 13.3 mo (8.8–NR); HER2-low not reached (9.8–NR)",
+    "evidence_strength": "phase2",
+    "trial": "STATICE / NCCH1615"
+   },
+   "pfs": {
+    "text": "HER2-high 6.2 mo, ORR 54.5% (32.2–75.6); HER2-low (IHC 1+, n=10) 6.7 mo, ORR 70.0% (34.8–93.3)"
+   },
+   "tier": 6,
+   "evidence_basis": "histotype_single_arm",
+   "qualifiers": [
+    "CS-only trial — the strongest UCS-specific evidence in the disease; HER2 by gastroesophageal criteria, IHC ≥1+, FISH not required",
+    "ILD/pneumonitis 27% (G3 3%), not independently adjudicated; 21% at the 5.4 mg/kg dose now used — quote this, not the 10–15% pooled figure"
+   ],
+   "prefer_when": [
+    {
+     "flag": "her2",
+     "in": [
+      "3+",
+      "2+amp",
+      "2+",
+      "1+"
+     ],
+     "reason": "STATICE responses at IHC 1+ as well as 2+/3+"
+    }
+   ],
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_sl_pembro_mono",
+   "setting": "second_line",
+   "name": "Pembrolizumab 200 mg q3w (MSI-H / dMMR)",
+   "short": "Pembrolizumab (KEYNOTE-158)",
+   "drugs": [
+    "pembrolizumab"
+   ],
+   "drug_classes": [
+    "io"
+   ],
+   "gate": {
+    "mmr": [
+     "dMMR"
+    ]
+   },
+   "trials": [
+    "KEYNOTE-158 endometrial cohort"
+   ],
+   "tox_ref": {
+    "trial": "KEYNOTE-158"
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "Not reached",
+    "evidence_strength": "phase2",
+    "trial": "KEYNOTE-158 endometrial cohort"
+   },
+   "pfs": {
+    "text": "13.1 mo; ORR 48% (37–60)"
+   },
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "caution_default": {
+    "reason": "CS status not reported: cohort D excluded 'sarcomas and mesenchymal tumors' without naming carcinosarcoma — exclusion is inferential"
+   },
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_sl_dostar_mono",
+   "setting": "second_line",
+   "name": "Dostarlimab monotherapy",
+   "short": "Dostarlimab (GARNET)",
+   "drugs": [
+    "dostarlimab"
+   ],
+   "drug_classes": [
+    "io"
+   ],
+   "gate": {},
+   "trials": [
+    "GARNET A1"
+   ],
+   "tox_ref": {
+    "trial": "GARNET (",
+    "arm": "cohort A1 dMMR/MSI-H"
+   },
+   "os": {
+    "benefit": "excluded",
+    "median": "—",
+    "evidence_strength": "excluded_from_trials",
+    "trial": "GARNET A1"
+   },
+   "pfs": {
+    "text": "dMMR ORR 43.5% (34.0–53.4) — non-CS"
+   },
+   "tier": 7,
+   "evidence_basis": "excluded_from_trial",
+   "exclude_default": {
+    "reason": "Carcinosarcoma excluded from GARNET: 'all endometrial cancer histologies allowed except endometrial sarcoma (including carcinosarcoma)'"
+   },
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_sl_lenpem",
+   "setting": "second_line",
+   "name": "Lenvatinib + pembrolizumab",
+   "short": "Lenvatinib + pembrolizumab (KEYNOTE-775)",
+   "drugs": [
+    "lenvatinib",
+    "pembrolizumab"
+   ],
+   "drug_classes": [
+    "vegf_tki",
+    "io"
+   ],
+   "gate": {},
+   "trials": [
+    "KEYNOTE-775 / Study 309"
+   ],
+   "tox_ref": {
+    "trial": "KEYNOTE-775 (",
+    "arm": "lenvatinib + pembrolizumab"
+   },
+   "os": {
+    "benefit": "excluded",
+    "median": "Trial-wide 18.0 vs 12.2 mo, HR 0.70 (0.58–0.83) — CS excluded",
+    "evidence_strength": "excluded_from_trials",
+    "trial": "KEYNOTE-775 / Study 309"
+   },
+   "pfs": {
+    "text": "Nearest CS signal: 12-patient retrospective series, 3 PR, 4 SD"
+   },
+   "tier": 7,
+   "evidence_basis": "excluded_from_trial",
+   "exclude_default": {
+    "reason": "Carcinosarcoma excluded from KEYNOTE-775: the protocol names 'carcinosarcoma (malignant mixed mullerian tumor)'; the FDA approval does not specify histology — label-level use is extrapolation across an exclusion criterion"
+   },
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_sl_sg",
+   "setting": "second_line",
+   "name": "Sacituzumab govitecan",
+   "short": "Sacituzumab govitecan (Santin 2026)",
+   "drugs": [
+    "sacituzumab_govitecan"
+   ],
+   "drug_classes": [
+    "adc_trop2"
+   ],
+   "gate": {},
+   "trials": [
+    "Sacituzumab govitecan",
+    "TROPiCS-03 endometrial analysis"
+   ],
+   "tox_ref": {
+    "trial": "Sacituzumab govitecan phase II ("
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "Overall 17.5 mo",
+    "evidence_strength": "phase2",
+    "trial": "Sacituzumab govitecan"
+   },
+   "pfs": {
+    "text": "CS ORR 9% (1/11) vs serous 33%, endometrioid 36% (P=.32); overall PFS 5.5 mo, ORR 28%"
+   },
+   "tier": 6,
+   "evidence_basis": "histotype_subgroup",
+   "caution_default": {
+    "reason": "Disappointing CS result (1/11) with lower TROP2 protein in CS; TROPiCS-03 excluded carcinosarcoma; G3–4 TEAE 88%"
+   },
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_sl_durva_ola",
+   "setting": "second_line",
+   "name": "Durvalumab + olaparib",
+   "short": "Durvalumab + olaparib (DOMEC)",
+   "drugs": [
+    "durvalumab",
+    "olaparib"
+   ],
+   "drug_classes": [
+    "io",
+    "parpi"
+   ],
+   "gate": {},
+   "trials": [
+    "DOMEC"
+   ],
+   "tox_ref": {
+    "trial": "DOMEC"
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "8.0 mo",
+    "evidence_strength": "phase2",
+    "trial": "DOMEC"
+   },
+   "pfs": {
+    "text": "3.4 mo; ORR 16%; PFS6 34% (target ≥50%)"
+   },
+   "tier": 6,
+   "evidence_basis": "included_not_broken_out",
+   "caution_default": {
+    "reason": "Primary endpoint not met; CS 7/50, no CS efficacy numbers"
+   },
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_sl_pazopanib",
+   "setting": "second_line",
+   "name": "Pazopanib",
+   "short": "Pazopanib (GOG)",
+   "drugs": [
+    "pazopanib"
+   ],
+   "drug_classes": [
+    "vegf_tki"
+   ],
+   "gate": {},
+   "trials": [
+    "Pazopanib"
+   ],
+   "tox_ref": {
+    "trial": "Pazopanib GOG phase II ("
+   },
+   "os": {
+    "benefit": "negative",
+    "median": "8.7 mo",
+    "evidence_strength": "phase2",
+    "trial": "Pazopanib"
+   },
+   "pfs": {
+    "text": "2.0 mo; ORR 0% (90% CI 0–14.6)"
+   },
+   "tier": 7,
+   "evidence_basis": "histotype_single_arm",
+   "exclude_default": {
+    "reason": "CS-only trial, negative: ORR 0%, 'minimal activity'"
+   },
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_sl_sactmt",
+   "setting": "second_line",
+   "name": "Sacituzumab tirumotecan 4 mg/kg q2w",
+   "short": "Sac-TMT (TroFuse-005)",
+   "drugs": [
+    "sacituzumab_tirumotecan"
+   ],
+   "drug_classes": [
+    "adc_trop2"
+   ],
+   "gate": {
+    "prior_platinum": true,
+    "prior_io": true
+   },
+   "trials": [
+    "TroFuse-005 / MK-2870-005 / ENGOT-en23 / GOG-3095"
+   ],
+   "tox_ref": null,
+   "os": {
+    "benefit": "press_release",
+    "median": "Met (press release 2026-05-18) — no HR, no CS subgroup",
+    "evidence_strength": "press_release_only",
+    "trial": "TroFuse-005 / MK-2870-005 / ENGOT-en23 / GOG-3095"
+   },
+   "pfs": {
+    "text": "Met (press release)"
+   },
+   "tier": 6,
+   "evidence_basis": "press_release_only",
+   "qualifiers": [
+    "CS explicitly eligible — 'the readout that matters' for TROP2 in carcinosarcoma"
+   ],
+   "caution_default": {
+    "reason": "Press release only: no HR, no publication, no FDA label"
+   },
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_sl_tc_trastuzumab",
+   "setting": "second_line",
+   "name": "Carboplatin–paclitaxel + trastuzumab (HER2-positive)",
+   "short": "TC + trastuzumab (extrapolated)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "trastuzumab"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "anti_her2"
+   ],
+   "gate": {
+    "her2": [
+     "3+",
+     "2+amp"
+    ]
+   },
+   "trials": [
+    "Carbo/paclitaxel + trastuzumab"
+   ],
+   "tox_ref": {
+    "trial": "Fader NRG-GOG 3005 (",
+    "arm": "CP + trastuzumab"
+   },
+   "os": {
+    "benefit": "excluded",
+    "median": "CS not eligible for NRG-GOG 3005 (serous only)",
+    "evidence_strength": "excluded_from_trials",
+    "trial": "Carbo/paclitaxel + trastuzumab"
+   },
+   "pfs": {
+    "text": "—"
+   },
+   "tier": 7,
+   "evidence_basis": "excluded_from_trial",
+   "exclude_default": {
+    "reason": "Carcinosarcoma excluded from Fader (NRG-GOG 3005): used in HER2+ carcinosarcoma by extrapolation from the serous component — explicitly an extrapolation; NRG-GY026 will settle it"
+   },
+   "histology": "ucs"
+  },
+  {
+   "id": "ucs_sl_tc_bev",
+   "setting": "second_line",
+   "name": "Carboplatin–paclitaxel + bevacizumab",
+   "short": "TC + bevacizumab (extrapolated)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "bevacizumab"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "anti_vegf"
+   ],
+   "gate": {},
+   "trials": [
+    "Carbo/paclitaxel + bevacizumab"
+   ],
+   "tox_ref": {
+    "trial": "GOG-86P (",
+    "arm": "PC + bevacizumab"
+   },
+   "os": {
+    "benefit": "excluded",
+    "median": "p53-overexpressing (non-CS): PFS 0.46 (0.26–0.88), OS 0.31 (0.16–0.62)",
+    "evidence_strength": "excluded_from_trials",
+    "trial": "Carbo/paclitaxel + bevacizumab"
+   },
+   "pfs": {
+    "text": "—"
+   },
+   "tier": 7,
+   "evidence_basis": "excluded_from_trial",
+   "exclude_default": {
+    "reason": "Carcinosarcoma excluded from GOG-0086P: the ~90% p53abn rate is the usual justification, but this is extrapolation across an exclusion criterion"
+   },
+   "histology": "ucs"
+  }
+ ]
+}

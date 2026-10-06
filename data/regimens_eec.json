@@ -1,0 +1,2260 @@
+{
+ "_meta": {
+  "histology": "eec",
+  "label": "Endometrioid carcinoma",
+  "source_note": "EMCA_Endometrioid_Algorithm_v1.2",
+  "built": "2026-10-06",
+  "settings": [
+   {
+    "key": "adjuvant",
+    "label": "Adjuvant after hysterectomy (stage I–IVA)"
+   },
+   {
+    "key": "first_line",
+    "label": "First-line systemic: stage III–IV or first recurrence, chemotherapy-naive for advanced disease"
+   },
+   {
+    "key": "maintenance",
+    "label": "Maintenance after response to first-line platinum"
+   },
+   {
+    "key": "second_line",
+    "label": "Second line and beyond (after platinum ± PD-(L)1)"
+   },
+   {
+    "key": "fertility_sparing",
+    "label": "Fertility-sparing (primary non-surgical)"
+   }
+  ],
+  "tiers": {
+   "1": "OS benefit, replicated (≥2 randomised trials or a class effect confirmed by non-inferiority)",
+   "2": "OS benefit, single phase 3 (CI excludes 1 as printed), or non-inferior to a regimen that has one",
+   "3": "OS benefit only in a subgroup (molecular post hoc, randomised phase II) or borderline",
+   "4": "PFS / RFS / local-control benefit only; no OS benefit shown",
+   "5": "No efficacy difference vs the comparator (non-inferior / NS), or the comparator that lost: chosen on toxicity or when the better option cannot be given",
+   "6": "No phase 3: single-arm, randomised phase II without an OS result, observational, extrapolated, or press release only",
+   "7": "Do not use: OS worse than the alternative, negative trial, or histotype excluded from the pivotal trial"
+  },
+  "tier_reading": "Endometrioid is the majority of every all-histology trial (54–71%), so trial-wide (ITT) results and the prespecified dMMR / pMMR strata set the tier; an MMR stratum, when it disagrees with the ITT, wins for a patient with known MMR. Histology forest plots are shown as qualifiers. PORTEC-3 molecular classes are post hoc: they add fit / caution flags and lift p53abn stage I–II chemoradiation to tier 3, but do not move other tiers.",
+  "scope": "Efficacy figures copied from data/trials_*.json (vault notes, full-text checked 2026-09-15); toxicity resolved from data/tox.json via tox_ref {trial, arm}; label rules from data/labels.json and data/drug_rules.json. 'base' inherits every field the record does not set from the named endometrioid record."
+ },
+ "regimens": [
+  {
+   "id": "adj_obs",
+   "setting": "adjuvant",
+   "name": "Observation (no adjuvant therapy)",
+   "short": "Observation",
+   "drugs": [],
+   "drug_classes": [],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II"
+    ]
+   },
+   "trials": [
+    "PORTEC-1",
+    "GOG-99",
+    "ASTEC / EN.5"
+   ],
+   "tox_ref": null,
+   "os": {
+    "benefit": "no_difference",
+    "median": "No OS difference vs pelvic RT: PORTEC-1 5-yr 81% (RT) vs 85% (p=0.31); GOG-99 4-yr 92% vs 86%, RH 0.86 (90% CI 0.57–1.29); ASTEC 5-yr 84% both arms, HR 1.05 (0.75–1.48)",
+    "evidence_strength": "replicated"
+   },
+   "pfs": {
+    "text": "More locoregional recurrence without RT: PORTEC-1 5-yr 14% vs 4%; GOG-99 2-yr 12% vs 3% (HIR subgroup 26% vs 6%)"
+   },
+   "tier": 5,
+   "evidence_basis": "itt_all_histology",
+   "qualifiers": [
+    "PORTEC-1: survival after relapse was better in the observation arm (p=0.02); vaginal relapse is salvageable (2-yr survival 79%, vs 21% after pelvic or distant relapse)",
+    "No randomised trial enrolled low-risk disease: PORTEC-1 took G1 ≥50% MI, G2 any MI, G3 <50% MI"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut"
+     ],
+     "reason": "POLEmut: 10-yr RFS 100% vs 96.4% across PORTEC-3 arms — de-escalation candidate"
+    },
+    {
+     "flag": "grade",
+     "in": [
+      "1",
+      "2"
+     ],
+     "reason": "Grade 1–2: the population in which RT bought local control only (PORTEC-1, GOG-99)"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "p53abn"
+     ],
+     "effect": "caution",
+     "reason": "p53abn: chemotherapy benefit whatever the histology (PORTEC-3 post hoc RFS HR 0.42, 0.24–0.74)"
+    },
+    {
+     "flag": "stage_group",
+     "in": [
+      "II"
+     ],
+     "effect": "caution",
+     "reason": "Stage II: GOG-99 enrolled occult stage II only; ASTEC and PORTEC-2 enrolled IIA"
+    },
+    {
+     "flag": "all",
+     "all": [
+      {
+       "flag": "grade",
+       "in": [
+        "3"
+       ]
+      },
+      {
+       "flag": "mi",
+       "in": [
+        "ge50"
+       ]
+      }
+     ],
+     "effect": "caution",
+     "reason": "G3 with ≥50% MI was outside PORTEC-1 (high-risk; PORTEC-3 population)"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "adj_vbt",
+   "setting": "adjuvant",
+   "name": "Vaginal brachytherapy (21 Gy HDR in 3 fractions)",
+   "short": "VBT",
+   "drugs": [],
+   "drug_classes": [
+    "radiotherapy"
+   ],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II"
+    ]
+   },
+   "trials": [
+    "PORTEC-2"
+   ],
+   "tox_ref": {
+    "trial": "PORTEC-2 (",
+    "arm": "VBT"
+   },
+   "os": {
+    "benefit": "no_difference",
+    "hr": "1.17",
+    "ci95": [
+     "0.69",
+     "1.98"
+    ],
+    "median": "5-yr 84.8% (VBT) vs 79.6% (EBRT)",
+    "evidence_strength": "single_phase3",
+    "trial": "PORTEC-2"
+   },
+   "pfs": {
+    "text": "5-yr vaginal recurrence 1.8% vs 1.6%, HR 0.78 (0.17–3.49); locoregional 5.1% vs 2.1%; DFS HR 1.09 (0.66–1.78)"
+   },
+   "tier": 4,
+   "evidence_basis": "itt_all_histology",
+   "qualifiers": [
+    "Tier 4 by non-inferiority: vaginal control equal to pelvic EBRT, whose benefit over observation is local control only (PORTEC-1, GOG-99, ASTEC)",
+    "Same vaginal control as pelvic EBRT with far less GI toxicity: G1–2 12.6% vs 53.8%",
+    "PORTEC-2 population: stage I/IIA high-intermediate risk; serous and clear cell excluded (central review non-endometrioid 3%)"
+   ],
+   "prefer_when": [
+    {
+     "flag": "grade",
+     "in": [
+      "1",
+      "2",
+      "3"
+     ],
+     "reason": "High-intermediate-risk stage I/IIA: PORTEC-2 is the trial for this patient"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "p53abn"
+     ],
+     "effect": "caution",
+     "reason": "p53abn: chemotherapy benefit whatever the histology (PORTEC-3 post hoc RFS HR 0.42, 0.24–0.74)"
+    },
+    {
+     "flag": "lvsi",
+     "in": [
+      "substantial"
+     ],
+     "effect": "caution",
+     "reason": "VBT leaves the pelvic nodes untreated: PORTEC-2 pelvic recurrence 5.1% (VBT) vs 2.1% (EBRT)"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "adj_ebrt",
+   "setting": "adjuvant",
+   "name": "Pelvic external-beam RT (46 Gy)",
+   "short": "Pelvic EBRT",
+   "drugs": [],
+   "drug_classes": [
+    "radiotherapy"
+   ],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II",
+     "III"
+    ]
+   },
+   "trials": [
+    "PORTEC-1",
+    "GOG-99",
+    "ASTEC / EN.5",
+    "PORTEC-2"
+   ],
+   "tox_ref": {
+    "trial": "PORTEC-1 (",
+    "arm": "pelvic RT"
+   },
+   "os": {
+    "benefit": "no_difference",
+    "hr": "1.05",
+    "ci95": [
+     "0.75",
+     "1.48"
+    ],
+    "median": "ASTEC 5-yr 84% both arms; meta-analysis HR 1.04 (0.84–1.29) — excludes >3% absolute OS benefit; PORTEC-1 81% vs 85%; GOG-99 RH 0.86 (90% CI 0.57–1.29)",
+    "evidence_strength": "replicated",
+    "trial": "ASTEC / EN.5"
+   },
+   "pfs": {
+    "text": "Locoregional recurrence: PORTEC-1 5-yr 4% vs 14%; GOG-99 recurrence RH 0.42 (90% CI 0.25–0.73), HIR 6% vs 26%; ASTEC isolated vaginal/pelvic 3.2% vs 6.1%, HR 0.46 (0.24–0.89)"
+   },
+   "tier": 4,
+   "evidence_basis": "itt_all_histology",
+   "tier_rules": [
+    {
+     "when": {
+      "stage_group": [
+       "III"
+      ]
+     },
+     "tier": 7,
+     "reason": "Stage III: pelvic RT alone was the PORTEC-3 control arm that lost OS to chemoradiation (HR 0.70, 0.51–0.97)"
+    }
+   ],
+   "qualifiers": [
+    "PORTEC-2: VBT gives the same vaginal control with GI toxicity G1–2 12.6% vs 53.8%"
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "p53abn"
+     ],
+     "effect": "caution",
+     "reason": "p53abn: chemotherapy benefit whatever the histology (PORTEC-3 post hoc RFS HR 0.42, 0.24–0.74)"
+    },
+    {
+     "flag": "gi_fistula_or_obstruction_risk",
+     "effect": "caution",
+     "reason": "Pelvic RT: GI toxicity G1–2 53.8% in the PORTEC-2 EBRT arm"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "adj_chemort",
+   "setting": "adjuvant",
+   "name": "Chemoradiation: pelvic RT 48.6 Gy + cisplatin 50 ×2 → carboplatin AUC5 + paclitaxel 175 ×4",
+   "short": "ChemoRT (PORTEC-3)",
+   "drugs": [
+    "cisplatin",
+    "carboplatin",
+    "paclitaxel"
+   ],
+   "drug_classes": [
+    "radiotherapy",
+    "platinum",
+    "taxane"
+   ],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II",
+     "III"
+    ]
+   },
+   "trials": [
+    "PORTEC-3",
+    "↳ PORTEC-3 p53abn",
+    "↳ PORTEC-3 MMRd",
+    "↳ PORTEC-3 NSMP",
+    "↳ PORTEC-3 POLEmut",
+    "GOG-258"
+   ],
+   "tox_ref": {
+    "trial": "PORTEC-3 (",
+    "arm": "chemoradiotherapy"
+   },
+   "os": {
+    "benefit": "positive",
+    "hr": "0.70",
+    "ci95": [
+     "0.51",
+     "0.97"
+    ],
+    "median": "5-yr 81.4% vs 76.1% (vs pelvic RT alone)",
+    "evidence_strength": "single_phase3",
+    "trial": "PORTEC-3"
+   },
+   "pfs": {
+    "text": "5-yr FFS 76.5% vs 69.1%; HR 0.70 (0.52–0.94)"
+   },
+   "tier": 2,
+   "evidence_basis": "itt_all_histology",
+   "tier_rules": [
+    {
+     "when": {
+      "stage_group": [
+       "I",
+       "II"
+      ],
+      "mol_class": [
+       "p53abn"
+      ]
+     },
+     "tier": 3,
+     "reason": "Stage I–II: trial-wide OS 0.84 (0.52–1.38), NS; the benefit sits in p53abn (post hoc OS HR 0.52, 0.30–0.91)"
+    },
+    {
+     "when": {
+      "stage_group": [
+       "I",
+       "II"
+      ]
+     },
+     "tier": 5,
+     "reason": "Stage I–II: OS 0.84 (0.52–1.38), NS (PORTEC-3)"
+    }
+   ],
+   "qualifiers": [
+    "PORTEC-3 was 71% endometrioid; no endometrioid-only HR exists",
+    "GOG-258 (stage III–IVA): this regimen vs carboplatin–paclitaxel ×6, RFS HR 0.90 (90% CI 0.74–1.10), NS; less vaginal (2% vs 7%) and nodal (11% vs 20%) but more distant (27% vs 21%) recurrence"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "p53abn"
+     ],
+     "reason": "PORTEC-3 p53abn (post hoc): 10-yr RFS 52.6% vs 37.0%, HR 0.42 (0.24–0.74); OS 52.7% vs 36.6%, HR 0.52 (0.30–0.91)"
+    },
+    {
+     "flag": "all",
+     "all": [
+      {
+       "flag": "mol_class",
+       "in": [
+        "NSMP"
+       ]
+      },
+      {
+       "flag": "er_pr",
+       "in": [
+        "negative"
+       ]
+      }
+     ],
+     "reason": "PORTEC-3 NSMP ER-negative (post hoc): recurrences 2/6 vs 5/7 — aggressive, benefit likely"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "MMRd"
+     ],
+     "effect": "caution",
+     "reason": "PORTEC-3 MMRd (post hoc): 10-yr RFS 72.9% vs 76.4%, HR 1.13 (0.59–2.15); OS 1.34 (0.71–2.55) — no benefit from added chemotherapy"
+    },
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut"
+     ],
+     "effect": "caution",
+     "reason": "PORTEC-3 POLEmut (post hoc): 10-yr RFS 100% vs 96.4%, 1 recurrence in 51 — excellent in both arms, de-escalation candidate"
+    },
+    {
+     "flag": "all",
+     "all": [
+      {
+       "flag": "mol_class",
+       "in": [
+        "NSMP"
+       ]
+      },
+      {
+       "flag": "er_pr",
+       "in": [
+        "positive"
+       ]
+      }
+     ],
+     "effect": "caution",
+     "reason": "PORTEC-3 NSMP ER-positive (post hoc): OS 81.8% vs 82.3% — no OS gain from chemotherapy"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "adj_vbt_tc3",
+   "setting": "adjuvant",
+   "name": "Vaginal cuff brachytherapy → carboplatin AUC6 + paclitaxel 175 ×3",
+   "short": "VBT + TC ×3 (GOG-249)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel"
+   ],
+   "drug_classes": [
+    "radiotherapy",
+    "platinum",
+    "taxane"
+   ],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II"
+    ]
+   },
+   "trials": [
+    "GOG-249"
+   ],
+   "tox_ref": {
+    "trial": "GOG-249 (",
+    "arm": "VCB + carboplatin/paclitaxel"
+   },
+   "os": {
+    "benefit": "no_difference",
+    "median": "60-mo OS 0.85 vs 0.87 (vs pelvic RT)",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-249"
+   },
+   "pfs": {
+    "text": "60-mo RFS 0.76 vs 0.76; HR 0.92 (90% CL 0.69–1.23), NS"
+   },
+   "tier": 5,
+   "evidence_basis": "itt_all_histology",
+   "caution_default": {
+    "reason": "More nodal recurrences than pelvic RT (pelvic/para-aortic 9% vs 4%)"
+   },
+   "qualifiers": [
+    "Endometrioid forest plot: RFS 1.04 (0.61–1.78); high-grade endometrioid 0.86 (0.45–1.66) — exploratory"
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "MMRd"
+     ],
+     "effect": "caution",
+     "reason": "PORTEC-3 MMRd (post hoc): 10-yr RFS 72.9% vs 76.4%, HR 1.13 (0.59–2.15); OS 1.34 (0.71–2.55) — no benefit from added chemotherapy"
+    },
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut"
+     ],
+     "effect": "caution",
+     "reason": "PORTEC-3 POLEmut (post hoc): 10-yr RFS 100% vs 96.4%, 1 recurrence in 51 — excellent in both arms, de-escalation candidate"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "adj_tc6",
+   "setting": "adjuvant",
+   "name": "Carboplatin + paclitaxel ×6, no RT",
+   "short": "TC ×6 (GOG-258)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane"
+   ],
+   "gate": {
+    "stage_group": [
+     "III",
+     "IV"
+    ]
+   },
+   "trials": [
+    "GOG-258"
+   ],
+   "tox_ref": {
+    "trial": "GOG-258 (",
+    "arm": "chemotherapy only"
+   },
+   "os": {
+    "benefit": "immature",
+    "median": "Immature (GOG-258)",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-258"
+   },
+   "pfs": {
+    "text": "5-yr RFS 58% vs 59% (chemoradiation); HR 0.90 (90% CI 0.74–1.10) for chemoradiation vs chemotherapy, NS"
+   },
+   "tier": 5,
+   "evidence_basis": "itt_all_histology",
+   "qualifiers": [
+    "Recurrence pattern: vaginal 7% vs 2% and pelvic/para-aortic nodal 20% vs 11% without RT; distant 21% vs 27%",
+    "GOG-258 population: stage III/IVA (IVB was not eligible)"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "p53abn"
+     ],
+     "reason": "PORTEC-3 p53abn (post hoc): 10-yr RFS 52.6% vs 37.0%, HR 0.42 (0.24–0.74); OS 52.7% vs 36.6%, HR 0.52 (0.30–0.91)"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "MMRd"
+     ],
+     "effect": "caution",
+     "reason": "PORTEC-3 MMRd (post hoc): 10-yr RFS 72.9% vs 76.4%, HR 1.13 (0.59–2.15); OS 1.34 (0.71–2.55) — no benefit from added chemotherapy"
+    },
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut"
+     ],
+     "effect": "caution",
+     "reason": "PORTEC-3 POLEmut (post hoc): 10-yr RFS 100% vs 96.4%, 1 recurrence in 51 — excellent in both arms, de-escalation candidate"
+    },
+    {
+     "flag": "stage",
+     "in": [
+      "IVB"
+     ],
+     "effect": "exclude",
+     "reason": "GOG-258 enrolled stage III/IVA; IVB belongs to first-line systemic therapy"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "adj_ap",
+   "setting": "adjuvant",
+   "name": "Doxorubicin 60 + cisplatin 50 q3w ×7 (+1 cisplatin)",
+   "short": "AP ×7 (GOG-122)",
+   "drugs": [
+    "doxorubicin",
+    "cisplatin"
+   ],
+   "drug_classes": [
+    "anthracycline",
+    "platinum"
+   ],
+   "gate": {
+    "stage_group": [
+     "III",
+     "IV"
+    ],
+    "residual": [
+     "none",
+     "le2"
+    ]
+   },
+   "trials": [
+    "GOG-122"
+   ],
+   "tox_ref": {
+    "trial": "GOG-122 (",
+    "arm": "AP chemotherapy"
+   },
+   "os": {
+    "benefit": "positive",
+    "hr": "0.68",
+    "ci95": [
+     "0.52",
+     "0.89"
+    ],
+    "median": "5-yr 55% vs 42% (vs whole-abdominal RT); stage-adjusted death HR",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-122"
+   },
+   "pfs": {
+    "text": "5-yr PFS 50% vs 38%; HR 0.71 (0.55–0.91)"
+   },
+   "tier": 2,
+   "evidence_basis": "itt_all_histology",
+   "qualifiers": [
+    "The comparator (whole-abdominal RT) is no longer used; GOG-258 and PORTEC-3 use carboplatin–paclitaxel",
+    "Benefit consistent across histology subgroups, weaker only in serous"
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "adj_wai",
+   "setting": "adjuvant",
+   "name": "Whole-abdominal irradiation",
+   "short": "WAI (GOG-122 control)",
+   "drugs": [],
+   "drug_classes": [
+    "radiotherapy"
+   ],
+   "gate": {
+    "stage_group": [
+     "III",
+     "IV"
+    ]
+   },
+   "trials": [
+    "GOG-122"
+   ],
+   "tox_ref": {
+    "trial": "GOG-122 (",
+    "arm": "WAI"
+   },
+   "os": {
+    "benefit": "negative",
+    "hr": "0.68",
+    "ci95": [
+     "0.52",
+     "0.89"
+    ],
+    "median": "5-yr 42% vs 55% with doxorubicin–cisplatin (HR is AP vs WAI)",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-122"
+   },
+   "pfs": {
+    "text": "5-yr PFS 38% vs 50%"
+   },
+   "tier": 7,
+   "evidence_basis": "itt_all_histology",
+   "exclude_default": {
+    "reason": "OS worse than doxorubicin–cisplatin (GOG-122 death HR 0.68, 0.52–0.89)"
+   },
+   "histology": "eec"
+  },
+  {
+   "id": "adj_rt_seq",
+   "setting": "adjuvant",
+   "name": "Pelvic RT ± brachytherapy, then sequential platinum-based chemotherapy",
+   "short": "RT → chemo (NSGO/MaNGO)",
+   "drugs": [],
+   "drug_classes": [
+    "radiotherapy",
+    "platinum"
+   ],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II",
+     "III"
+    ],
+    "residual": [
+     "none"
+    ]
+   },
+   "trials": [
+    "NSGO-9501/EORTC-55991 + MaNGO ILIADE-III"
+   ],
+   "tox_ref": null,
+   "os": {
+    "benefit": "trend",
+    "hr": "0.69",
+    "ci95": [
+     "0.46",
+     "1.03"
+    ],
+    "median": "5-yr 82% vs 75% (trend, P=.07); CSS HR 0.55 (0.35–0.88)",
+    "evidence_strength": "pooled_two_rcts",
+    "trial": "NSGO-9501/EORTC-55991 + MaNGO ILIADE-III"
+   },
+   "pfs": {
+    "text": "5-yr PFS 78% vs 69%; HR 0.63 (0.44–0.89) pooled; NSGO/EORTC alone 0.64 (0.41–0.99)"
+   },
+   "tier": 4,
+   "evidence_basis": "itt_all_histology",
+   "qualifiers": [
+    "Endometrioid subgroup (n=384, unplanned): PFS 0.53 (0.34–0.83); OS 0.60 (0.36–1.00) — exploratory",
+    "The chemotherapy regimens are not specified in the vault row, so no drug labels or toxicity figure are attached"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "p53abn"
+     ],
+     "reason": "PORTEC-3 p53abn (post hoc): 10-yr RFS 52.6% vs 37.0%, HR 0.42 (0.24–0.74); OS 52.7% vs 36.6%, HR 0.52 (0.30–0.91)"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "MMRd"
+     ],
+     "effect": "caution",
+     "reason": "PORTEC-3 MMRd (post hoc): 10-yr RFS 72.9% vs 76.4%, HR 1.13 (0.59–2.15); OS 1.34 (0.71–2.55) — no benefit from added chemotherapy"
+    },
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut"
+     ],
+     "effect": "caution",
+     "reason": "PORTEC-3 POLEmut (post hoc): 10-yr RFS 100% vs 96.4%, 1 recurrence in 51 — excellent in both arms, de-escalation candidate"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "adj_cap",
+   "setting": "adjuvant",
+   "name": "CAP: cyclophosphamide 333 + doxorubicin 40 + cisplatin 50 q4w ≥3",
+   "short": "CAP (JGOG-2033)",
+   "drugs": [
+    "cyclophosphamide",
+    "doxorubicin",
+    "cisplatin"
+   ],
+   "drug_classes": [
+    "alkylator",
+    "anthracycline",
+    "platinum"
+   ],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II",
+     "III"
+    ],
+    "mi": [
+     "ge50"
+    ]
+   },
+   "trials": [
+    "JGOG-2033"
+   ],
+   "tox_ref": {
+    "trial": "JGOG-2033 (",
+    "arm": "CAP"
+   },
+   "os": {
+    "benefit": "no_difference",
+    "median": "86.7% vs 85.3% (vs pelvic RT ≥40 Gy), NS",
+    "evidence_strength": "single_phase3",
+    "trial": "JGOG-2033"
+   },
+   "pfs": {
+    "text": "5-yr PFS 81.8% vs 83.5%, NS"
+   },
+   "tier": 5,
+   "evidence_basis": "histotype_trial",
+   "qualifiers": [
+    "Endometrioid-only trial (>50% MI, FIGO 1988 IC–IIIC)",
+    "HIR subgroup (n=120): PFS 0.44 (0.20–0.97), OS 0.24 (0.09–0.69) — subgroup, not primary",
+    "CAP is no longer used"
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "adj_pembro_chemo",
+   "setting": "adjuvant",
+   "name": "Carboplatin–paclitaxel (± RT) + pembrolizumab",
+   "short": "Chemo + pembrolizumab (KEYNOTE-B21)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "pembrolizumab"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "io"
+   ],
+   "gate": {
+    "stage_group": [
+     "I",
+     "II",
+     "III",
+     "IV"
+    ]
+   },
+   "trials": [
+    "KEYNOTE-B21"
+   ],
+   "tox_ref": {
+    "trial": "KEYNOTE-B21 (",
+    "arm": "pembrolizumab + chemo"
+   },
+   "os": {
+    "benefit": "immature",
+    "median": "Immature",
+    "evidence_strength": "single_phase3",
+    "trial": "KEYNOTE-B21"
+   },
+   "pfs": {
+    "text": "ITT DFS 1.02 (0.79–1.32) — negative; 2-yr DFS 75% vs 76%. dMMR 0.31 (0.14–0.69); pMMR 1.20 (0.91–1.57). Endometrioid forest plot 0.75 (0.50–1.11)"
+   },
+   "tier": 7,
+   "evidence_basis": "mmr_stratum",
+   "tier_rules": [
+    {
+     "when": {
+      "mmr": [
+       "dMMR"
+      ]
+     },
+     "tier": 4,
+     "reason": "dMMR DFS 0.31 (0.14–0.69) — a subgroup of a trial that failed its primary endpoint: hypothesis-generating only"
+    }
+   ],
+   "qualifiers": [
+    "KEYNOTE-B21 entered stage I–II endometrioid only if p53abn; stage I–II NSMP/MMRd endometrioid has no adjuvant immunotherapy data"
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut"
+     ],
+     "effect": "exclude",
+     "reason": "POLEmut was excluded from KEYNOTE-B21"
+    },
+    {
+     "flag": "all",
+     "all": [
+      {
+       "flag": "stage_group",
+       "in": [
+        "I",
+        "II"
+       ]
+      },
+      {
+       "flag": "mol_class",
+       "in": [
+        "POLEmut",
+        "MMRd",
+        "NSMP",
+        "unknown"
+       ]
+      }
+     ],
+     "effect": "exclude",
+     "reason": "KEYNOTE-B21 admitted stage I–II endometrioid only if p53abn"
+    },
+    {
+     "flag": "stage",
+     "in": [
+      "IVB"
+     ],
+     "effect": "exclude",
+     "reason": "KEYNOTE-B21 enrolled stage III/IVA"
+    }
+   ],
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_tc",
+   "setting": "first_line",
+   "name": "Carboplatin AUC 5–6 + paclitaxel 175 q3w",
+   "short": "TC (GOG-209)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-209",
+    "GOG-177"
+   ],
+   "tox_ref": {
+    "trial": "GOG-209 (",
+    "arm": "carboplatin/paclitaxel (TC)"
+   },
+   "os": {
+    "benefit": "non_inferior",
+    "hr": "1.002",
+    "ci90": [
+     "0.90",
+     "1.12"
+    ],
+    "median": "37 vs 41 mo (vs TAP, which had beaten AP on OS in GOG-177: HR 0.75, 0.57–0.988)",
+    "evidence_strength": "non_inferior_to_os_positive",
+    "trial": "GOG-209"
+   },
+   "pfs": {
+    "text": "13 vs 14 mo; PFS HR 1.032 (vs TAP)"
+   },
+   "tier": 2,
+   "evidence_basis": "itt_all_histology",
+   "tier_rules": [
+    {
+     "when": {
+      "mmr": [
+       "dMMR"
+      ]
+     },
+     "tier": 5,
+     "reason": "dMMR: OS worse than the same backbone + dostarlimab (RUBY dMMR OS HR 0.32, 0.17–0.63) — the backbone alone is for patients who cannot receive a checkpoint inhibitor"
+    },
+    {
+     "when": {
+      "mmr": [
+       "unknown"
+      ]
+     },
+     "tier": 5,
+     "reason": "MMR unknown: trial-wide OS worse than + dostarlimab (RUBY HR 0.69, 0.54–0.89). Record MMR: in pMMR the OS difference was 0.79 (0.60–1.04), NS"
+    }
+   ],
+   "qualifiers": [
+    "Established by non-inferiority to TAP, not by superiority",
+    "GOG-209 grade 1 forest plot: OS HR 0.58 (0.37–0.89) favouring TC — exploratory",
+    "GOG-209 measurable/recurrent subgroup median OS 20.4 mo (vs 113 mo non-measurable, non-recurrent): chemo-naive recurrences only"
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_tap",
+   "setting": "first_line",
+   "name": "TAP: doxorubicin 45 + cisplatin 50 D1, paclitaxel 160 D2 + filgrastim",
+   "short": "TAP (GOG-177)",
+   "drugs": [
+    "doxorubicin",
+    "cisplatin",
+    "paclitaxel",
+    "filgrastim"
+   ],
+   "drug_classes": [
+    "anthracycline",
+    "platinum",
+    "taxane"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-177",
+    "GOG-209"
+   ],
+   "tox_ref": {
+    "trial": "GOG-177 (",
+    "arm": "TAP"
+   },
+   "os": {
+    "benefit": "positive",
+    "hr": "0.75",
+    "ci95": [
+     "0.57",
+     "0.988"
+    ],
+    "median": "15.3 vs 12.3 mo (vs AP)",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-177"
+   },
+   "pfs": {
+    "text": "8.3 vs 5.3 mo; HR 0.60 (0.46–0.78)"
+   },
+   "tier": 2,
+   "evidence_basis": "itt_all_histology",
+   "tier_rules": [
+    {
+     "when": {
+      "mmr": [
+       "dMMR"
+      ]
+     },
+     "tier": 5,
+     "reason": "dMMR: chemotherapy + dostarlimab has the OS benefit (RUBY dMMR OS HR 0.32); no checkpoint-inhibitor trial used TAP"
+    },
+    {
+     "when": {
+      "mmr": [
+       "unknown"
+      ]
+     },
+     "tier": 5,
+     "reason": "MMR unknown: record it — chemotherapy + dostarlimab beat the carboplatin–paclitaxel backbone on OS (RUBY HR 0.69)"
+    }
+   ],
+   "caution_default": {
+    "reason": "More toxic than carboplatin–paclitaxel: discontinuation for toxicity 18% vs 12% and G3–5 thrombocytopenia 23% vs 12% (GOG-209); 5 treatment-related deaths and G3 sensory neuropathy 12% in GOG-177"
+   },
+   "qualifiers": [
+    "GOG-209: carboplatin–paclitaxel non-inferior on OS (HR 1.002) — TAP is the reference, not the default",
+    "GOG-177 was 58–71% recurrent (chemo-naive)"
+   ],
+   "risk_rules": [
+    {
+     "flag": "neuropathy_grade",
+     "gte": 1,
+     "effect": "caution",
+     "reason": "Three-drug regimen with cisplatin and paclitaxel"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_ap",
+   "setting": "first_line",
+   "name": "Doxorubicin 60 + cisplatin 50 q3w",
+   "short": "AP (GOG-107)",
+   "drugs": [
+    "doxorubicin",
+    "cisplatin"
+   ],
+   "drug_classes": [
+    "anthracycline",
+    "platinum"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-107",
+    "GOG-177"
+   ],
+   "tox_ref": {
+    "trial": "GOG-107 (",
+    "arm": "doxorubicin + cisplatin"
+   },
+   "os": {
+    "benefit": "no_difference",
+    "median": "9.0 vs 9.2 mo vs doxorubicin alone, NS (GOG-107); 12.3 vs 15.3 mo vs TAP (GOG-177 OS HR 0.75 favouring TAP)",
+    "evidence_strength": "single_phase3",
+    "trial": "GOG-107"
+   },
+   "pfs": {
+    "text": "5.7 vs 3.8 mo vs doxorubicin; HR 0.736 (0.577–0.939)"
+   },
+   "tier": 7,
+   "evidence_basis": "itt_all_histology",
+   "exclude_default": {
+    "reason": "OS worse than TAP (GOG-177 HR 0.75, 0.57–0.988)"
+   },
+   "histology": "eec"
+  },
+  {
+   "id": "fl_dostar",
+   "setting": "first_line",
+   "name": "Carboplatin–paclitaxel + dostarlimab ×6 → dostarlimab maintenance",
+   "short": "TC + dostarlimab (RUBY)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "dostarlimab"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "io"
+   ],
+   "gate": {},
+   "trials": [
+    "RUBY"
+   ],
+   "tox_ref": {
+    "trial": "RUBY (",
+    "arm": "dostarlimab + CP"
+   },
+   "os": {
+    "benefit": "positive",
+    "hr": "0.69",
+    "ci95": [
+     "0.54",
+     "0.89"
+    ],
+    "median": "44.6 vs 28.2 mo (Powell 2024 final OS; P=.0020)",
+    "evidence_strength": "single_phase3",
+    "trial": "RUBY"
+   },
+   "pfs": {
+    "text": "ITT HR 0.64 (0.51–0.80); dMMR 0.28 (0.16–0.50), 24-mo PFS 61.4% vs 15.7%; pMMR 0.76 (0.59–0.98)"
+   },
+   "tier": 2,
+   "evidence_basis": "mmr_stratum",
+   "tier_rules": [
+    {
+     "when": {
+      "mmr": [
+       "pMMR"
+      ]
+     },
+     "tier": 4,
+     "reason": "pMMR: PFS 0.76 (0.59–0.98); OS 0.79 (0.60–1.04), NS (Powell 2024)"
+    }
+   ],
+   "qualifiers": [
+    "Final OS (Powell 2024) is recorded on the carcinosarcoma note's RUBY row; the endometrioid row carries the interim (OS 0.64, 0.46–0.87)",
+    "Endometrioid 54.7%; histology not broken out"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mmr",
+     "in": [
+      "dMMR"
+     ],
+     "reason": "dMMR: OS HR 0.32 (0.17–0.63) — the only first-line chemo-IO OS result by MMR"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "pfi_months",
+     "lt": 6,
+     "effect": "exclude",
+     "reason": "RUBY: first recurrence admitted only ≥6 months after prior systemic therapy"
+    }
+   ],
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_pembro",
+   "setting": "first_line",
+   "name": "Carboplatin–paclitaxel + pembrolizumab → pembrolizumab maintenance",
+   "short": "TC + pembrolizumab (NRG-GY018)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "pembrolizumab"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "io"
+   ],
+   "gate": {},
+   "trials": [
+    "NRG-GY018"
+   ],
+   "tox_ref": {
+    "trial": "NRG-GY018 (",
+    "arm": "pembrolizumab + CP, pMMR",
+    "arm_by_mmr": {
+     "dMMR": "pembrolizumab + CP, dMMR",
+     "pMMR": "pembrolizumab + CP, pMMR"
+    }
+   },
+   "os": {
+    "benefit": "not_reported",
+    "median": "OS not reported in the vault row",
+    "evidence_strength": "single_phase3",
+    "trial": "NRG-GY018"
+   },
+   "pfs": {
+    "text": "dMMR HR 0.30 (0.19–0.48), median NR vs 7.6 mo; pMMR 0.54 (0.41–0.71), 13.1 vs 8.7 mo"
+   },
+   "tier": 4,
+   "evidence_basis": "mmr_stratum",
+   "qualifiers": [
+    "dMMR cohort 66.7% endometrioid, 0.9% serous — the dMMR HR is effectively an MMRd endometrioid result",
+    "Separate dMMR and pMMR cohorts by design"
+   ],
+   "risk_rules": [
+    {
+     "flag": "pfi_months",
+     "lt": 12,
+     "effect": "exclude",
+     "reason": "NRG-GY018: prior adjuvant chemotherapy allowed only if completed ≥12 months before"
+    }
+   ],
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_durva",
+   "setting": "first_line",
+   "name": "Carboplatin–paclitaxel + durvalumab ×6 → durvalumab maintenance",
+   "short": "TC + durvalumab (DUO-E)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "durvalumab"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "io"
+   ],
+   "gate": {},
+   "trials": [
+    "DUO-E — durvalumab arm"
+   ],
+   "tox_ref": {
+    "trial": "DUO-E (",
+    "arm": "durvalumab"
+   },
+   "os": {
+    "benefit": "interim_ns",
+    "hr": "0.77",
+    "ci95": [
+     "0.56",
+     "1.07"
+    ],
+    "median": "Interim, NS",
+    "evidence_strength": "single_phase3",
+    "trial": "DUO-E — durvalumab arm"
+   },
+   "pfs": {
+    "text": "10.2 vs 9.6 mo; ITT HR 0.71 (0.57–0.89); dMMR 0.42 (0.22–0.80); pMMR 0.77 (0.60–0.97); non-proportional hazards"
+   },
+   "tier": 4,
+   "evidence_basis": "mmr_stratum",
+   "qualifiers": [
+    "Endometrioid progression 66.2% (control) → 50.4%; endometrioid PFS HR 0.65 (0.47–0.88), unstratified, exploratory"
+   ],
+   "risk_rules": [
+    {
+     "flag": "pfi_months",
+     "lt": 12,
+     "effect": "exclude",
+     "reason": "DUO-E: prior adjuvant chemotherapy allowed only with a disease-free interval ≥12 months"
+    },
+    {
+     "flag": "measurable",
+     "in": [
+      "no"
+     ],
+     "effect": "caution",
+     "reason": "DUO-E: newly diagnosed patients needed measurable stage III or IV disease"
+    }
+   ],
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_durva_ola",
+   "setting": "first_line",
+   "name": "Carboplatin–paclitaxel + durvalumab ×6 → durvalumab + olaparib 300 mg BID maintenance",
+   "short": "TC + durvalumab → + olaparib (DUO-E)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "durvalumab",
+    "olaparib"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "io",
+    "parpi"
+   ],
+   "gate": {},
+   "trials": [
+    "DUO-E — durvalumab + olaparib arm"
+   ],
+   "tox_ref": {
+    "trial": "DUO-E (",
+    "arm": "durvalumab + olaparib"
+   },
+   "os": {
+    "benefit": "interim",
+    "hr": "0.59",
+    "ci95": [
+     "0.42",
+     "0.83"
+    ],
+    "median": "Interim, P=.003 — not a formally tested OS claim",
+    "evidence_strength": "single_phase3",
+    "trial": "DUO-E — durvalumab + olaparib arm"
+   },
+   "pfs": {
+    "text": "15.1 vs 9.6 mo; ITT HR 0.55 (0.43–0.69); dMMR 0.41 (0.21–0.75); pMMR 0.57 (0.44–0.73)"
+   },
+   "tier": 4,
+   "evidence_basis": "mmr_stratum",
+   "qualifiers": [
+    "Durvalumab + olaparib vs durvalumab alone: pMMR 0.76 (0.59–0.99), dMMR 0.97 (0.49–1.98) — olaparib adds in pMMR only",
+    "Endometrioid progression 48.7% vs 50.4% with durvalumab alone: little visible olaparib effect in endometrioid tumours"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mmr",
+     "in": [
+      "pMMR"
+     ],
+     "reason": "pMMR: the largest pMMR PFS effect among the first-line chemo-IO arms (0.57, 0.44–0.73)"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "mmr",
+     "in": [
+      "dMMR"
+     ],
+     "effect": "caution",
+     "reason": "dMMR: olaparib adds nothing over durvalumab (HR 0.97, 0.49–1.98)"
+    },
+    {
+     "flag": "pfi_months",
+     "lt": 12,
+     "effect": "exclude",
+     "reason": "DUO-E: prior adjuvant chemotherapy allowed only with a disease-free interval ≥12 months"
+    },
+    {
+     "flag": "measurable",
+     "in": [
+      "no"
+     ],
+     "effect": "caution",
+     "reason": "DUO-E: newly diagnosed patients needed measurable stage III or IV disease"
+    }
+   ],
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_atezo",
+   "setting": "first_line",
+   "name": "Carboplatin–paclitaxel + atezolizumab ×6–8 → atezolizumab maintenance",
+   "short": "TC + atezolizumab (AtTEnd)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "atezolizumab"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "io"
+   ],
+   "gate": {},
+   "trials": [
+    "AtTEnd / ENGOT-en7"
+   ],
+   "tox_ref": {
+    "trial": "AtTEnd / ENGOT-en7 (",
+    "arm": "atezolizumab + CP"
+   },
+   "os": {
+    "benefit": "interim_ns",
+    "hr": "0.82",
+    "ci95": [
+     "0.63",
+     "1.07"
+    ],
+    "median": "Interim 38.7 vs 30.2 mo — boundary not crossed",
+    "evidence_strength": "single_phase3",
+    "trial": "AtTEnd / ENGOT-en7"
+   },
+   "pfs": {
+    "text": "ITT 10.1 vs 8.9 mo, HR 0.74 (0.61–0.91); dMMR 0.36 (0.23–0.57); pMMR 0.92 (0.73–1.16), NS"
+   },
+   "tier": 4,
+   "evidence_basis": "mmr_stratum",
+   "tier_rules": [
+    {
+     "when": {
+      "mmr": [
+       "pMMR"
+      ]
+     },
+     "tier": 5,
+     "reason": "pMMR: PFS 0.92 (0.73–1.16), NS — no difference from chemotherapy alone"
+    }
+   ],
+   "qualifiers": [
+    "Endometrioid PFS forest plot 0.68 (0.53–0.88), not preplanned; dMMR endometrioid 0.32 (0.20–0.53)"
+   ],
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_tc_bev",
+   "setting": "first_line",
+   "name": "Carboplatin–paclitaxel + bevacizumab",
+   "short": "TC + bevacizumab (GOG-86P)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel",
+    "bevacizumab"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane",
+    "anti_vegf"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-86P"
+   ],
+   "tox_ref": {
+    "trial": "GOG-86P (",
+    "arm": "PC + bevacizumab"
+   },
+   "os": {
+    "benefit": "historical_control",
+    "hr": "0.71",
+    "ci95": [
+     "0.55",
+     "0.91"
+    ],
+    "median": "OS HR vs historical PC (GOG-209)",
+    "evidence_strength": "historically_controlled_phase2",
+    "trial": "GOG-86P"
+   },
+   "pfs": {
+    "text": "HR 0.81 (92% CI 0.63–1.02) vs historical control, NS"
+   },
+   "tier": 6,
+   "evidence_basis": "historical_control",
+   "qualifiers": [
+    "Historically controlled randomised phase II — no arm beat its PFS threshold",
+    "CTNNB1-mutant (26%): bevacizumab PFS 0.73 (0.60–0.91)"
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_mpa",
+   "settings": [
+    "first_line"
+   ],
+   "name": "Medroxyprogesterone acetate 200 mg/day orally",
+   "short": "MPA 200 (GOG-81)",
+   "drugs": [
+    "medroxyprogesterone_acetate"
+   ],
+   "drug_classes": [
+    "endocrine"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-81"
+   ],
+   "tox_ref": {
+    "trial": "GOG-81 (",
+    "arm": "MPA 200 mg/d"
+   },
+   "os": {
+    "benefit": "dose_comparison",
+    "median": "11.1 vs 7.0 mo (200 vs 1000 mg/day); death HR 1.31 (P=.026) for 1000 mg",
+    "evidence_strength": "randomised_dose_comparison",
+    "trial": "GOG-81"
+   },
+   "pfs": {
+    "text": "3.2 vs 2.5 mo; ORR 25% vs 16%"
+   },
+   "tier": 6,
+   "evidence_basis": "randomised_dose_comparison",
+   "qualifiers": [
+    "No comparison with chemotherapy",
+    "Off-label dose: the PROVERA label gives 5–10 mg/day and no endometrial-cancer indication"
+   ],
+   "prefer_when": [
+    {
+     "flag": "grade",
+     "in": [
+      "1"
+     ],
+     "reason": "GOG-81: grade 1 ORR 37% vs grade 3 9%"
+    },
+    {
+     "flag": "er_pr",
+     "in": [
+      "positive"
+     ],
+     "reason": "GOG-81: PR ≥50 fmol/mg ORR 37% vs PR <50 8%"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "grade",
+     "in": [
+      "3"
+     ],
+     "effect": "caution",
+     "reason": "GOG-81: grade 3 ORR 9%"
+    },
+    {
+     "flag": "er_pr",
+     "in": [
+      "negative"
+     ],
+     "effect": "caution",
+     "reason": "GOG-81: PR-low tumours ORR 8%"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_el",
+   "settings": [
+    "first_line",
+    "second_line"
+   ],
+   "name": "Everolimus 10 mg + letrozole 2.5 mg daily",
+   "short": "Everolimus + letrozole (GOG-3007)",
+   "drugs": [
+    "everolimus",
+    "letrozole"
+   ],
+   "drug_classes": [
+    "endocrine",
+    "mtor"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-3007",
+    "GOG-3007, prior-chemo subset",
+    "Everolimus + letrozole"
+   ],
+   "tox_ref": {
+    "trial": "GOG-3007 (",
+    "arm": "everolimus + letrozole"
+   },
+   "os": {
+    "benefit": "randomised_phase2",
+    "median": "31 vs 17 mo vs MPA/tamoxifen (randomised phase II, no HR)",
+    "evidence_strength": "randomised_phase2",
+    "trial": "GOG-3007"
+   },
+   "pfs": {
+    "text": "Overall 6 vs 4 mo; chemo-naive 28 vs 5 mo; prior chemotherapy 4 vs 3 mo (n=44). Single-arm Slomovitz 2015: ORR 32%, all 4 CTNNB1-mutant responded"
+   },
+   "tier": 6,
+   "evidence_basis": "randomised_phase2",
+   "tier_rules": [],
+   "qualifiers": [
+    "GOG-3007 endometrioid 66%; Slomovitz 2015 endometrioid median OS 19.8 vs serous 3.5 mo, no serous responders"
+   ],
+   "prefer_when": [
+    {
+     "flag": "grade",
+     "in": [
+      "1",
+      "2"
+     ],
+     "reason": "Low-grade endometrioid: hormonal therapy is a real line here, not filler"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "prior_lines",
+     "gte": 1,
+     "effect": "caution",
+     "reason": "After chemotherapy GOG-3007 PFS was 4 vs 3 mo; the 28-month figure is chemo-naive"
+    },
+    {
+     "flag": "er_pr",
+     "in": [
+      "negative"
+     ],
+     "effect": "caution",
+     "reason": "Hormone-receptor-negative: endocrine response tracks receptor status (GOG-81)"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_mt",
+   "settings": [
+    "first_line",
+    "second_line"
+   ],
+   "name": "MPA 200 mg/day alternating weekly with tamoxifen 20 mg BID",
+   "short": "MPA / tamoxifen (GOG-3007 control)",
+   "drugs": [
+    "medroxyprogesterone_acetate",
+    "tamoxifen"
+   ],
+   "drug_classes": [
+    "endocrine"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-3007"
+   ],
+   "tox_ref": {
+    "trial": "GOG-3007 (",
+    "arm": "tamoxifen + MPA"
+   },
+   "os": {
+    "benefit": "randomised_phase2",
+    "median": "17 vs 31 mo (vs everolimus + letrozole; randomised phase II)",
+    "evidence_strength": "randomised_phase2",
+    "trial": "GOG-3007"
+   },
+   "pfs": {
+    "text": "4 vs 6 mo overall; chemo-naive 5 vs 28 mo; ORR 25% vs 22%"
+   },
+   "tier": 6,
+   "evidence_basis": "randomised_phase2",
+   "caution_default": {
+    "reason": "G3/4 thromboembolism 11% (vs 0% with everolimus + letrozole)"
+   },
+   "risk_rules": [
+    {
+     "flag": "vte_history",
+     "effect": "exclude",
+     "reason": "GOG-3007 MT arm: G3/4 thromboembolism 11%; MPA §4 lists DVT/PE history"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "fl_tam",
+   "settings": [
+    "first_line"
+   ],
+   "name": "Tamoxifen 20 mg BID alone",
+   "short": "Tamoxifen (GOG-81F)",
+   "drugs": [
+    "tamoxifen"
+   ],
+   "drug_classes": [
+    "endocrine"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-81F"
+   ],
+   "tox_ref": {
+    "trial": "GOG-81F ("
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "8.8 mo",
+    "evidence_strength": "phase2",
+    "trial": "GOG-81F"
+   },
+   "pfs": {
+    "text": "1.9 mo; ORR 10% (90% CI 5.7–17.9); endometrioid ORR 1/27 (4%)"
+   },
+   "tier": 6,
+   "evidence_basis": "single_arm",
+   "caution_default": {
+    "reason": "Single-agent tamoxifen is weak (endometrioid 1/27); the note keeps it only alternating with a progestin"
+   },
+   "histology": "eec"
+  },
+  {
+   "id": "fl_pac",
+   "settings": [
+    "first_line"
+   ],
+   "name": "Paclitaxel 250 mg/m² 24-h (200 after pelvic RT) + G-CSF",
+   "short": "Paclitaxel (Ball 1996)",
+   "drugs": [
+    "paclitaxel",
+    "filgrastim"
+   ],
+   "drug_classes": [
+    "taxane"
+   ],
+   "gate": {},
+   "trials": [
+    "Ball 1996"
+   ],
+   "tox_ref": {
+    "trial": "GOG paclitaxel phase II ("
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "9.5 mo",
+    "evidence_strength": "phase2",
+    "trial": "Ball 1996"
+   },
+   "pfs": {
+    "text": "3.8 mo; ORR 35.7% (18.6–55.9), chemo-naive"
+   },
+   "tier": 6,
+   "evidence_basis": "single_arm",
+   "histology": "eec"
+  },
+  {
+   "id": "m_selinexor",
+   "setting": "maintenance",
+   "name": "Selinexor 80 mg once weekly",
+   "short": "Selinexor (SIENDO)",
+   "drugs": [
+    "selinexor"
+   ],
+   "drug_classes": [
+    "xpo1"
+   ],
+   "gate": {
+    "response": [
+     "CR",
+     "PR"
+    ]
+   },
+   "trials": [
+    "SIENDO / ENGOT-EN5 — maintenance"
+   ],
+   "tox_ref": {
+    "trial": "SIENDO / ENGOT-EN5 (",
+    "arm": "selinexor"
+   },
+   "os": {
+    "benefit": "immature",
+    "median": "Immature (64 events)",
+    "evidence_strength": "single_phase3",
+    "trial": "SIENDO / ENGOT-EN5 — maintenance"
+   },
+   "pfs": {
+    "text": "ITT 5.7 vs 3.8 mo, HR 0.76 (0.54–1.08), NS; TP53 wild-type (prespecified exploratory) 13.7 vs 3.7 mo, HR 0.41 (0.23–0.72); endometrioid 0.66 (0.40–1.07)"
+   },
+   "tier": 5,
+   "evidence_basis": "itt_all_histology",
+   "qualifiers": [
+    "SIENDO required PR/CR (≥12 weeks) after one line of taxane–platinum and predates first-line chemo-immunotherapy",
+    "TP53 status in SIENDO was by sequencing; a non-p53abn molecular class is only a surrogate for it"
+   ],
+   "prefer_when": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "POLEmut",
+      "MMRd",
+      "NSMP"
+     ],
+     "reason": "Non-p53abn class: the TP53 wild-type subgroup carried the signal (HR 0.41, exploratory)"
+    }
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "p53abn"
+     ],
+     "effect": "caution",
+     "reason": "p53abn: outside the TP53 wild-type subgroup that carried the signal"
+    }
+   ],
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "progressed_after",
+      "completed_maintenance",
+      "ongoing"
+     ],
+     "effect": "caution",
+     "reason": "SIENDO predates first-line chemo-immunotherapy; no data after a checkpoint inhibitor"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "sl_lenpem",
+   "setting": "second_line",
+   "name": "Lenvatinib 20 mg daily + pembrolizumab 200 mg q3w",
+   "short": "Lenvatinib + pembrolizumab (KEYNOTE-775)",
+   "drugs": [
+    "lenvatinib",
+    "pembrolizumab"
+   ],
+   "drug_classes": [
+    "vegf_tki",
+    "io"
+   ],
+   "gate": {
+    "prior_platinum": true
+   },
+   "trials": [
+    "KEYNOTE-775"
+   ],
+   "tox_ref": {
+    "trial": "KEYNOTE-775 (",
+    "arm": "lenvatinib + pembrolizumab"
+   },
+   "os": {
+    "benefit": "positive",
+    "hr": "0.62",
+    "ci95": [
+     "0.51",
+     "0.75"
+    ],
+    "median": "18.3 vs 11.4 mo (all); pMMR 17.4 vs 12.0 mo, HR 0.68 (0.56–0.84)",
+    "evidence_strength": "single_phase3",
+    "trial": "KEYNOTE-775"
+   },
+   "pfs": {
+    "text": "All 7.2 vs 3.8 mo; pMMR 6.6 vs 3.8 mo. dMMR ORR 40.0% vs 12.3%"
+   },
+   "tier": 2,
+   "evidence_basis": "mmr_stratum",
+   "qualifiers": [
+    "Endometrioid 60%; benefit consistent across histology subgroups"
+   ],
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "sl_chemo",
+   "setting": "second_line",
+   "name": "Doxorubicin 60 q3w or weekly paclitaxel 80 (3 weeks on, 1 off)",
+   "short": "Doxorubicin or weekly paclitaxel (KEYNOTE-775 control)",
+   "drugs": [
+    "doxorubicin",
+    "paclitaxel"
+   ],
+   "drug_classes": [
+    "anthracycline",
+    "taxane"
+   ],
+   "gate": {
+    "prior_platinum": true
+   },
+   "trials": [
+    "KEYNOTE-775"
+   ],
+   "tox_ref": {
+    "trial": "KEYNOTE-775 (",
+    "arm": "doxorubicin or paclitaxel (TPC)"
+   },
+   "os": {
+    "benefit": "negative",
+    "median": "11.4 vs 18.3 mo with lenvatinib + pembrolizumab (HR 0.62 favouring LP)",
+    "evidence_strength": "single_phase3",
+    "trial": "KEYNOTE-775"
+   },
+   "pfs": {
+    "text": "3.8 mo"
+   },
+   "tier": 5,
+   "evidence_basis": "itt_all_histology",
+   "caution_default": {
+    "reason": "OS worse than lenvatinib + pembrolizumab (KEYNOTE-775): for patients who cannot receive it"
+   },
+   "histology": "eec"
+  },
+  {
+   "id": "sl_dostar_mono",
+   "setting": "second_line",
+   "name": "Dostarlimab 500 mg q3w ×4 → 1000 mg q6w",
+   "short": "Dostarlimab (GARNET A1)",
+   "drugs": [
+    "dostarlimab"
+   ],
+   "drug_classes": [
+    "io"
+   ],
+   "gate": {
+    "mmr": [
+     "dMMR"
+    ],
+    "prior_platinum": true
+   },
+   "trials": [
+    "GARNET cohort A1",
+    "GARNET A1/A2 update"
+   ],
+   "tox_ref": {
+    "trial": "GARNET (",
+    "arm": "cohort A1 dMMR/MSI-H"
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "12-mo OS 72.7%",
+    "evidence_strength": "phase2",
+    "trial": "GARNET cohort A1"
+   },
+   "pfs": {
+    "text": "8.1 mo; ORR 42.3% (30.6–54.6), CR 12.7%; type I (endometrioid) ORR 40.0% (26.4–54.8), n=50. Update: ORR 45.5% dMMR vs 15.4% pMMR"
+   },
+   "tier": 6,
+   "evidence_basis": "single_arm",
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "sl_pembro_mono",
+   "setting": "second_line",
+   "name": "Pembrolizumab 200 mg q3w",
+   "short": "Pembrolizumab (KEYNOTE-158)",
+   "drugs": [
+    "pembrolizumab"
+   ],
+   "drug_classes": [
+    "io"
+   ],
+   "gate": {
+    "mmr": [
+     "dMMR"
+    ]
+   },
+   "trials": [
+    "KEYNOTE-158, endometrial cohort"
+   ],
+   "tox_ref": {
+    "trial": "KEYNOTE-158"
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "Not reached",
+    "evidence_strength": "phase2",
+    "trial": "KEYNOTE-158, endometrial cohort"
+   },
+   "pfs": {
+    "text": "25.7 mo; ORR 57.1% (42.2–71.2), MSI-H/dMMR"
+   },
+   "tier": 6,
+   "evidence_basis": "single_arm",
+   "ledger_rules": [
+    {
+     "class": "io",
+     "outcome": [
+      "stopped_toxicity"
+     ],
+     "effect": "exclude",
+     "reason": "Prior checkpoint inhibitor stopped for toxicity"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "sl_tdxd",
+   "setting": "second_line",
+   "name": "Trastuzumab deruxtecan 5.4 mg/kg q3w",
+   "short": "T-DXd (DESTINY-PanTumor02)",
+   "drugs": [
+    "trastuzumab_deruxtecan"
+   ],
+   "drug_classes": [
+    "adc_her2"
+   ],
+   "gate": {
+    "her2": [
+     "3+",
+     "2+amp",
+     "2+"
+    ]
+   },
+   "trials": [
+    "DESTINY-PanTumor02, EC cohort"
+   ],
+   "tox_ref": {
+    "trial": "DESTINY-PanTumor02"
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "26.0 mo (EC cohort)",
+    "evidence_strength": "phase2",
+    "trial": "DESTINY-PanTumor02, EC cohort"
+   },
+   "pfs": {
+    "text": "11.1 mo; ORR 57.5%; IHC 3+ 84.6% (n=13)"
+   },
+   "tier": 6,
+   "evidence_basis": "single_arm",
+   "qualifiers": [
+    "HER2-positive disease is uncommon in endometrioid carcinoma",
+    "Histology not reported"
+   ],
+   "prefer_when": [
+    {
+     "flag": "her2",
+     "in": [
+      "3+"
+     ],
+     "reason": "IHC 3+: ORR 84.6% (n=13)"
+    }
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "sl_bev",
+   "setting": "second_line",
+   "name": "Bevacizumab 15 mg/kg q3w",
+   "short": "Bevacizumab (GOG-229E)",
+   "drugs": [
+    "bevacizumab"
+   ],
+   "drug_classes": [
+    "anti_vegf"
+   ],
+   "gate": {},
+   "trials": [
+    "GOG-229E"
+   ],
+   "tox_ref": {
+    "trial": "GOG-229E"
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "10.55 mo",
+    "evidence_strength": "phase2",
+    "trial": "GOG-229E"
+   },
+   "pfs": {
+    "text": "4.17 mo; PFS ≥6 mo 40.4%; ORR 13.5%"
+   },
+   "tier": 6,
+   "evidence_basis": "single_arm",
+   "qualifiers": [
+    "1 of 7 responders endometrioid (4 serous)"
+   ],
+   "histology": "eec"
+  },
+  {
+   "id": "sl_topo",
+   "setting": "second_line",
+   "name": "Topotecan 1.5 mg/m² D1–5 q3w",
+   "short": "Topotecan (GOG)",
+   "drugs": [
+    "topotecan"
+   ],
+   "drug_classes": [
+    "topoisomerase_i"
+   ],
+   "gate": {},
+   "trials": [
+    "Topotecan"
+   ],
+   "tox_ref": {
+    "trial": "Topotecan GOG phase II ("
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "Not reported",
+    "evidence_strength": "phase2",
+    "trial": "Topotecan"
+   },
+   "pfs": {
+    "text": "ORR 9% (1.1–29.2)"
+   },
+   "tier": 6,
+   "evidence_basis": "single_arm",
+   "caution_default": {
+    "reason": "ORR 9% with 2 treatment-related deaths (n=22)"
+   },
+   "histology": "eec"
+  },
+  {
+   "id": "sl_sactmt",
+   "setting": "second_line",
+   "name": "Sacituzumab tirumotecan 4 mg/kg q2w",
+   "short": "Sac-TMT (TroFuse-005)",
+   "drugs": [
+    "sacituzumab_tirumotecan"
+   ],
+   "drug_classes": [
+    "adc_trop2"
+   ],
+   "gate": {
+    "prior_platinum": true,
+    "prior_io": true
+   },
+   "trials": [
+    "TroFuse-005"
+   ],
+   "tox_ref": null,
+   "os": {
+    "benefit": "press_release",
+    "median": "Met (press release 2026-05-18) — no HR released",
+    "evidence_strength": "press_release_only",
+    "trial": "TroFuse-005"
+   },
+   "pfs": {
+    "text": "Met (press release); no data"
+   },
+   "tier": 6,
+   "evidence_basis": "press_release_only",
+   "caution_default": {
+    "reason": "Press release only: no HR, no publication, no FDA label — not rankable on its numbers until presented"
+   },
+   "histology": "eec"
+  },
+  {
+   "id": "sl_plat_retreat",
+   "setting": "second_line",
+   "name": "Carboplatin + paclitaxel re-treatment",
+   "short": "Platinum re-treatment (extrapolated)",
+   "drugs": [
+    "carboplatin",
+    "paclitaxel"
+   ],
+   "drug_classes": [
+    "platinum",
+    "taxane"
+   ],
+   "gate": {
+    "prior_platinum": true
+   },
+   "trials": [
+    "Platinum re-treatment",
+    "GOG-209"
+   ],
+   "tox_ref": {
+    "trial": "GOG-209 (",
+    "arm": "carboplatin/paclitaxel (TC)"
+   },
+   "os": {
+    "benefit": "extrapolated",
+    "median": "No 2L trial data",
+    "evidence_strength": "extrapolated",
+    "trial": "Platinum re-treatment"
+   },
+   "pfs": {
+    "text": "—"
+   },
+   "tier": 6,
+   "evidence_basis": "extrapolated",
+   "caution_default": {
+    "reason": "Extrapolated from GOG-209, a chemo-naive trial; widely used practice without 2L data"
+   },
+   "histology": "eec"
+  },
+  {
+   "id": "fs_mpa",
+   "setting": "fertility_sparing",
+   "name": "MPA 600 mg/day + low-dose aspirin for 26 weeks",
+   "short": "MPA 600 (Ushijima 2007)",
+   "drugs": [
+    "medroxyprogesterone_acetate",
+    "aspirin"
+   ],
+   "drug_classes": [
+    "endocrine"
+   ],
+   "gate": {
+    "grade": [
+     "1"
+    ],
+    "stage": [
+     "IA"
+    ],
+    "mi": [
+     "none"
+    ]
+   },
+   "trials": [
+    "Ushijima 2007 — fertility-sparing"
+   ],
+   "tox_ref": {
+    "trial": "JGOG MPA fertility-sparing phase II ("
+   },
+   "os": {
+    "benefit": "single_arm",
+    "median": "Not an OS endpoint",
+    "evidence_strength": "phase2",
+    "trial": "Ushijima 2007 — fertility-sparing"
+   },
+   "pfs": {
+    "text": "Pathologic CR (EC) 55%; recurrence 14/30 (47%) at 7–36 mo, EC 8/14 (57%); 12 pregnancies, 7 deliveries"
+   },
+   "tier": 6,
+   "evidence_basis": "single_arm",
+   "qualifiers": [
+    "Grade 1 endometrioid only (central review), no myometrial invasion or extrauterine disease on MRI, age <40",
+    "Molecular selection was not tested; LNG-IUS data not yet tabulated"
+   ],
+   "risk_rules": [
+    {
+     "flag": "mol_class",
+     "in": [
+      "p53abn"
+     ],
+     "effect": "caution",
+     "reason": "p53abn was not tested in this trial; the note flags molecular selection as untested"
+    },
+    {
+     "flag": "age",
+     "gte": 40,
+     "effect": "caution",
+     "reason": "Ushijima enrolled age <40"
+    }
+   ],
+   "histology": "eec"
+  }
+ ]
+}

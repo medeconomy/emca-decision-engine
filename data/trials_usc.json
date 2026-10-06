@@ -1,0 +1,958 @@
+{
+ "outcomes": {
+  "os": {
+   "label": "OS benefit (trial-wide)",
+   "c": "var(--os)"
+  },
+  "pfs": {
+   "label": "PFS / RFS benefit only",
+   "c": "var(--pfs)"
+  },
+  "signal": {
+   "label": "Subgroup or molecular signal",
+   "c": "var(--pfs)"
+  },
+  "ns": {
+   "label": "NS / non-inferior / negative",
+   "c": "var(--ns)"
+  },
+  "harm": {
+   "label": "Harm",
+   "c": "var(--harm)"
+  },
+  "single": {
+   "label": "Single-arm",
+   "c": "var(--single)"
+  },
+  "obs": {
+   "label": "Observational / retrospective",
+   "c": "var(--fg-3)"
+  },
+  "excluded": {
+   "label": "Histotype excluded",
+   "c": "var(--harm)"
+  },
+  "extrapolated": {
+   "label": "Extrapolated",
+   "c": "var(--single)"
+  },
+  "pending": {
+   "label": "Unpublished / ongoing",
+   "c": "var(--fg-3)"
+  }
+ },
+ "reading": "itt",
+ "_meta": {
+  "source": "Uterine Serous Carcinoma — Evidence Tables by Treatment Setting — vault note version v1.2, updated 2026-09-15",
+  "histology": "usc",
+  "extracted": "2026-10-06",
+  "note": "Cells are verbatim from the vault note (markdown bold retained). 'out' and 'level' are derived; 'out' overrides are listed in tools/overrides/<hist>.json."
+ },
+ "sections": [
+  {
+   "id": "mol",
+   "title": "Molecular profile of uterine serous carcinoma",
+   "intro": "Serous is the most molecularly homogeneous endometrial histotype — the classifier's poor-prognosis group was named after it.",
+   "mol": [
+    {
+     "caption": "",
+     "columns": [
+      "Molecular group",
+      "Uterine serous (%)",
+      "Source"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "p53abn / copy-number high",
+        "~91%",
+        "Zhejiang NEEC series (41/45) [3]"
+       ],
+       "refs": [
+        3
+       ]
+      },
+      {
+       "cells": [
+        "POLEmut",
+        "~2–7%",
+        "Zhejiang NEEC series (3/45) [3]; TCGA [1]"
+       ],
+       "refs": [
+        3,
+        1
+       ]
+      },
+      {
+       "cells": [
+        "MMRd / MSI-H",
+        "~2–5%",
+        "TCGA [1]; histotype series [2]"
+       ],
+       "refs": [
+        1,
+        2
+       ]
+      },
+      {
+       "cells": [
+        "NSMP / copy-number low",
+        "~2–5%",
+        "TCGA [1]; histotype series [2]"
+       ],
+       "refs": [
+        1,
+        2
+       ]
+      },
+      {
+       "cells": [
+        "*HER2 IHC 3+ or 2+/FISH+*",
+        "*~25–40%*",
+        "*Fader NRG-GOG 3005 [6]; NRG-GY026 background*"
+       ],
+       "refs": [
+        6
+       ]
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "id": "t1",
+   "title": "1. Adjuvant",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Serous data",
+    "pfs": "DFS / RFS",
+    "os": "OS",
+    "hr": "HR",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "GOG-122",
+     "cite": "Randall 2006",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Doxorubicin 60 + cisplatin 50 q3w ×7 (+1 cisplatin) vs whole-abdominal RT",
+      "pop": "Stage III/IV, ≤2 cm residual",
+      "n": "396",
+      "hist": "~21% serous; benefit *less convincing* in serous",
+      "pfs": "5-yr PFS 50% vs 38%",
+      "os": "5-yr OS 55% vs 42%",
+      "hr": "0.68 (0.52–0.89) death, stage-adj",
+      "tox": "—"
+     },
+     "refs": [
+      10
+     ],
+     "level": "subgroup",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "PORTEC-3 serous subgroup",
+     "cite": "de Boer 2018",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Cis-RT → carbo/taxol ×4 vs RT alone",
+      "pop": "I–III high-risk",
+      "n": "subgroup",
+      "hist": "Serous stratum, underpowered",
+      "pfs": "5-yr FFS 58% vs 48%",
+      "os": "NR",
+      "hr": "0.63 (0.36–1.12), FFS",
+      "tox": "—"
+     },
+     "refs": [
+      13
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "PORTEC-3 10-yr molecular",
+     "cite": "Post 2025",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Same",
+      "pop": "I–III",
+      "n": "411 classified",
+      "hist": "p53abn post hoc (proxy for serous)",
+      "pfs": "10-yr RFS 52.6% vs 37.0%",
+      "os": "10-yr OS 52.7% vs 36.6%",
+      "hr": "0.52 (0.30–0.91), OS",
+      "tox": "—"
+     },
+     "refs": [
+      14
+     ],
+     "level": "molecular",
+     "out": "signal",
+     "tags": []
+    },
+    {
+     "name": "GOG-249",
+     "cite": "Randall 2019",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Vaginal cuff brachytherapy → carbo AUC6 + paclitaxel 175 ×3 vs pelvic RT 45–50.4 Gy",
+      "pop": "High-intermediate/high-risk **early stage**: stage I endometrioid (GOG-33 HIR criteria), stage II, or **stage I–II serous / clear cell**",
+      "n": "601",
+      "hist": "**15% serous** (endometrioid 71%, CC 5%); high-risk-histology cohort showed **no benefit** from added chemo (serous/CC RFS HR 0.81, 0.44–1.52); trial-wide **worse nodal control** (pelvic/PA recurrence 9% vs 4%)",
+      "pfs": "60-mo RFS 0.76 vs 0.76",
+      "os": "60-mo OS 0.85 vs 0.87",
+      "hr": "RFS 0.92 (90% CL 0.69–1.23), NS; OS 1.04 (90% CL 0.71–1.52), NS",
+      "tox": "—"
+     },
+     "refs": [
+      21
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "GOG-258",
+     "cite": "Matei 2019",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Cisplatin 50 D1/D29 + 45 Gy → carbo/taxol ×4 vs carbo/taxol ×6",
+      "pop": "Stage III/IVA; also stage I/II serous or CC with +washings",
+      "n": "736",
+      "hist": "18% serous; no histology subgroup differed",
+      "pfs": "5-yr RFS 59% vs 58%",
+      "os": "Immature (165 deaths)",
+      "hr": "0.90 (90% CI 0.74–1.10), NS",
+      "tox": "—"
+     },
+     "refs": [
+      11
+     ],
+     "level": "included",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "KEYNOTE-B21 / ENGOT-en11",
+     "cite": "Van Gorp 2024",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Adjuvant chemo ± pembrolizumab ± RT",
+      "pop": "Newly dx high-risk I–IVA",
+      "n": "—",
+      "hist": "Included, not broken out",
+      "pfs": "**Primary DFS negative**",
+      "os": "—",
+      "hr": "—",
+      "tox": "—"
+     },
+     "refs": [
+      15
+     ],
+     "level": "included",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "NRG-GY026",
+     "cite": "",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol ± trastuzumab ± pertuzumab (SC)",
+      "pop": "HER2+ serous or carcinosarcoma, IA–IVB non-recurrent",
+      "n": "—",
+      "hist": "**Serous-specific trial**",
+      "pfs": "Not yet reported",
+      "os": "—",
+      "hr": "—",
+      "tox": "—"
+     },
+     "refs": [],
+     "level": "histotype_only",
+     "out": "pending",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "info",
+     "title": "GOG-258 is the only adjuvant trial that enters serous by histology rather than by chance — stage I/II serous with positive peritoneal washings was an explicit eligibility route (<3% of cohort).",
+     "md": "GY026 enrols stage I–IV non-recurrent, so its stage III–IV patients overlap Table 2. It is the trial that will settle HER2-directed therapy in this histology."
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "title": "2. Primary systemic therapy (first-line, chemo-naive advanced)",
+   "intro": "The three classic GOG trials (GOG-107, -177, -209) enrolled advanced **and** recurrent patients in one population, so each is listed here **and** in Table 3 — marked ↔ T3 / ↔ T2. They are the same rows, not different analyses; the recurrent fraction of each is given in Table 3. GOG-177 is in fact majority-recurrent (58–71%), so treating it as a purely advanced-disease trial would misread it.",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Serous data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr": "HR",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "Fader primary subgroup",
+     "cite": "2020 update",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + trastuzumab → T maintenance vs carbo/taxol",
+      "pop": "HER2+ USC, stage III–IV",
+      "n": "41",
+      "hist": "**Serous-only trial**",
+      "pfs": "17.7 vs 9.3 mo",
+      "os": "NR vs 25.4 mo",
+      "hr": "PFS 0.44 (90% CI 0.23–0.83); OS 0.49 (0.25–0.97)",
+      "tox": "—"
+     },
+     "refs": [
+      7,
+      6
+     ],
+     "level": "histotype_only",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "Fader pooled ITT",
+     "cite": "2020 update",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Same",
+      "pop": "HER2+ USC, III–IV **or recurrent**",
+      "n": "58 eval.",
+      "hist": "Serous-only",
+      "pfs": "12.9 vs 8.0 mo",
+      "os": "29.6 vs 24.4 mo",
+      "hr": "PFS 0.46 (90% CI 0.28–0.76); OS 0.58 (90% CI 0.34–0.99)",
+      "tox": "—"
+     },
+     "refs": [
+      7
+     ],
+     "level": "histotype_only",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "DUO-E — durvalumab + olaparib arm",
+     "cite": "Westin 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Same ×6 → durvalumab 1500 mg q4w **+ olaparib 300 mg BID** maintenance vs carbo/taxol",
+      "pop": "Same",
+      "n": "**718** (241/238/239)",
+      "hist": "Same cohort; serous progression **24/42 (57.1%)** vs 79.6% control; **HR 0.46 (0.27–0.77)**, exploratory (Fig 3B)",
+      "pfs": "**15.1 vs 9.6 mo**",
+      "os": "interim HR 0.59 (0.42–0.83), P = .003",
+      "hr": "**ITT PFS 0.55 (0.43–0.69)**, P < .0001; dMMR 0.41 (0.21–0.75); **pMMR 0.57 (0.44–0.73)**; **v durvalumab alone, pMMR 0.76 (0.59–0.99) but dMMR 0.97 (0.49–1.98)**",
+      "tox": "Olaparib's contribution is pMMR-only"
+     },
+     "refs": [],
+     "level": "subgroup",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "DUO-E — durvalumab arm",
+     "cite": "Westin 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo AUC5–6/taxol 175 + durvalumab 1120 mg ×6 → durvalumab 1500 mg q4w maintenance vs carbo/taxol",
+      "pop": "Newly dx **measurable** III/IV **or recurrent** (52% recurrent); prior adjuvant chemo allowed if DFI ≥12 mo",
+      "n": "**718** (241/238/239)",
+      "hist": "**21.5% serous (154/718)**; serous **is** a forest-plot subgroup — progression **43/54 (79.6%) control → 41/58 (70.7%)**; HR 0.71 (0.46–1.11), exploratory (Fig 3A)",
+      "pfs": "10.2 vs 9.6 mo",
+      "os": "interim (28% mat.) HR 0.77 (0.56–1.07), NS; control median OS 25.9 mo",
+      "hr": "**ITT PFS 0.71 (0.57–0.89)**, P = .003; dMMR **0.42 (0.22–0.80)**; pMMR 0.77 (0.60–0.97)",
+      "tox": "⚠️ non-proportional hazards (P = .018)"
+     },
+     "refs": [],
+     "level": "subgroup",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-177",
+     "cite": "Fleming 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "TAP (dox 45 D1 + cis 50 D1 + paclitaxel 160 D2 + filgrastim D3–12) vs AP",
+      "pop": "Measurable III/IV **or recurrent** (58–71% recurrent)",
+      "n": "263",
+      "hist": "15–19% serous; **RR serous 42%→50% vs other histologies 33%→59%**",
+      "pfs": "8.3 vs 5.3 mo",
+      "os": "15.3 vs 12.3 mo",
+      "hr": "PFS 0.60 (0.46–0.78); OS 0.75 (0.57–0.988)",
+      "tox": "—"
+     },
+     "refs": [
+      9
+     ],
+     "level": "subgroup",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "NRG-GY018",
+     "cite": "Eskander 2023",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + pembrolizumab vs carbo/taxol",
+      "pop": "III/IV/recurrent; carcinosarcoma excluded",
+      "n": "—",
+      "hist": "Not broken out",
+      "pfs": "—",
+      "os": "—",
+      "hr": "PFS 0.54 (pMMR)",
+      "tox": "—"
+     },
+     "refs": [
+      16
+     ],
+     "level": "included",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "RUBY",
+     "cite": "Mirza 2023",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + dostarlimab vs carbo/taxol",
+      "pop": "III/IV/recurrent, incl. carcinosarcoma",
+      "n": "—",
+      "hist": "Not broken out",
+      "pfs": "24-mo PFS 61.4% vs 15.7% (dMMR)",
+      "os": "—",
+      "hr": "PFS 0.28 (dMMR); 0.64 all-comers",
+      "tox": "—"
+     },
+     "refs": [
+      17
+     ],
+     "level": "included",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "GOG-107",
+     "cite": "Thigpen 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Doxorubicin 60 + cisplatin 50 q3w vs doxorubicin 60 alone",
+      "pop": "Stage III/IV **or recurrent**, chemo-naive",
+      "n": "281",
+      "hist": "15–17% serous; no subgroup outcome",
+      "pfs": "5.7 vs 3.8 mo",
+      "os": "9.0 vs 9.2 mo (NS)",
+      "hr": "PFS 0.736 (0.577–0.939); OS 0.928 NS",
+      "tox": "—"
+     },
+     "refs": [
+      8
+     ],
+     "level": "included",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "AtTEnd / ENGOT-en7",
+     "cite": "Colombo 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo AUC5–6 + paclitaxel 175 + atezolizumab 1200 mg ×6–8 → atezo maintenance vs placebo",
+      "pop": "Advanced or recurrent EC **or carcinosarcoma**; ≤1 prior platinum line ≥6 mo prior",
+      "n": "549 (2:1)",
+      "hist": "**88/549 serous (16%)**; exploratory PFS subgroup 47/59 vs 23/29 events, HR 0.87 (0.52–1.45), not preplanned (Fig 4B)",
+      "pfs": "ITT 10.1 vs 8.9 mo; dMMR NE vs 6.9 mo; **pMMR 9.5 vs 9.2 mo**",
+      "os": "ITT 36.0 vs 30.5 mo (ESMO 2025, median f/u 48.9 mo) — **not significant**",
+      "hr": "ITT PFS 0.74 (0.61–0.91), P = .022; dMMR 0.36 (0.23–0.57), P = .0005; **pMMR 0.92 (0.73–1.16), NS**; ITT OS 0.82 (0.63–1.07), interim",
+      "tox": "—"
+     },
+     "refs": [
+      23
+     ],
+     "level": "subgroup",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-209",
+     "cite": "Miller 2020",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carboplatin AUC6 + paclitaxel 175 vs TAP",
+      "pop": "Stage III/IV **or recurrent** (27% recurrent), chemo-naive",
+      "n": "1328",
+      "hist": "19.7% serous (262); exploratory OS HR 1.20 (0.91–1.59), TC vs TAP (Fig 4)",
+      "pfs": "13 vs 14 mo",
+      "os": "37 vs 41 mo",
+      "hr": "OS 1.002 (90% CI 0.9–1.12) **non-inferior**; PFS 1.032",
+      "tox": "—"
+     },
+     "refs": [
+      12
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "Two interpretation traps",
+     "md": "- **GOG-209 established carbo/taxol by non-inferiority, not superiority.** Do not read 37 vs 41 mo as favouring carbo/taxol.\n- **GOG-177 is the one informative pre-molecular serous signal.** Adding paclitaxel to AP lifted response from 33%→59% in non-serous histologies but only 42%→50% in serous. Small numbers, but an early hint that USC responds differently on the same backbone — consistent with everything since."
+    }
+   ]
+  },
+  {
+   "id": "t3",
+   "title": "3. Recurrent disease",
+   "intro": "Recurrent disease is **not one setting**. The GOG trials treated recurrence with first-line cytotoxic therapy in patients who had never had chemotherapy; the modern trials treat recurrence after platinum and, increasingly, after a checkpoint inhibitor. These populations are not interchangeable and their numbers must not be read across. Table 3 is therefore split by **line of therapy**, not by \"recurrent\" as a label.",
+   "container": true,
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "Why this split exists",
+     "md": "GOG-107, GOG-177 and GOG-209 all **excluded prior cytotoxic chemotherapy** (radiosensitisation excluded). Their recurrent patients were chemo-naive and received a platinum or anthracycline doublet as their *first* systemic therapy. Reading AP, TAP or carbo/taxol medians from 3A as salvage-line expectations will overestimate what a pretreated patient can expect — the GOG-209 subgroup data make the gap explicit: median OS 20.4–22.0 months in measurable/recurrent patients versus 113 months in the non-measurable, non-recurrent group of the same trial."
+    }
+   ]
+  },
+  {
+   "id": "t3a",
+   "title": "3A. First-line systemic therapy **for** recurrent disease (cytotoxic-naive)",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Prior systemic therapy",
+    "n": "n",
+    "recurrent_fraction": "Recurrent fraction",
+    "hist": "Serous data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr": "HR",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "GOG-177",
+     "cite": "Fleming 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "TAP vs AP",
+      "pop": "**None** (prior RT / hormones / biologics allowed)",
+      "n": "263",
+      "recurrent_fraction": "**58–71%** (AP 71% / TAP 58%)",
+      "hist": "15–19% serous; RR serous 42%→50% vs other 33%→59%",
+      "pfs": "8.3 vs 5.3 mo",
+      "os": "15.3 vs 12.3 mo",
+      "hr": "PFS 0.60 (0.46–0.78); OS 0.75 (0.57–0.988)"
+     },
+     "refs": [
+      9
+     ],
+     "level": "subgroup",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "Fader recurrent subgroup",
+     "cite": "2020",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + trastuzumab vs carbo/taxol",
+      "pop": "≤3 prior chemo allowed; median 1 prior line (0–2)",
+      "n": "17",
+      "recurrent_fraction": "100%",
+      "hist": "Serous-only",
+      "pfs": "9.2 vs 7.0 mo",
+      "os": "No OS benefit",
+      "hr": "PFS 0.12 (90% CI 0.03–0.48)"
+     },
+     "refs": [
+      7
+     ],
+     "level": "histotype_only",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-107",
+     "cite": "Thigpen 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Doxorubicin 60 + cisplatin 50 q3w vs doxorubicin 60 alone",
+      "pop": "**None** (hormonal or 1 biologic allowed)",
+      "n": "281",
+      "recurrent_fraction": "\"advanced **or** recurrent\"; fraction not reported",
+      "hist": "15–17% serous; no subgroup outcome",
+      "pfs": "5.7 vs 3.8 mo",
+      "os": "9.0 vs 9.2 mo (NS)",
+      "hr": "PFS 0.736 (0.577–0.939); OS 0.928 NS"
+     },
+     "refs": [
+      8
+     ],
+     "level": "included",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-209",
+     "cite": "Miller 2020",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carboplatin AUC6 + paclitaxel 175 vs TAP",
+      "pop": "**None** (radiosensitisation excluded)",
+      "n": "1328",
+      "recurrent_fraction": "**27%** (362/1328)",
+      "hist": "19.7% serous; exploratory OS HR 1.20 (0.91–1.59)",
+      "pfs": "13 vs 14 mo",
+      "os": "37 vs 41 mo overall; **measurable/recurrent subgroup 20.4 (TC) vs 22.0 (TAP) mo**",
+      "hr": "OS 1.002 (90% CI 0.9–1.12) non-inferior"
+     },
+     "refs": [
+      12
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    }
+   ],
+   "notes": []
+  },
+  {
+   "id": "t3b",
+   "title": "3B. Second line and beyond (post-platinum ± post-PD-(L)1)",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "prior_systemic_therapy_required": "Prior systemic therapy required",
+    "n": "n",
+    "hist": "Serous data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr": "HR",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "KEYNOTE-775 / Study 309",
+     "cite": "Makker 2022",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Lenvatinib 20 mg + pembrolizumab vs doxorubicin or wkly paclitaxel",
+      "prior_systemic_therapy_required": "≥1 prior **platinum** regimen",
+      "n": "—",
+      "hist": "Not broken out",
+      "pfs": "—",
+      "os": "pMMR 17.4 vs 12.0 mo",
+      "hr": "OS pMMR 0.68 (0.56–0.84); all 0.62 (0.51–0.75)",
+      "tox": "—"
+     },
+     "refs": [
+      18
+     ],
+     "level": "included",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "DESTINY-PanTumor02, EC cohort",
+     "cite": "Meric-Bernstam 2024",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "T-DXd 5.4 mg/kg q3w",
+      "prior_systemic_therapy_required": "≥1 prior systemic regimen",
+      "n": "40 (single arm)",
+      "hist": "HER2 IHC 3+/2+; histology not reported",
+      "pfs": "EC ORR 57.5%; IHC 3+ 84.6% (n=13); 6.9 mo (all-tumor)",
+      "os": "13.4 mo (all-tumor)",
+      "hr": "n/a",
+      "tox": "—"
+     },
+     "refs": [
+      19
+     ],
+     "level": "included",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "TroFuse-005",
+     "cite": "topline 2026-05-18",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Sac-TMT 4 mg/kg q2w vs doxorubicin or paclitaxel",
+      "prior_systemic_therapy_required": "**Platinum AND anti–PD-(L)1**",
+      "n": "776",
+      "hist": "Not broken out",
+      "pfs": "Met",
+      "os": "Met",
+      "hr": "Not yet released",
+      "tox": "—"
+     },
+     "refs": [],
+     "level": "included",
+     "out": "pending",
+     "tags": []
+    },
+    {
+     "name": "Platinum re-treatment",
+     "cite": "extrapolated",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Carboplatin + paclitaxel",
+      "prior_systemic_therapy_required": "Platinum-sensitive relapse",
+      "n": "—",
+      "hist": "Not broken out",
+      "pfs": "—",
+      "os": "—",
+      "hr": "—",
+      "tox": "**No 2L trial data.** Use is extrapolated from GOG-209, a **chemo-naive** trial (row in 3A)"
+     },
+     "refs": [
+      12
+     ],
+     "level": "included",
+     "out": "extrapolated",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "info",
+     "title": "Reading notes",
+     "md": "- The n = 17 Fader recurrent subgroup shows why `n` earns its column: a PFS HR of 0.12 with no OS separation should not be read as a large effect.\n- The platinum-re-treatment row is deliberately marked ⚠️. It is the one place in this file where a widely used clinical practice rests on extrapolation across the 3A/3B boundary rather than on data generated in the 3B population.\n- Hormonal options (GOG-81 MPA, tamoxifen) are omitted: USC is typically ER/PR-low, so they would be filler here rather than options."
+    }
+   ]
+  },
+  {
+   "id": "t4",
+   "title": "4. Neoadjuvant",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Serous data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr": "HR"
+   },
+   "rows": [],
+   "notes": []
+  }
+ ],
+ "references": [
+  [
+   1,
+   "Kandoth C, et al. Integrated genomic characterization of endometrial carcinoma.",
+   "Nature",
+   "2013;497:67–73",
+   "23636398"
+  ],
+  [
+   2,
+   "Santoro A, et al. New pathological and clinical insights in endometrial cancer in view of the updated ESGO/ESTRO/ESP guidelines.",
+   "Cancers",
+   "2021;13:2623",
+   "34073635"
+  ],
+  [
+   3,
+   "Zhu D, Shi K, Hu D, et al. Clinicopathological and Molecular Characterization of Non-Endometrioid Endometrial Carcinoma.",
+   "J Cancer",
+   "2025;16(7):2312-2320",
+   "40302811"
+  ],
+  [
+   4,
+   "Conlon N, et al. Endometrial carcinomas with a \"serous\" component in young women are enriched for DNA mismatch repair deficiency, Lynch syndrome, and POLE exonuclease domain mutations.",
+   "Am J Surg Pathol",
+   "2020;44:641–648",
+   "32205482"
+  ],
+  [
+   5,
+   "Huvila J, Jamieson A, Pors J, Hoang L, Mirkovic J, Cochrane D, McAlpine JN, Gilks CB. Endometrial carcinosarcomas are almost exclusively of p53abn molecular subtype after exclusion of mimics.",
+   "Int J Gynecol Pathol",
+   "2024;43(5):506–514",
+   "38303106"
+  ],
+  [
+   6,
+   "Fader AN, et al. Randomized phase II trial of carboplatin-paclitaxel vs carboplatin-paclitaxel-trastuzumab in uterine serous carcinomas with HER2/neu overexpression (NRG-GOG 3005).",
+   "J Clin Oncol",
+   "2018;36:2044–2051",
+   "29584549"
+  ],
+  [
+   7,
+   "Fader AN, et al. Updated overall survival analysis (NCT01367002).",
+   "Clin Cancer Res",
+   "2020;26:3928–3935",
+   "32601075"
+  ],
+  [
+   8,
+   "Thigpen JT, et al. GOG-107.",
+   "J Clin Oncol",
+   "2004;22:3902–3908",
+   "15459211"
+  ],
+  [
+   9,
+   "Fleming GF, et al. GOG-177.",
+   "J Clin Oncol",
+   "2004;22:2159–2166",
+   "15169803"
+  ],
+  [
+   10,
+   "Randall ME, et al. GOG-122.",
+   "J Clin Oncol",
+   "2006;24:36–44",
+   "16330675"
+  ],
+  [
+   11,
+   "Matei D, et al. GOG-258.",
+   "N Engl J Med",
+   "2019;380:2317–2326",
+   "31189035"
+  ],
+  [
+   12,
+   "Miller DS, et al. GOG-0209 final OS.",
+   "J Clin Oncol",
+   "2020;38:3841–3850",
+   "33078978"
+  ],
+  [
+   13,
+   "de Boer SM, et al. PORTEC-3 final results.",
+   "Lancet Oncol",
+   "2018;19:295–309",
+   "29449189"
+  ],
+  [
+   14,
+   "Post CCB, et al. PORTEC-3 10-year outcomes and molecular post hoc analysis.",
+   "Lancet Oncol",
+   "2025;26:1370–81",
+   "40921169"
+  ],
+  [
+   15,
+   "Van Gorp T, et al. KEYNOTE-B21 / ENGOT-en11 / GOG-3053.",
+   "Ann Oncol",
+   "2024;35:968–980",
+   "39284383"
+  ],
+  [
+   16,
+   "Eskander RN, et al. NRG-GY018 / KEYNOTE-868.",
+   "N Engl J Med",
+   "2023;388:2159–2170",
+   "36972022"
+  ],
+  [
+   17,
+   "Mirza MR, et al. RUBY / ENGOT-EN6 / GOG-3031.",
+   "N Engl J Med",
+   "2023;388:2145–2158",
+   "36972026"
+  ],
+  [
+   18,
+   "Makker V, et al. KEYNOTE-775 / Study 309.",
+   "N Engl J Med",
+   "2022;386:437–448",
+   "35045221"
+  ],
+  [
+   19,
+   "Meric-Bernstam F, et al. DESTINY-PanTumor02.",
+   "J Clin Oncol",
+   "2024;42:47–58",
+   "37870536"
+  ],
+  [
+   20,
+   "Merck. TroFuse-005 topline press release, 2026-05-18. — ⚠️ Full data not yet presented; no publication",
+   "",
+   "",
+   ""
+  ],
+  [
+   21,
+   "Randall ME, et al. Phase III trial: adjuvant pelvic radiation therapy versus vaginal brachytherapy plus paclitaxel/carboplatin in high-intermediate and high-risk early-stage endometrial cancer (GOG-249).",
+   "J Clin Oncol",
+   "2019;37(21):1810–1818",
+   "30995174"
+  ],
+  [
+   22,
+   "Westin SN, et al. Durvalumab plus carboplatin/paclitaxel followed by maintenance durvalumab with or without olaparib as first-line treatment for advanced endometrial cancer: the phase III DUO-E trial.",
+   "J Clin Oncol",
+   "2024;42(3):283–299",
+   "37864337"
+  ],
+  [
+   23,
+   "Colombo N, et al. Atezolizumab and chemotherapy for advanced or recurrent endometrial cancer (AtTEnd/ENGOT-en7): a randomised, double-blind, placebo-controlled, phase 3 trial.",
+   "Lancet Oncol",
+   "2024;25(9):1135–1146",
+   "39102832"
+  ]
+ ]
+}

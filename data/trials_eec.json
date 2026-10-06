@@ -1,0 +1,1516 @@
+{
+ "outcomes": {
+  "os": {
+   "label": "OS benefit (trial-wide)",
+   "c": "var(--os)"
+  },
+  "pfs": {
+   "label": "PFS / RFS benefit only",
+   "c": "var(--pfs)"
+  },
+  "signal": {
+   "label": "Subgroup or molecular signal",
+   "c": "var(--pfs)"
+  },
+  "ns": {
+   "label": "NS / non-inferior / negative",
+   "c": "var(--ns)"
+  },
+  "harm": {
+   "label": "Harm",
+   "c": "var(--harm)"
+  },
+  "single": {
+   "label": "Single-arm",
+   "c": "var(--single)"
+  },
+  "obs": {
+   "label": "Observational / retrospective",
+   "c": "var(--fg-3)"
+  },
+  "excluded": {
+   "label": "Histotype excluded",
+   "c": "var(--harm)"
+  },
+  "extrapolated": {
+   "label": "Extrapolated",
+   "c": "var(--single)"
+  },
+  "pending": {
+   "label": "Unpublished / ongoing",
+   "c": "var(--fg-3)"
+  }
+ },
+ "reading": "itt",
+ "_meta": {
+  "source": "Endometrioid Endometrial Carcinoma — Evidence Tables by Treatment Setting — vault note version v1.2, updated 2026-09-15",
+  "histology": "eec",
+  "extracted": "2026-10-06",
+  "note": "Cells are verbatim from the vault note (markdown bold retained). 'out' and 'level' are derived; 'out' overrides are listed in tools/overrides/<hist>.json."
+ },
+ "sections": [
+  {
+   "id": "mol",
+   "title": "Molecular profile of endometrioid carcinoma",
+   "intro": "Serous is the most molecularly homogeneous histotype. **Endometrioid is the least:** all four classes occur in substantial proportions, and they differ from each other in prognosis and treatment benefit more than grade does.",
+   "mol": [
+    {
+     "caption": "",
+     "columns": [
+      "Molecular group",
+      "Early-stage EEC — PORTEC-1/2 (n = 947) [2]",
+      "High-risk EEC G1–2 — PORTEC-3 (n = 161) [3]",
+      "High-risk EEC G3 — PORTEC-3 (n = 113) [3]",
+      "What the class predicts (PORTEC-3, 10-yr) [4]"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "POLEmut",
+        "6%",
+        "~2% (4)",
+        "**~26% (29)**",
+        "Excellent in both arms (10-yr RFS 98%) → de-escalation candidate"
+       ],
+       "refs": []
+      },
+      {
+       "cells": [
+        "MMRd / MSI",
+        "26%",
+        "~37% (59)",
+        "~42% (47)",
+        "**No benefit from added chemo** (RFS HR 1.13) → immunotherapy candidate"
+       ],
+       "refs": []
+      },
+      {
+       "cells": [
+        "NSMP",
+        "59%",
+        "~58% (94)",
+        "~14% (16)",
+        "ER+: no OS gain from chemo; ER−: aggressive, benefit likely"
+       ],
+       "refs": []
+      },
+      {
+       "cells": [
+        "p53abn",
+        "9%",
+        "~2% (4)",
+        "~19% (21)",
+        "**Benefit from chemo whatever the histology** (RFS HR 0.42)"
+       ],
+       "refs": []
+      }
+     ]
+    }
+   ],
+   "notes": []
+  },
+  {
+   "id": "t1",
+   "title": "1. Adjuvant",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Endometrioid data",
+    "dfs_rfs_recurrence": "DFS / RFS / recurrence",
+    "os": "OS",
+    "hr": "HR",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "GOG-122",
+     "cite": "Randall 2006",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Doxorubicin 60 + cisplatin 50 q3w ×7 (+1 cisplatin) vs whole-abdominal RT",
+      "pop": "Stage III/IV, ≤2 cm residual",
+      "n": "396",
+      "hist": "~50% endometrioid; benefit consistent across histology subgroups (weaker only in serous)",
+      "dfs_rfs_recurrence": "5-yr PFS 50% vs 38%",
+      "os": "5-yr 55% vs 42%",
+      "hr": "Death 0.68 (0.52–0.89), stage-adjusted; PFS 0.71 (0.55–0.91)",
+      "tox": "—"
+     },
+     "refs": [
+      12
+     ],
+     "level": "subgroup",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "PORTEC-3",
+     "cite": "de Boer 2018 / 2019 update",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Cis-RT → carbo/taxol ×4 vs pelvic RT 48.6 Gy",
+      "pop": "High-risk I–III",
+      "n": "660",
+      "hist": "**EEC 71%** (G1–2 39–40%, G3 32%); no endometrioid-only HR in extracts. Stage I–II: OS 0.84 (0.52–1.38), NS",
+      "dfs_rfs_recurrence": "5-yr FFS 76.5% vs 69.1%",
+      "os": "5-yr 81.4% vs 76.1%",
+      "hr": "OS 0.70 (0.51–0.97); FFS 0.70 (0.52–0.94)",
+      "tox": "—"
+     },
+     "refs": [
+      14,
+      13
+     ],
+     "level": "included",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "↳ PORTEC-3 MMRd",
+     "cite": "Post 2025",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Same",
+      "pop": "Molecular cohort",
+      "n": "139",
+      "hist": "Class is **77% EEC** [3] — the closest thing to a high-risk endometrioid result",
+      "dfs_rfs_recurrence": "10-yr RFS 72.9% vs 76.4%",
+      "os": "68.7% vs 74.4%",
+      "hr": "RFS **1.13 (0.59–2.15)**; OS 1.34 (0.71–2.55) — no benefit",
+      "tox": "—"
+     },
+     "refs": [
+      4
+     ],
+     "level": "molecular",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "↳ PORTEC-3 NSMP",
+     "cite": "Post 2025",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Same",
+      "pop": "Molecular cohort",
+      "n": "122",
+      "hist": "Class is **85% EEC** [3]. ER+ OS 81.8% vs 82.3%; ER− recurrences 2/6 vs 5/7",
+      "dfs_rfs_recurrence": "10-yr RFS 72.8% vs 61.7%",
+      "os": "81.2% vs 74.1%",
+      "hr": "RFS 0.61 (0.33–1.15); OS 0.60 (0.27–1.32), NS",
+      "tox": "—"
+     },
+     "refs": [
+      4
+     ],
+     "level": "molecular",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "↳ PORTEC-3 POLEmut",
+     "cite": "Post 2025",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Same",
+      "pop": "Molecular cohort",
+      "n": "51",
+      "hist": "Class is **65% EEC** (mostly G3) [3]",
+      "dfs_rfs_recurrence": "10-yr RFS 100% vs 96.4%",
+      "os": "100% vs 96.4%",
+      "hr": "Log-rank p=0.40",
+      "tox": "1 recurrence in 51"
+     },
+     "refs": [
+      4
+     ],
+     "level": "molecular",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "↳ PORTEC-3 p53abn",
+     "cite": "Post 2025",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Same",
+      "pop": "Molecular cohort",
+      "n": "99",
+      "hist": "52% non-serous; **27% EEC** [3] — endometrioid p53abn shares the benefit",
+      "dfs_rfs_recurrence": "10-yr RFS 52.6% vs 37.0%",
+      "os": "52.7% vs 36.6%",
+      "hr": "RFS **0.42 (0.24–0.74)**; OS 0.52 (0.30–0.91)",
+      "tox": "—"
+     },
+     "refs": [
+      4,
+      3
+     ],
+     "level": "molecular",
+     "out": "signal",
+     "tags": []
+    },
+    {
+     "name": "PORTEC-1",
+     "cite": "Creutzberg 2000",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Pelvic RT 46 Gy vs no further treatment (TAH-BSO, no lymphadenectomy)",
+      "pop": "Stage I: G1 ≥50% MI, G2 any MI, G3 <50% MI",
+      "n": "714",
+      "hist": "Eligibility grade-defined; local pathology: adenocarcinoma 93%, adenoacanthoma 3%, adenosquamous 2%, serous/clear cell 5 pts (<1%); G1 20% / G2 70% / G3 10%",
+      "dfs_rfs_recurrence": "5-yr locoregional recurrence **4% vs 14%** (p<0.001)",
+      "os": "5-yr 81% vs 85% (p=0.31)",
+      "hr": "Cox, **no RT vs RT**: locoregional relapse 3.9 (2.0–7.6); EC death 0.76 (0.4–1.4), NS",
+      "tox": "Survival **after** relapse better in the observation arm (p=0.02)"
+     },
+     "refs": [
+      5
+     ],
+     "level": "included",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-99",
+     "cite": "Keys 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Whole-pelvic RT vs no additional therapy",
+      "pop": "\"Intermediate risk\" FIGO 1988 IB, IC, II (occult)",
+      "n": "392",
+      "hist": "Endometrioid 76%, with squamous differentiation 14%, adenocarcinoma NOS 5%, other 6% (serous/clear cell excluded); G1 42% / G2 39% / G3 18%. Defines the **GOG-99 HIR criteria** later used by GOG-249",
+      "dfs_rfs_recurrence": "2-yr recurrence 3% vs 12%; **HIR subgroup 6% vs 26%**",
+      "os": "4-yr 92% vs 86%",
+      "hr": "Recurrence RH 0.42 (90% CI 0.25–0.73; P=.007); OS RH 0.86 (90% CI 0.57–1.29; P=.557), NS",
+      "tox": "—"
+     },
+     "refs": [
+      6
+     ],
+     "level": "included",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "NSGO-9501/EORTC-55991 + MaNGO ILIADE-III",
+     "cite": "Hogberg 2010, pooled",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "RT ± sequential chemotherapy",
+      "pop": "FIGO I–III, no residual, high-risk",
+      "n": "534",
+      "hist": "**Endometrioid 71%** (NSGO/EORTC 60%; ILIADE-III endometrioid-only by eligibility); serous 14%, clear cell 13%. **Endometrioid subgroup (n=384, unplanned): PFS 0.53 (0.34–0.83), 5-yr 80% vs 69%; OS 0.60 (0.36–1.00)** — exploratory. NSGO/EORTC serous/CC PFS 0.83 (0.42–1.64), NS",
+      "dfs_rfs_recurrence": "5-yr PFS 78% vs 69% (pooled)",
+      "os": "5-yr 82% vs 75% (trend)",
+      "hr": "PFS 0.63 (0.44–0.89); NSGO/EORTC alone 0.64 (0.41–0.99); OS 0.69 (0.46–1.03), P=.07; CSS 0.55 (0.35–0.88)",
+      "tox": "—"
+     },
+     "refs": [
+      10
+     ],
+     "level": "subgroup",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "JGOG-2033",
+     "cite": "Susumu 2008",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "CAP (cyclophosphamide 333 / doxorubicin 40 / cisplatin 50 q4w ≥3) vs pelvic RT ≥40 Gy",
+      "pop": "**Endometrioid** adenocarcinoma, >50% MI (FIGO 1988 IC–IIIC; 61% IC)",
+      "n": "385",
+      "hist": "**Endometrioid-only trial** (49 non-endometrioid excluded after enrolment); G1 55% / G2 30% / G3 14%",
+      "dfs_rfs_recurrence": "5-yr PFS 81.8% vs 83.5% (NS); **HIR subgroup (n=120) 83.8% vs 66.2%**",
+      "os": "86.7% vs 85.3% (NS); HIR 89.7% vs 73.6%",
+      "hr": "HIR PFS 0.44 (0.20–0.97), OS 0.24 (0.09–0.69) — subgroup, not primary",
+      "tox": "—"
+     },
+     "refs": [
+      9
+     ],
+     "level": "histotype_only",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "ASTEC / EN.5",
+     "cite": "Blake 2009",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "EBRT 40–46 Gy vs observation (VBT allowed, 53%)",
+      "pop": "Intermediate/high-risk early stage",
+      "n": "905",
+      "hist": "**Endometrioid 83%**; serous 4%, clear cell 2%, mixed high-grade 4%; G1 25% / G2 40% / G3 24%; high-risk group 22%",
+      "dfs_rfs_recurrence": "5-yr isolated vaginal/pelvic recurrence **3.2% vs 6.1%** (HR 0.46, 0.24–0.89)",
+      "os": "5-yr 84% both arms",
+      "hr": "OS 1.05 (0.75–1.48); meta-analysis 1.04 (0.84–1.29)",
+      "tox": "**excludes >3% absolute OS benefit**"
+     },
+     "refs": [
+      7
+     ],
+     "level": "included",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "PORTEC-2",
+     "cite": "Nout 2010",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "VBT (21 Gy HDR ×3) vs EBRT 46 Gy",
+      "pop": "Stage I/IIA, high-intermediate risk",
+      "n": "427",
+      "hist": "Serous/clear cell excluded; central review (n=367): **non-endometrioid 3%**; local grade G1 47% / G2 45% / G3 8% (review shifted most G2 → G1); molecular profiling of PORTEC-1/2 → [2]",
+      "dfs_rfs_recurrence": "5-yr vaginal recurrence 1.8% vs 1.6%; locoregional 5.1% vs 2.1%; DFS 82.7% vs 78.1%",
+      "os": "84.8% vs 79.6%",
+      "hr": "Vaginal 0.78 (0.17–3.49); DFS 1.09 (0.66–1.78); OS 1.17 (0.69–1.98)",
+      "tox": "GI toxicity G1–2 12.6% vs 53.8%"
+     },
+     "refs": [
+      8
+     ],
+     "level": "included",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "GOG-249",
+     "cite": "Randall 2019",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "VCB → carbo AUC6 + paclitaxel 175 ×3 vs pelvic RT 45–50.4 Gy",
+      "pop": "HIR stage I endometrioid (GOG-99 criteria), stage II, stage I–II serous/CC",
+      "n": "601",
+      "hist": "**71% endometrioid** (G1 18% / G2 35% / G3 21%) — so the null result is largely an endometrioid result; forest plot RFS: endometrioid (n=322) 1.04 (0.61–1.78), high-grade endometrioid (n=163) 0.86 (0.45–1.66) — exploratory; more nodal recurrences with VCB/C (9% vs 4%)",
+      "dfs_rfs_recurrence": "60-mo RFS 0.76 vs 0.76",
+      "os": "0.85 vs 0.87",
+      "hr": "RFS 0.92 (90% CL 0.69–1.23), NS",
+      "tox": "—"
+     },
+     "refs": [
+      11
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "GOG-258",
+     "cite": "Matei 2019",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Cisplatin + 45 Gy → carbo/taxol ×4 vs carbo/taxol ×6",
+      "pop": "Stage III/IVA (+ I/II serous/CC with +washings)",
+      "n": "736",
+      "hist": "**Endometrioid 69%** (G1 22%, G2 30%, G3 17%); no histology subgroup differed",
+      "dfs_rfs_recurrence": "5-yr RFS 59% vs 58%; vaginal 2% vs 7%, pelvic/PA nodal 11% vs 20%, **distant 27% vs 21%**",
+      "os": "Immature",
+      "hr": "RFS 0.90 (90% CI 0.74–1.10), NS",
+      "tox": "—"
+     },
+     "refs": [
+      15
+     ],
+     "level": "included",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "KEYNOTE-B21",
+     "cite": "Van Gorp 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol ± RT ± pembrolizumab",
+      "pop": "Stage I–II non-endometrioid **or p53abn** with MI; stage III/IVA any histology; **POLEmut excluded**",
+      "n": "1095",
+      "hist": "Endometrioid 54% (histology a stratification factor); forest plot **endometrioid DFS 0.75 (0.50–1.11)**, non-endometrioid 1.26 (0.91–1.76) — exploratory, NS. **dMMR DFS 0.31 (0.14–0.69)**; pMMR 1.20 (0.91–1.57)",
+      "dfs_rfs_recurrence": "2-yr DFS 75% vs 76%",
+      "os": "Immature",
+      "hr": "**ITT DFS 1.02 (0.79–1.32) — negative**",
+      "tox": "—"
+     },
+     "refs": [
+      16
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "NRG-GY020 · RAINBO · PORTEC-4a",
+     "cite": "BLUE / GREEN / ORANGE / RED",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Molecular-class–directed adjuvant therapy (de-escalation for POLEmut; RT ± checkpoint inhibitor for MMRd; hormonal strategies for NSMP; intensification for p53abn)",
+      "pop": "Class-defined",
+      "n": "—",
+      "hist": "**Molecular-class trials — the ones that will answer the endometrioid questions**",
+      "dfs_rfs_recurrence": "Not yet reported ⬜ check status",
+      "os": "—",
+      "hr": "—",
+      "tox": "—"
+     },
+     "refs": [],
+     "level": "molecular",
+     "out": "pending",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "info",
+     "title": "Early-stage endometrioid: radiotherapy buys local control, not survival",
+     "md": "PORTEC-1, GOG-99 and ASTEC/EN.5 all cut locoregional recurrence without an OS gain, and ASTEC's meta-analysis rules out an OS benefit of more than 3%. PORTEC-1 adds two points: vaginal relapse is salvageable (2-yr survival 79%, vs 21% after pelvic or distant relapse), and survival after relapse was *better* without upfront RT. PORTEC-2 then showed VBT gives the same vaginal control as EBRT with far less GI toxicity. Together these support observation for low-risk disease and VBT for HIR disease."
+    },
+    {
+     "kind": "warn",
+     "title": "Histology-defined high-risk trials hide a molecular split",
+     "md": "About 71% of PORTEC-3 patients had endometrioid tumours, but the chemotherapy benefit sits in p53abn. MMRd — the largest endometrioid class — gained nothing from chemotherapy (10-yr RFS HR 1.13). \"High-risk endometrioid, add chemo?\" therefore has no single answer: p53abn yes, MMRd no, POLEmut probably not needed, NSMP depends on ER. The KEYNOTE-B21 dMMR result (HR 0.31) points the MMRd group toward immunotherapy but comes from a trial that failed its primary endpoint, so it is hypothesis-generating only. B21 also enrolled stage I–II endometrioid only if p53abn, so **stage I–II NSMP/MMRd endometrioid is not represented in any adjuvant immunotherapy data.** JGOG-2033 is the only endometrioid-only randomized adjuvant trial here reported on its own (MaNGO ILIADE-III was also endometrioid-only but is published pooled with NSGO/EORTC). Its chemotherapy-favouring HIR result is a subgroup analysis, and CAP is no longer used."
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "title": "2. Primary systemic therapy (first-line, chemo-naive advanced)",
+   "intro": "The classic GOG trials (GOG-107, -177, -209) enrolled advanced **and** recurrent patients in one population, so each is listed here **and** in Table 3A, marked ↔ T3 / ↔ T2 (same convention as the serous note).",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Endometrioid data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr": "HR",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "DUO-E — durvalumab + olaparib arm",
+     "cite": "Westin 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Same ×6 → durvalumab **+ olaparib 300 mg BID** maintenance vs carbo/taxol",
+      "pop": "Same",
+      "n": "718",
+      "hist": "Same cohort; endometrioid progression **74/152 (48.7%)**; endometrioid PFS HR vs control 0.54 (0.40–0.74) (Fig 3B, exploratory) — small increment over durvalumab alone (50.4%; 0.65)",
+      "pfs": "15.1 vs 9.6 mo",
+      "os": "Interim 0.59 (0.42–0.83), P=.003",
+      "hr": "ITT 0.55 (0.43–0.69); dMMR 0.41 (0.21–0.75); pMMR 0.57 (0.44–0.73). D+O v D: pMMR 0.76 (0.59–0.99), **dMMR 0.97 (0.49–1.98)**",
+      "tox": "—"
+     },
+     "refs": [
+      23
+     ],
+     "level": "subgroup",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "DUO-E — durvalumab arm",
+     "cite": "Westin 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + durvalumab ×6 → durvalumab maintenance vs carbo/taxol",
+      "pop": "Newly dx measurable III/IV **or recurrent** (52% recurrent)",
+      "n": "718",
+      "hist": "**Endometrioid 60.2% (432/718)**; endometrioid progression **92/139 (66.2%) control → 71/141 (50.4%)**; endometrioid PFS HR 0.65 (0.47–0.88) (Fig 3A, unstratified, exploratory)",
+      "pfs": "10.2 vs 9.6 mo",
+      "os": "Interim 0.77 (0.56–1.07), NS",
+      "hr": "ITT 0.71 (0.57–0.89); **dMMR 0.42 (0.22–0.80)**; pMMR 0.77 (0.60–0.97) ⚠️ non-proportional hazards",
+      "tox": "—"
+     },
+     "refs": [
+      23
+     ],
+     "level": "subgroup",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "RUBY",
+     "cite": "Mirza 2023",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + dostarlimab vs carbo/taxol",
+      "pop": "III/IV or first recurrence; carcinosarcoma included",
+      "n": "494",
+      "hist": "Endometrioid 54.7%; histology not broken out in extract",
+      "pfs": "24-mo PFS dMMR 61.4% vs 15.7%; overall 36.1% vs 18.1%",
+      "os": "24-mo overall 71.3% vs 56.0% (interim)",
+      "hr": "**dMMR 0.28 (0.16–0.50)**; overall 0.64 (0.51–0.80); pMMR 0.76 (0.59–0.98). OS overall 0.64 (0.46–0.87); dMMR 0.30 (0.13–0.70)",
+      "tox": "—"
+     },
+     "refs": [
+      22
+     ],
+     "level": "included",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "GOG-177",
+     "cite": "Fleming 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "TAP vs AP",
+      "pop": "Measurable III/IV **or recurrent** (58–71% recurrent)",
+      "n": "263",
+      "hist": "Endometrioid 63–65%; **RR in non-serous histologies 33%→59%** (serous 42%→50%)",
+      "pfs": "8.3 vs 5.3 mo",
+      "os": "15.3 vs 12.3 mo",
+      "hr": "PFS 0.60 (0.46–0.78); OS 0.75 (0.57–0.988)",
+      "tox": "—"
+     },
+     "refs": [
+      18
+     ],
+     "level": "subgroup",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "NRG-GY018",
+     "cite": "Eskander 2023",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + pembrolizumab vs carbo/taxol",
+      "pop": "III/IVA measurable, IVB/recurrent; carcinosarcoma excluded",
+      "n": "816",
+      "hist": "**dMMR cohort 66.7% endometrioid, 0.9% serous** — dMMR HR ≈ endometrioid MMRd result",
+      "pfs": "dMMR NR vs 7.6 mo; pMMR 13.1 vs 8.7 mo",
+      "os": "—",
+      "hr": "**dMMR 0.30 (0.19–0.48)**; pMMR 0.54 (0.41–0.71)",
+      "tox": "—"
+     },
+     "refs": [
+      21
+     ],
+     "level": "molecular",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-107",
+     "cite": "Thigpen 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Doxorubicin 60 + cisplatin 50 q3w vs doxorubicin 60",
+      "pop": "Stage III/IV **or recurrent**, chemo-naive",
+      "n": "281",
+      "hist": "Endometrioid 47–49%; no subgroup outcome",
+      "pfs": "5.7 vs 3.8 mo",
+      "os": "9.0 vs 9.2 mo (NS)",
+      "hr": "PFS 0.736 (0.577–0.939); OS 0.928 NS",
+      "tox": "—"
+     },
+     "refs": [
+      17
+     ],
+     "level": "included",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "AtTEnd / ENGOT-en7",
+     "cite": "Colombo 2024",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol + atezolizumab ×6–8 → atezolizumab vs placebo",
+      "pop": "Advanced or recurrent EC or carcinosarcoma; no prior chemo for recurrence",
+      "n": "551 (2:1)",
+      "hist": "Endometrioid 64% (stratification factor). PFS forest plot (not preplanned): **endometrioid 0.68 (0.53–0.88)**; dMMR endometrioid 0.32 (0.20–0.53); serous 0.87 (0.52–1.45). dMMR 23%",
+      "pfs": "ITT 10.1 vs 8.9 mo; dMMR NE vs 6.9 mo",
+      "os": "Interim 38.7 vs 30.2 mo, HR 0.82 (0.63–1.07) — boundary not crossed",
+      "hr": "**dMMR 0.36 (0.23–0.57)**; ITT 0.74 (0.61–0.91). pMMR 0.92 (0.73–1.16)",
+      "tox": "ESMO 2025 OS 36.0 vs 30.5 mo per serous note — ⬜ not verified here (not in the 2024 paper)"
+     },
+     "refs": [
+      24
+     ],
+     "level": "subgroup",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-86P",
+     "cite": "Aghajanian 2018",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "PC + bevacizumab / PC + temsirolimus / ixabepilone-carbo + bevacizumab vs **historical** PC (GOG-209)",
+      "pop": "Chemo-naive measurable III/IVA, IVB or recurrent",
+      "n": "349",
+      "hist": "Histology imbalance (serous 14% arm 1 vs 23–26%). **CTNNB1-mutant (26%) → bevacizumab PFS 0.73 (0.60–0.91)**; MMR loss 24%, mostly endometrioid",
+      "pfs": "PC+bev 0.81 (92% CI 0.63–1.02), NS; others NS",
+      "os": "PC+bev **0.71 (0.55–0.91)**",
+      "hr": "—",
+      "tox": "Historically controlled randomized phase II — no arm beat PFS threshold"
+     },
+     "refs": [
+      20
+     ],
+     "level": "included",
+     "out": "signal",
+     "tags": []
+    },
+    {
+     "name": "GOG-209",
+     "cite": "Miller 2020",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carboplatin AUC6 + paclitaxel 175 vs TAP",
+      "pop": "Stage III/IV **or recurrent** (27% recurrent), chemo-naive",
+      "n": "1328",
+      "hist": ">50% endometrioid; forest plot: **grade 1 OS HR 0.58 (0.37–0.89)** favouring TC — exploratory",
+      "pfs": "13 vs 14 mo",
+      "os": "37 vs 41 mo",
+      "hr": "OS 1.002 (90% CI 0.9–1.12) **non-inferior**; PFS 1.032",
+      "tox": "—"
+     },
+     "refs": [
+      19
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "SIENDO / ENGOT-EN5 — maintenance",
+     "cite": "Vergote 2023",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Selinexor 80 mg weekly vs placebo after PR/CR to one line (≥12 wk) of taxane-platinum",
+      "pop": "Advanced or recurrent EC",
+      "n": "263 (2:1)",
+      "hist": "Endometrioid 55%: **endometrioid PFS 9.2 vs 3.8 mo, HR 0.66 (0.40–1.07)** (audited 0.57, 0.35–0.94) — exploratory. **TP53wt subgroup** (n=103; prespecified exploratory; excludes p53abn, so enriched for endometrioid): median PFS **13.7 vs 3.7 mo**, HR 0.41 (0.23–0.72)",
+      "pfs": "ITT 5.7 vs 3.8 mo",
+      "os": "Immature (64 events)",
+      "hr": "ITT 0.76 (0.54–1.08), NS; audited-stratification 0.71 (0.499–0.996)",
+      "tox": "—"
+     },
+     "refs": [
+      25
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "Three interpretation traps",
+     "md": "- **dMMR HRs apply to endometrioid; pMMR HRs do not.** The dMMR benefit is consistent across four trials (HR 0.28–0.42) and dMMR is effectively an endometrioid population. The pMMR HRs (0.54–0.92) average NSMP endometrioid with p53abn serous and carcinosarcoma, and no trial here separates them.\n- **DUO-E endometrioid event rates are not HRs.** Progression fell 66.2% → 50.4% → 48.7% across control, durvalumab and D+O. Olaparib adds little visible effect in endometrioid tumours, but a clear one in serous (70.7% → 57.1%). That fits olaparib's pMMR-only effect and the dMMR enrichment of endometrioid tumours. Fig 3A/3B endometrioid PFS HRs vs control are **0.65 (0.47–0.88)** for durvalumab and **0.54 (0.40–0.74)** for D+O (serous 0.71 → 0.46), but they are unstratified exploratory subgroup HRs against control, not a D+O vs durvalumab comparison — treat as hypothesis-consistent only.\n- **GOG-209 established carbo/taxol by non-inferiority, not superiority.** The grade 1 HR 0.58 is one cell of a forest plot. It is also a reminder that low-grade, receptor-positive endometrioid disease has a non-cytotoxic first-line option (Table 3A)."
+    }
+   ]
+  },
+  {
+   "id": "t3",
+   "title": "3. Recurrent disease",
+   "intro": "Recurrent disease is **not one setting**. The GOG trials treated recurrence with first-line cytotoxic therapy in patients who had never had chemotherapy; the modern trials treat recurrence after platinum and, increasingly, after a checkpoint inhibitor. For endometrioid carcinoma there is a third axis the serous note does not need: **hormonal therapy**, whose activity depends on grade and receptor status far more than on line.",
+   "container": true,
+   "notes": [
+    {
+     "kind": "warn",
+     "title": "Why this split exists",
+     "md": "GOG-107, GOG-177 and GOG-209 all **excluded prior cytotoxic chemotherapy**. Their recurrent patients were chemo-naive. Reading their medians as salvage-line expectations overestimates what a pretreated patient can expect — GOG-209's own subgroups show median OS of 20.4–22.0 months in measurable/recurrent patients versus 113 months in the non-measurable, non-recurrent group."
+    }
+   ]
+  },
+  {
+   "id": "t3a",
+   "title": "3A. First-line systemic therapy **for** recurrent disease (cytotoxic-naive)",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "pop": "Prior systemic therapy",
+    "n": "n",
+    "recurrent_fraction": "Recurrent fraction",
+    "hist": "Endometrioid data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr_response": "HR / response",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "GOG-177",
+     "cite": "Fleming 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "TAP vs AP",
+      "pop": "**None** (RT / hormones / biologics allowed)",
+      "n": "263",
+      "recurrent_fraction": "**58–71%**",
+      "hist": "Endometrioid 63–65%; non-serous RR 33%→59%",
+      "pfs": "8.3 vs 5.3 mo",
+      "os": "15.3 vs 12.3 mo",
+      "hr_response": "PFS 0.60 (0.46–0.78); OS 0.75 (0.57–0.988)",
+      "tox": "—"
+     },
+     "refs": [
+      18
+     ],
+     "level": "subgroup",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "GOG-107",
+     "cite": "Thigpen 2004",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Doxorubicin + cisplatin vs doxorubicin",
+      "pop": "**None** (hormonal or 1 biologic allowed)",
+      "n": "281",
+      "recurrent_fraction": "Not reported",
+      "hist": "Endometrioid 47–49%",
+      "pfs": "5.7 vs 3.8 mo",
+      "os": "9.0 vs 9.2 mo",
+      "hr_response": "PFS 0.736 (0.577–0.939)",
+      "tox": "—"
+     },
+     "refs": [
+      17
+     ],
+     "level": "included",
+     "out": "pfs",
+     "tags": []
+    },
+    {
+     "name": "GOG-81",
+     "cite": "Thigpen 1999",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Oral MPA 200 vs 1000 mg/d",
+      "pop": "**None**",
+      "n": "299",
+      "recurrent_fraction": "~70–72%",
+      "hist": "Endometrioid 27%, adenocarcinoma NOS 36%, adenosquamous 13%, serous 11%, clear cell 4%; G3 42%. **Grade 1 ORR 37% vs grade 3 9%; PR ≥50 fmol/mg ORR 37% vs PR <50 8%**",
+      "pfs": "3.2 vs 2.5 mo",
+      "os": "11.1 vs 7.0 mo",
+      "hr_response": "ORR 25% vs 16%; death HR 1.31 (P=.026) for **1000 mg** — higher dose worse",
+      "tox": "—"
+     },
+     "refs": [
+      26
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "GOG-209",
+     "cite": "Miller 2020",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Carbo/taxol vs TAP",
+      "pop": "**None**",
+      "n": "1328",
+      "recurrent_fraction": "**27%**",
+      "hist": ">50% endometrioid",
+      "pfs": "13 vs 14 mo",
+      "os": "Measurable/recurrent subgroup 20.4 vs 22.0 mo",
+      "hr_response": "OS 1.002 (90% CI 0.9–1.12) non-inferior",
+      "tox": "—"
+     },
+     "refs": [
+      19
+     ],
+     "level": "subgroup",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "GOG-3007",
+     "cite": "Slomovitz 2022",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Everolimus 10 mg + letrozole 2.5 mg vs MPA 200 mg / tamoxifen 20 mg BID alternating weeks",
+      "pop": "Prior chemo allowed (≤1 regimen); stratified by prior chemo/chemoradiation (59% yes)",
+      "n": "74",
+      "recurrent_fraction": "Advanced/persistent/recurrent; fraction not reported",
+      "hist": "**Endometrioid 66%** (G1 23% / G2 27% / G3 16%); serous 14%, clear cell 4%. **Chemo-naive: EL median PFS 28 mo; MT 5 mo**",
+      "pfs": "Overall 6 vs 4 mo",
+      "os": "31 vs 17 mo",
+      "hr_response": "ORR 22% vs 25%",
+      "tox": "G3/4 thromboembolism 0% vs 11%"
+     },
+     "refs": [
+      29
+     ],
+     "level": "included",
+     "out": "signal",
+     "tags": []
+    },
+    {
+     "name": "Ball 1996",
+     "cite": "GOG phase II",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Paclitaxel 250 mg/m² 24-h (200 if prior pelvic RT) + G-CSF",
+      "pop": "**No prior chemo**",
+      "n": "28 eval.",
+      "recurrent_fraction": "Not reported",
+      "hist": "Histology not reported",
+      "pfs": "3.8 mo",
+      "os": "9.5 mo",
+      "hr_response": "ORR 35.7% (18.6–55.9)",
+      "tox": "—"
+     },
+     "refs": [
+      28
+     ],
+     "level": "unspecified",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "GOG-81F",
+     "cite": "Thigpen 2001",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Tamoxifen 20 mg BID (single arm)",
+      "pop": "**None**",
+      "n": "68",
+      "recurrent_fraction": "81%",
+      "hist": "Endometrioid 40%; **endometrioid ORR 1/27 (4%)**; grade 1 23%, grade 3 3%",
+      "pfs": "1.9 mo",
+      "os": "8.8 mo",
+      "hr_response": "ORR 10% (90% CI 5.7–17.9)",
+      "tox": "—"
+     },
+     "refs": [
+      27
+     ],
+     "level": "subgroup",
+     "out": "single",
+     "tags": []
+    }
+   ],
+   "notes": []
+  },
+  {
+   "id": "t3b",
+   "title": "3B. Second line and beyond (post-platinum ± post-PD-(L)1)",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen (exp vs control)",
+    "prior_systemic_therapy_required": "Prior systemic therapy required",
+    "n": "n",
+    "hist": "Endometrioid data",
+    "pfs": "PFS",
+    "os": "OS",
+    "hr_response": "HR / response",
+    "tox": "Toxicity / notes",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "KEYNOTE-775",
+     "cite": "Makker 2022",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Lenvatinib 20 mg + pembrolizumab vs doxorubicin or weekly paclitaxel",
+      "prior_systemic_therapy_required": "≥1 prior **platinum**",
+      "n": "827",
+      "hist": "Endometrioid 60%; benefit consistent across histology subgroups",
+      "pfs": "pMMR 6.6 vs 3.8 mo; all 7.2 vs 3.8 mo",
+      "os": "pMMR 17.4 vs 12.0 mo; all 18.3 vs 11.4 mo",
+      "hr_response": "OS pMMR 0.68 (0.56–0.84); all 0.62 (0.51–0.75). dMMR ORR 40.0% vs 12.3%",
+      "tox": "—"
+     },
+     "refs": [
+      31
+     ],
+     "level": "included",
+     "out": "os",
+     "tags": []
+    },
+    {
+     "name": "GOG-3007, prior-chemo subset",
+     "cite": "",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Everolimus/letrozole vs MPA/tamoxifen",
+      "prior_systemic_therapy_required": "Prior chemotherapy or chemoradiation",
+      "n": "44 (22 per arm) of 74",
+      "hist": "Not reported by stratum (trial-wide endometrioid 66%)",
+      "pfs": "EL 4 mo vs MT 3 mo",
+      "os": "—",
+      "hr_response": "NR",
+      "tox": "Subset of randomized phase II"
+     },
+     "refs": [
+      29
+     ],
+     "level": "included",
+     "out": "ns",
+     "tags": []
+    },
+    {
+     "name": "DESTINY-PanTumor02, EC cohort",
+     "cite": "Meric-Bernstam 2024",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "T-DXd 5.4 mg/kg q3w (single arm)",
+      "prior_systemic_therapy_required": "Median 2 prior lines (0–7)",
+      "n": "40",
+      "hist": "HER2 IHC 3+/2+; histology not reported — **HER2+ is uncommon in endometrioid**",
+      "pfs": "11.1 mo (EC cohort)",
+      "os": "26.0 mo (EC cohort)",
+      "hr_response": "ORR 57.5%; IHC 3+ 84.6% (n=13)",
+      "tox": "—"
+     },
+     "refs": [
+      37
+     ],
+     "level": "included",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "KEYNOTE-158, endometrial cohort",
+     "cite": "Marabelle 2020",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Pembrolizumab 200 mg q3w (single arm)",
+      "prior_systemic_therapy_required": "Progressed on/intolerant of prior therapy",
+      "n": "49",
+      "hist": "MSI-H/dMMR; histology not broken out",
+      "pfs": "25.7 mo",
+      "os": "NR",
+      "hr_response": "ORR 57.1% (42.2–71.2)",
+      "tox": "—"
+     },
+     "refs": [
+      34
+     ],
+     "level": "included",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "GARNET cohort A1",
+     "cite": "Oaknin 2020",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Dostarlimab (single arm)",
+      "prior_systemic_therapy_required": "Progression on/after platinum doublet; ≤2 prior lines",
+      "n": "71 eval.",
+      "hist": "dMMR only. **Type I (endometrioid) ORR 40.0% (26.4–54.8), n=50**; type II 47.6%",
+      "pfs": "8.1 mo",
+      "os": "12-mo OS 72.7%",
+      "hr_response": "ORR 42.3% (30.6–54.6); CR 12.7%",
+      "tox": "—"
+     },
+     "refs": [
+      32
+     ],
+     "level": "subgroup",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "GARNET A1/A2 update",
+     "cite": "Oaknin 2022, abstract",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Dostarlimab (single arm)",
+      "prior_systemic_therapy_required": "Post-platinum",
+      "n": "143 dMMR / 156 pMMR",
+      "hist": "Histology not broken out",
+      "pfs": "dMMR 6.0 vs pMMR 2.7 mo",
+      "os": "NR vs 16.9 mo",
+      "hr_response": "ORR **45.5% dMMR vs 15.4% pMMR**",
+      "tox": "—"
+     },
+     "refs": [
+      33
+     ],
+     "level": "included",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "Everolimus + letrozole",
+     "cite": "Slomovitz 2015",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Everolimus 10 mg + letrozole 2.5 mg (single arm)",
+      "prior_systemic_therapy_required": "≤2 prior cytotoxic (92% ≥1)",
+      "n": "35 eval.",
+      "hist": "**Endometrioid 71%**; endometrioid median OS 19.8 vs serous 3.5 mo (HR 6.43); **no serous responders; all 4 CTNNB1-mutant responded**",
+      "pfs": "3.0 mo",
+      "os": "14 mo",
+      "hr_response": "ORR 32% (CR 25.7%); CBR 40%",
+      "tox": "—"
+     },
+     "refs": [
+      30
+     ],
+     "level": "subgroup",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "GOG-229E",
+     "cite": "Aghajanian 2011",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Bevacizumab 15 mg/kg (single arm)",
+      "prior_systemic_therapy_required": "1–2 prior cytotoxic",
+      "n": "52",
+      "hist": "Endometrioid 50%; **1 of 7 responders endometrioid** (4 serous)",
+      "pfs": "4.17 mo; PFS ≥6 mo 40.4%",
+      "os": "10.55 mo",
+      "hr_response": "ORR 13.5%",
+      "tox": "—"
+     },
+     "refs": [
+      35
+     ],
+     "level": "subgroup",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "Topotecan",
+     "cite": "Miller 2002, GOG",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Topotecan 1.5 mg/m² D1–5 q3w (single arm)",
+      "prior_systemic_therapy_required": "Exactly 1 prior regimen",
+      "n": "22 eval.",
+      "hist": "Endometrioid 32%",
+      "pfs": "—",
+      "os": "—",
+      "hr_response": "ORR 9% (1.1–29.2)",
+      "tox": "2 treatment-related deaths"
+     },
+     "refs": [
+      36
+     ],
+     "level": "included",
+     "out": "single",
+     "tags": []
+    },
+    {
+     "name": "TroFuse-005",
+     "cite": "topline 2026-05-18",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "Sac-TMT 4 mg/kg q2w vs doxorubicin or paclitaxel",
+      "prior_systemic_therapy_required": "**Platinum AND anti–PD-(L)1**",
+      "n": "776",
+      "hist": "Not broken out",
+      "pfs": "Met",
+      "os": "Met",
+      "hr_response": "NR",
+      "tox": "Not yet released"
+     },
+     "refs": [],
+     "level": "included",
+     "out": "pending",
+     "tags": []
+    },
+    {
+     "name": "Platinum re-treatment",
+     "cite": "",
+     "star": false,
+     "observational": false,
+     "cols": {
+      "regimen": "Carboplatin + paclitaxel",
+      "prior_systemic_therapy_required": "Platinum-sensitive relapse",
+      "n": "—",
+      "hist": "Not broken out",
+      "pfs": "—",
+      "os": "—",
+      "hr_response": "NR",
+      "tox": "**No 2L trial data.** Extrapolated from GOG-209, a **chemo-naive** trial (row in 3A)"
+     },
+     "refs": [
+      19
+     ],
+     "level": "included",
+     "out": "extrapolated",
+     "tags": []
+    }
+   ],
+   "notes": [
+    {
+     "kind": "info",
+     "title": "Reading notes",
+     "md": "- **For endometrioid relapse, the MMR result chooses the 2L drug more than the histology does.** dMMR: PD-1 monotherapy is active in endometrioid tumours specifically (GARNET type I ORR 40%; KEYNOTE-158 endometrial 57%). pMMR: lenvatinib/pembrolizumab, or hormonal therapy if the tumour is low-grade and receptor-positive.\n- **Hormonal therapy is a real option here, not filler** (the serous note leaves it out for good reason). Response tracks grade and PR: GOG-81 grade 1 ORR 37% vs grade 3 9%. The everolimus/letrozole data show the same split — endometrioid responds, serous does not. GOG-3007's 28-month PFS in chemo-naive patients is from a small subset of a 74-patient phase II.\n- **Single-agent tamoxifen is weak** (ORR 10%; endometrioid 1/27). It is only used alternating with a progestin (GOG-3007 MT arm).\n- **CTNNB1 recurs as a signal** (bevacizumab in GOG-86P; everolimus/letrozole in Slomovitz 2015). It is an NSMP-endometrioid feature, but the numbers are too small to act on.\n- The platinum-re-treatment row stays ⚠️: widely used practice that rests on extrapolation across the 3A/3B boundary."
+    }
+   ]
+  },
+  {
+   "id": "t4",
+   "title": "4. Neoadjuvant and primary non-surgical therapy",
+   "intro": "",
+   "columns": {
+    "trial": "Trial",
+    "regimen": "Regimen",
+    "pop": "Population",
+    "n": "n",
+    "hist": "Endometrioid data",
+    "response": "Response",
+    "recurrence_outcome": "Recurrence / outcome",
+    "source": "Source"
+   },
+   "rows": [
+    {
+     "name": "Ushijima 2007 — fertility-sparing",
+     "cite": "Japan, multicentre phase II",
+     "star": true,
+     "observational": false,
+     "cols": {
+      "regimen": "MPA 600 mg/d + low-dose aspirin for 26 wk",
+      "pop": "Presumed stage IA EC (n=28) or atypical hyperplasia (n=17), age <40",
+      "n": "45",
+      "hist": "**G1 endometrioid only** (central review; 2 G2 cases excluded); no myometrial invasion/extrauterine disease on MRI; no molecular or receptor data",
+      "response": "**Pathologic CR: EC 55%**, AH 82%",
+      "recurrence_outcome": "Recurrence 14/30 (47%) at 7–36 mo (EC 8/14, 57%); 12 pregnancies, 7 deliveries"
+     },
+     "refs": [
+      39
+     ],
+     "level": "histotype_only",
+     "out": "single",
+     "tags": []
+    }
+   ],
+   "notes": []
+  }
+ ],
+ "references": [
+  [
+   1,
+   "Kandoth C, et al. Integrated genomic characterization of endometrial carcinoma.",
+   "Nature",
+   "2013;497:67–73",
+   "23636398"
+  ],
+  [
+   2,
+   "Stelloo E, et al. Improved risk assessment by integrating molecular and clinicopathological factors in early-stage endometrial cancer — combined analysis of the PORTEC cohorts.",
+   "Clin Cancer Res",
+   "2016;22:4215–4224",
+   "27006490"
+  ],
+  [
+   3,
+   "León-Castillo A, et al. Molecular classification of the PORTEC-3 trial for high-risk endometrial cancer.",
+   "J Clin Oncol",
+   "2020;38:3388–3397",
+   "32749941"
+  ],
+  [
+   4,
+   "Post CCB, et al. PORTEC-3 10-year outcomes and post-hoc analysis by molecular classification.",
+   "Lancet Oncol",
+   "2025;26:1370–1381",
+   "40921169"
+  ],
+  [
+   5,
+   "Creutzberg CL, et al. Surgery and postoperative radiotherapy versus surgery alone for patients with stage-1 endometrial carcinoma (PORTEC-1).",
+   "Lancet",
+   "2000;355:1404–1411",
+   "10791524"
+  ],
+  [
+   6,
+   "Keys HM, et al. A phase III trial of surgery with or without adjunctive external pelvic radiation therapy in intermediate risk endometrial adenocarcinoma (GOG-99).",
+   "Gynecol Oncol",
+   "2004;92:744–751",
+   "14984936"
+  ],
+  [
+   7,
+   "ASTEC/EN.5 Study Group (Blake P, et al). Adjuvant external beam radiotherapy in the treatment of endometrial cancer (MRC ASTEC and NCIC CTG EN.5).",
+   "Lancet",
+   "2009;373:137–146",
+   "19070891"
+  ],
+  [
+   8,
+   "Nout RA, et al. Vaginal brachytherapy versus pelvic external beam radiotherapy for patients with endometrial cancer of high-intermediate risk (PORTEC-2).",
+   "Lancet",
+   "2010;375:816–823",
+   "20206777"
+  ],
+  [
+   9,
+   "Susumu N, et al. Randomized phase III trial of pelvic radiotherapy versus cisplatin-based combined chemotherapy in intermediate- and high-risk endometrial cancer (JGOG-2033).",
+   "Gynecol Oncol",
+   "2008;108:226–233",
+   "17996926"
+  ],
+  [
+   10,
+   "Hogberg T, et al. Sequential adjuvant chemotherapy and radiotherapy in endometrial cancer — results from two randomised studies (NSGO-EC-9501/EORTC-55991 and MaNGO ILIADE-III).",
+   "Eur J Cancer",
+   "2010;46:2422–2431",
+   "20619634"
+  ],
+  [
+   11,
+   "Randall ME, et al. Adjuvant pelvic radiation therapy versus vaginal brachytherapy plus paclitaxel/carboplatin in high-intermediate and high-risk early-stage endometrial cancer (GOG-249).",
+   "J Clin Oncol",
+   "2019;37:1810–1818",
+   "30995174"
+  ],
+  [
+   12,
+   "Randall ME, et al. GOG-122.",
+   "J Clin Oncol",
+   "2006;24:36–44",
+   "16330675"
+  ],
+  [
+   13,
+   "de Boer SM, et al. PORTEC-3 final results.",
+   "Lancet Oncol",
+   "2018;19:295–309",
+   "29449189"
+  ],
+  [
+   14,
+   "de Boer SM, et al. PORTEC-3 patterns of recurrence and post-hoc survival analysis.",
+   "Lancet Oncol",
+   "2019;20:1273–1285",
+   "31345626"
+  ],
+  [
+   15,
+   "Matei D, et al. GOG-258.",
+   "N Engl J Med",
+   "2019;380:2317–2326",
+   "31189035"
+  ],
+  [
+   16,
+   "Van Gorp T, et al. KEYNOTE-B21 / ENGOT-en11 / GOG-3053.",
+   "Ann Oncol",
+   "2024;35:968–980",
+   "39284383"
+  ],
+  [
+   17,
+   "Thigpen JT, et al. GOG-107.",
+   "J Clin Oncol",
+   "2004;22:3902–3908",
+   "15459211"
+  ],
+  [
+   18,
+   "Fleming GF, et al. GOG-177.",
+   "J Clin Oncol",
+   "2004;22:2159–2166",
+   "15169803"
+  ],
+  [
+   19,
+   "Miller DS, et al. GOG-0209 final OS.",
+   "J Clin Oncol",
+   "2020;38:3841–3850",
+   "33078978"
+  ],
+  [
+   20,
+   "Aghajanian C, et al. NRG Oncology/GOG-86P.",
+   "Gynecol Oncol",
+   "2018;150:274–281",
+   "29804638"
+  ],
+  [
+   21,
+   "Eskander RN, et al. NRG-GY018 / KEYNOTE-868.",
+   "N Engl J Med",
+   "2023;388:2159–2170",
+   "36972022"
+  ],
+  [
+   22,
+   "Mirza MR, et al. RUBY / ENGOT-EN6 / GOG-3031.",
+   "N Engl J Med",
+   "2023;388:2145–2158",
+   "36972026"
+  ],
+  [
+   23,
+   "Westin SN, et al. DUO-E / GOG-3041 / ENGOT-EN10.",
+   "J Clin Oncol",
+   "2024;42:283–299",
+   "37864337"
+  ],
+  [
+   24,
+   "Colombo N, et al. Atezolizumab and chemotherapy for advanced or recurrent endometrial cancer (AtTEnd/ENGOT-en7).",
+   "Lancet Oncol",
+   "2024;25:1135–1146",
+   "39102832"
+  ],
+  [
+   25,
+   "Vergote I, et al. Oral selinexor as maintenance therapy after first-line chemotherapy for advanced or recurrent endometrial cancer (ENGOT-EN5/GOG-3055/SIENDO).",
+   "J Clin Oncol",
+   "2023;41:5400–5410",
+   "37669480"
+  ],
+  [
+   26,
+   "Thigpen JT, et al. Oral medroxyprogesterone acetate dose-response study (GOG-81).",
+   "J Clin Oncol",
+   "1999;17:1736–1744",
+   "10561210"
+  ],
+  [
+   27,
+   "Thigpen JT, et al. Tamoxifen in advanced or recurrent endometrial carcinoma (GOG-81F).",
+   "J Clin Oncol",
+   "2001;19:364–367",
+   "11208827"
+  ],
+  [
+   28,
+   "Ball HG, et al. Phase II trial of paclitaxel in advanced or recurrent adenocarcinoma of the endometrium (GOG).",
+   "Gynecol Oncol",
+   "1996;62:278–281",
+   "8751561"
+  ],
+  [
+   29,
+   "Slomovitz BM, et al. Randomized phase II trial of everolimus and letrozole or hormonal therapy in advanced, persistent or recurrent endometrial carcinoma (GOG-3007).",
+   "Gynecol Oncol",
+   "2022;164:481–491",
+   "35063278"
+  ],
+  [
+   30,
+   "Slomovitz BM, et al. Phase II study of everolimus and letrozole in recurrent endometrial carcinoma.",
+   "J Clin Oncol",
+   "2015;33:930–936",
+   "25624430"
+  ],
+  [
+   31,
+   "Makker V, et al. KEYNOTE-775 / Study 309.",
+   "N Engl J Med",
+   "2022;386:437–448",
+   "35045221"
+  ],
+  [
+   32,
+   "Oaknin A, et al. Dostarlimab in recurrent or advanced dMMR endometrial cancer (GARNET cohort A1).",
+   "JAMA Oncol",
+   "2020;6:1766–1772",
+   "33001143"
+  ],
+  [
+   33,
+   "Oaknin A, et al. GARNET cohorts A1/A2, 3rd interim. *J Clin Oncol*. 2022;40(16 suppl):5509 (ASCO abstract) | [[2022_Oaknin_Journal of Clinical Oncology.pdf]] | [[2022_Oaknin_GARNET]]",
+   "",
+   "",
+   ""
+  ],
+  [
+   34,
+   "Marabelle A, et al. KEYNOTE-158 MSI-H/dMMR noncolorectal cancer.",
+   "J Clin Oncol",
+   "2020;38:1–10",
+   "31682550"
+  ],
+  [
+   35,
+   "Aghajanian C, et al. GOG-229E bevacizumab in recurrent or persistent endometrial cancer.",
+   "J Clin Oncol",
+   "2011;29:2259–2265",
+   "21537039"
+  ],
+  [
+   36,
+   "Miller DS, et al. Phase II trial of topotecan in advanced, persistent, or recurrent endometrial carcinoma (GOG).",
+   "Gynecol Oncol",
+   "2002;87:247–251",
+   "12468321"
+  ],
+  [
+   37,
+   "Meric-Bernstam F, et al. DESTINY-PanTumor02.",
+   "J Clin Oncol",
+   "2024;42:47–58",
+   "37870536"
+  ],
+  [
+   38,
+   "Merck. TroFuse-005 topline press release, 2026-05-18. — ⚠️ Full data not yet presented; no publication",
+   "",
+   "",
+   ""
+  ],
+  [
+   39,
+   "Ushijima K, et al. Multicenter phase II study of fertility-sparing treatment with medroxyprogesterone acetate for endometrial carcinoma and atypical hyperplasia in young women.",
+   "J Clin Oncol",
+   "2007;25:2798–2803",
+   "17602085"
+  ]
+ ]
+}
