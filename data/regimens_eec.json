@@ -916,6 +916,15 @@
    ],
    "risk_rules": [
     {
+     "flag": "mmr",
+     "in": [
+      "pMMR",
+      "unknown"
+     ],
+     "effect": "exclude",
+     "reason": "KEYNOTE-B21 failed its primary endpoint (ITT DFS 1.02, 0.79–1.32) and pMMR DFS 1.20 (0.91–1.57); not adopted for adjuvant use"
+    },
+    {
      "flag": "mol_class",
      "in": [
       "POLEmut"

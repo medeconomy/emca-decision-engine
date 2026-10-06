@@ -261,6 +261,7 @@ details[open] .tierhead summary::after{content:"hide"}
        <div class="fld" id="fld_mi"><label for="f_mi">Myometrial invasion</label><select id="f_mi"><option value="unknown">unknown</option><option value="none">none</option><option value="lt50">&lt;50%</option><option value="ge50">≥50%</option></select></div>
        <div class="fld" id="fld_lvsi"><label for="f_lvsi">LVSI</label><select id="f_lvsi"><option value="unknown">unknown</option><option value="none">none / focal</option><option value="substantial">substantial</option></select></div>
        <div class="fld" id="fld_resid"><label for="f_resid">Residual after surgery</label><select id="f_resid"><option value="unknown">unknown</option><option value="none">none</option><option value="le2">≤2 cm</option><option value="gt2">&gt;2 cm</option></select></div>
+       <div class="fld" id="fld_cyto"><label for="f_cyto">Peritoneal cytology</label><select id="f_cyto"><option value="unknown">not done / unknown</option><option value="negative">negative</option><option value="positive">positive for malignant cells</option></select></div>
        <div class="fld" data-hist="ucs" id="fld_sarc"><label for="f_sarc">Sarcoma-dominant</label><select id="f_sarc"><option value="unknown">unknown / not reported</option><option value="yes">yes</option><option value="no">no</option></select></div>
        <div class="fld" id="fld_resp"><label for="f_resp">Response to first-line platinum</label><select id="f_resp"><option value="unknown">unknown</option><option value="CR">CR</option><option value="PR">PR</option><option value="SD">SD</option><option value="PD">PD</option></select></div>
        <div class="fld" id="fld_pfi"><label for="f_pfi" id="lbl_pfi">Months since last systemic therapy</label><input id="f_pfi" type="number" min="0" step="1" placeholder="none / unknown"></div>
@@ -493,7 +494,7 @@ function applyPreset(p){
   const set=(id,v)=>{const el=$("#"+id);if(el)el.value=v??""};
   set("f_hist",p.hist||"eec");syncSettings(p.hist||"eec");set("f_setting",p.setting);
   set("f_sys",p.sys||"2009");syncStageSystem();set("f_stage",p.stage||"");set("f_status",p.status||"primary");set("f_meas",p.meas||"unknown");set("f_grade",p.grade||"unknown");set("f_mi",p.mi||"unknown");set("f_lvsi",p.lvsi||"unknown");
-  set("f_resid",p.resid||"unknown");set("f_sarc",p.sarc||"unknown");set("f_resp",p.resp||"unknown");set("f_pfi",p.pfi??"");set("f_lines",p.lines??1);set("f_age",p.age??"");set("f_ecog",p.ecog||"0");
+  set("f_resid",p.resid||"unknown");set("f_cyto",p.cyto||"unknown");set("f_sarc",p.sarc||"unknown");set("f_resp",p.resp||"unknown");set("f_pfi",p.pfi??"");set("f_lines",p.lines??1);set("f_age",p.age??"");set("f_ecog",p.ecog||"0");
   set("f_mol",p.mol||"unknown");set("f_mmr",p.mmr||"unknown");set("f_er",p.er||"unknown");set("f_her2",p.her2||"unknown");
   set("f_neuro",p.neuro??0);set("f_hep",p.hep||"none");set("f_crcl",p.crcl??"");
   FLAG_DEFS.forEach(([k])=>{$("#fl_"+k).checked=!!(p.flags||[]).includes(k)});
@@ -526,7 +527,7 @@ function readPatient(){
   const num=id=>{const v=$("#"+id).value;return v===""?null:Number(v)};
   syncSettings($("#f_hist").value);syncStageSystem();
   const p={histology:$("#f_hist").value,setting:$("#f_setting").value,stage_system:$("#f_sys").value,stage:$("#f_stage").value||null,status:$("#f_status").value,measurable:$("#f_meas").value,
-    grade:$("#f_grade").value,mi:$("#f_mi").value,lvsi:$("#f_lvsi").value,residual:$("#f_resid").value,sarc:$("#f_sarc").value,response:$("#f_resp").value,
+    grade:$("#f_grade").value,mi:$("#f_mi").value,cytology:$("#f_cyto").value,lvsi:$("#f_lvsi").value,residual:$("#f_resid").value,sarc:$("#f_sarc").value,response:$("#f_resp").value,
     pfi_months:num("f_pfi"),prior_lines:num("f_lines")??0,age:num("f_age"),ecog:+$("#f_ecog").value,
     mol_class:$("#f_mol").value,mmr_entered:$("#f_mmr").value,er_pr:$("#f_er").value,her2:$("#f_her2").value,
     neuropathy_grade:+$("#f_neuro").value,hepatic_impairment:$("#f_hep").value,renal_crcl:num("f_crcl"),ledger:ledgerRows.map(r=>({cls:r[0],outcome:r[1]}))};
@@ -552,13 +553,13 @@ function readPatient(){
   const show=(id,on)=>{$("#"+id).hidden=!on};
   show("fld_status",S==="first_line");show("fld_meas",S==="first_line");show("fld_resp",S==="maintenance");
   show("fld_mi",S==="adjuvant"||S==="fertility_sparing");show("fld_lvsi",S==="adjuvant");
-  show("fld_resid",S==="adjuvant");show("fld_lines",S==="second_line");
+  show("fld_resid",S==="adjuvant");show("fld_cyto",S==="adjuvant");show("fld_lines",S==="second_line");
   show("fld_pfi",S==="second_line"||(S==="first_line"&&p.status==="recurrence"));
   $("#lbl_pfi").textContent=S==="second_line"?"Months since last platinum":"Months since prior systemic therapy (blank if none)";
   if(S!=="first_line"){p.status=null;p.measurable="unknown"}
   if(S!=="maintenance")p.response="unknown";
   if(!(S==="adjuvant"||S==="fertility_sparing"))p.mi="unknown";
-  if(S!=="adjuvant"){p.lvsi="unknown";p.residual="unknown"}
+  if(S!=="adjuvant"){p.lvsi="unknown";p.residual="unknown";p.cytology="unknown"}
   if(!(S==="second_line"||(S==="first_line"&&p.status==="recurrence")))p.pfi_months=null;
   if(S!=="second_line")p.prior_lines=S==="maintenance"?1:0;
   p.prior_platinum=S==="second_line"||p.ledger.some(r=>r.cls==="platinum");
@@ -637,6 +638,7 @@ function assess(g,p){
   }
   if(p.setting==="second_line"&&g.drug_classes.includes("platinum")&&p.pfi_months!=null&&p.pfi_months<6)a.ca.push({t:"ledger",r:"Platinum within 6 months: the notes give no platinum-interval data for re-treatment, which rests on extrapolation from chemo-naive GOG-209"});
   if(p.setting==="first_line"&&p.status==="recurrence"&&g.drug_classes.includes("io")&&p.ledger.some(r=>r.cls==="io"))a.ca.push({t:"ledger",r:"Prior checkpoint inhibitor: the first-line chemo-IO trials enrolled IO-naive patients"});
+  if(a.tier===7&&!a.ex.length&&!a.gate.length&&!a.tierWhy)a.ex.push({t:"tier 7",r:(g.os&&g.os.median)||"Do not use"});
   a.excluded=a.gate.length>0||a.ex.length>0||a.tier===7;
   return a;
 }
@@ -647,6 +649,9 @@ function histBanner(p,H){
   const n=t=>`<div class="notice" style="margin-bottom:10px">${t}</div>`;let w="";
   if(p.mmr_conflict)w+=n(`<b>Molecular class and MMR disagree.</b> ${esc(p.mol_class)} with MMR entered as ${esc(p.mmr_entered)} — check the IHC; the ranker uses the MMR field as entered.`);
   if(p.stage_note)w+=n(`<b>Stage translated.</b> ${esc(p.stage_note)}. The trials staged by FIGO 2009 (GOG-99 / PORTEC-1 by 1988), so the ranker works in 2009 terms.`);
+  if(p.stage_system==="2023"&&p.mol_class==="p53abn"&&(p.stage_group==="I"||p.stage_group==="II")&&p.mi!=="none")w+=n(`<b>FIGO 2023 molecular modifier.</b> p53abn with any myometrial invasion is stage <b>IICm<sub>p53abn</sub></b> in FIGO 2023, whatever the substage entered; the 2009 stage used here (${esc(p.stage)}) is unchanged and the adjuvant risk group is high.`);
+  if(p.stage_system==="2023"&&p.mol_class==="POLEmut"&&(p.stage_group==="I"||p.stage_group==="II"))w+=n(`<b>FIGO 2023 molecular modifier.</b> POLEmut confined to the uterus is stage <b>IAm<sub>POLEmut</sub></b> in FIGO 2023; the 2009 stage used here is unchanged.`);
+  if(p.cytology==="positive")w+=n(`<b>Positive peritoneal cytology.</b> Not a staging element in FIGO 2009 or 2023. GOG-258 admitted stage I/II <i>serous or clear cell</i> carcinoma with positive washings (<3% of its cohort); no endometrioid adjuvant trial used cytology for eligibility, so it does not change the ranking.`);
   if(p.pole_untested)w+=n(`<b>POLE not tested.</b> p53 wild-type + pMMR is read as NSMP, but POLEmut cannot be excluded without sequencing (6% of early-stage endometrioid carcinoma, ~26% of PORTEC-3 grade 3) — it is the class that de-escalates.`);
   if(p.risk_group==="low")w+=n(`<b>Low-risk by trial eligibility</b> (stage IA, G1–2, no substantial LVSI): no adjuvant RT trial enrolled this group — PORTEC-1 took G1 only with ≥50% invasion — and ASTEC's meta-analysis excludes a >3% OS gain from RT even in intermediate risk. The note reads these trials as supporting observation for low-risk disease.`);
   if(p.histology==="eec"&&p.grade==="3"&&p.mol_class==="unknown")w+=n(`<b>Grade 3 endometrioid is not one disease.</b> In PORTEC-3 about 26% of G3 tumours were POLEmut and 19% p53abn — the best- and worst-prognosis classes under the same grade. Classify before choosing adjuvant therapy.`);
@@ -678,7 +683,7 @@ function rank(){
 const MI_LABEL={none:"no MI",lt50:"MI <50%",ge50:"MI ≥50%"};
 function metaChips(p){const c=[];const sp=t=>`<span>${esc(t)}</span>`;
   if(p.stage_note)c.push(sp(p.stage_note.split(" · ")[0]));else if(p.stage)c.push(sp("FIGO 2009 "+p.stage));if(p.status)c.push(sp(p.status==="recurrence"?"first recurrence":"newly diagnosed"));
-  if(p.grade!=="unknown")c.push(sp("G"+p.grade));if(p.mi!=="unknown")c.push(sp(MI_LABEL[p.mi]));if(p.lvsi==="substantial")c.push(sp("LVSI substantial"));if(p.risk_group!=="unknown")c.push(sp({low:"low risk",hir:"high-intermediate risk",high:"high risk"}[p.risk_group]));
+  if(p.grade!=="unknown")c.push(sp("G"+p.grade));if(p.mi!=="unknown")c.push(sp(MI_LABEL[p.mi]));if(p.lvsi==="substantial")c.push(sp("LVSI substantial"));if(p.cytology==="positive")c.push(sp("cytology +"));if(p.risk_group!=="unknown")c.push(sp({low:"low risk",hir:"high-intermediate risk",high:"high risk"}[p.risk_group]));
   c.push(sp(p.mol_class==="unknown"?"class ?":p.mol_class));c.push(sp(p.mmr==="unknown"?"MMR ?":p.mmr+(p.mmr_entered==="unknown"&&p.mmr!=="unknown"?" (from class)":"")));
   if(p.er_pr!=="unknown")c.push(sp("ER/PR "+p.er_pr));if(p.her2!=="unknown")c.push(sp("HER2 "+(VAL_LABEL[p.her2]||p.her2)));
   if(p.sarc==="yes")c.push(sp("sarcoma-dominant"));if(p.response!=="unknown")c.push(sp("response "+p.response));

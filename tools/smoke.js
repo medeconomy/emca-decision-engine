@@ -16,6 +16,7 @@ const CASES = [
   {n:"EEC adj IB G2 NSMP ER+", p:{hist:"eec",setting:"adjuvant",stage:"IB",grade:"2",mi:"ge50",lvsi:"none",age:68,mol:"NSMP",er:"positive"}},
   {n:"EEC adj FIGO2023 IA2 G1 LVSI- NSMP ER- POLE untested (low risk)", p:{hist:"eec",setting:"adjuvant",sys:"2023",stage:"IA2",grade:"1",mi:"lt50",lvsi:"none",resid:"none",mol:"NSMP_noPOLE",er:"negative"}},
   {n:"EEC adj FIGO2023 IIB G2 MI<50 (substantial LVSI → HIR)", p:{hist:"eec",setting:"adjuvant",sys:"2023",stage:"IIB",grade:"2",mi:"lt50",age:65,mol:"NSMP",er:"positive"}},
+  {n:"EEC adj FIGO2023 IA2 G2 p53abn ER- cytology+", p:{hist:"eec",setting:"adjuvant",sys:"2023",stage:"IA2",grade:"2",mi:"lt50",lvsi:"none",resid:"none",cyto:"positive",mol:"p53abn",mmr:"pMMR",er:"negative",her2:"0"}},
   {n:"EEC adj IA G1 POLEmut", p:{hist:"eec",setting:"adjuvant",stage:"IA",grade:"1",mi:"lt50",age:55,mol:"POLEmut"}},
   {n:"EEC adj IIIC1 MMRd", p:{hist:"eec",setting:"adjuvant",stage:"IIIC1",grade:"3",mi:"ge50",resid:"none",mol:"MMRd"}},
   {n:"EEC 1L IVB dMMR", p:{hist:"eec",setting:"first_line",status:"primary",stage:"IVB",meas:"yes",mol:"MMRd",mmr:"dMMR"}},
