@@ -8,15 +8,9 @@ v0.1 built in one Claude Code session from the four EMCA v1.2 vault notes, forki
 - Design agreed with Jay before the build (SPEC E1–E4): ITT + prespecified MMR strata for endometrioid / serous; MMR moves tiers, other classes are fit / caution; adjuvant RT ranked; all four histotypes at once.
 - Toxicity (`tox.json`) and labels (`labels.json`) were extracted by subagents with verbatim evidence quotes / DailyMed setids. Only 16 of 49 trials print an any-cause G≥3 rate, so within-tier toxicity sorting often falls back to cautions and name.
 
-## Waiting on Jay (judgement calls made in the build — SPEC E5–E12)
+## Reviewed by Jay (2026-10-06)
 
-1. **Comparator that lost → tier 5** (TC/TAP for dMMR or MMR-unknown; TC/TAP for HER2+ serous on Fader phase II; KEYNOTE-775 chemotherapy control).
-2. ~~pMMR first-line~~ — decided 2026-10-06: RUBY pMMR → tier 3 on its trial-wide OS (SPEC E6).
-3. **DUO-E D+O interim OS 0.59 (P=.003)** not counted as OS benefit.
-4. **Fader tier 3** (randomised phase II, OS 0.49).
-5. **Adjuvant**: AP ×7 (GOG-122) tier 2 alongside chemoradiation; TC ×6 (GOG-258) tier 5; VBT tier 4 by non-inferiority to EBRT; observation tier 5; PORTEC-3 stage I–II tier 5 (p53abn → 3).
-6. **Carcinosarcoma**: TC tier 2 first-line but tier 5 adjuvant; trials that excluded CS → tier 7 even where used by extrapolation (TC + trastuzumab, lenvatinib–pembrolizumab).
-7. **MMR inferred from class** when not entered (NSMP / p53abn → pMMR).
+All build-time judgement calls (SPEC E5–E12) were reviewed the same day: E5 and E8–E12 accepted as written; E6 revised (RUBY pMMR → tier 3 on trial-wide OS); E7 revised (DUO-E durvalumab + olaparib interim OS counts, tier 3, flagged interim; dMMR stays tier 4). Nothing is waiting on Jay.
 
 ## Discrepancies found during extraction (vault notes untouched)
 

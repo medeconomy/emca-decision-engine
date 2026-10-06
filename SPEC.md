@@ -58,13 +58,13 @@ E3. **Adjuvant radiotherapy is ranked.** Observation, VBT, pelvic EBRT, chemorad
 
 E4. **Scope v0.1:** all four histotypes at once. Uterine leiomyosarcoma (UTSARC note) is out of scope.
 
-## Judgement calls made in the build (2026-10-06) — for Jay's review
+## Judgement calls made in the build — reviewed by Jay 2026-10-06 (E5, E8–E12 accepted as written; E6 and E7 revised)
 
 E5. **Comparator that lost on OS → tier 5, not 7.** A backbone that lost OS to an add-on in the patient's own population is tier 5 with the reason shown ("for patients who cannot receive the better option"), so it survives when the add-on is contraindicated: carboplatin–paclitaxel and TAP for dMMR or MMR-unknown (RUBY), and for HER2-positive serous (Fader, randomised phase II); the KEYNOTE-775 chemotherapy control. AP (lost to TAP) and whole-abdominal RT (lost to AP) are tier 7 because better options always exist.
 
 E6. **pMMR first-line (Jay, 2026-10-06): RUBY is tier 3 for pMMR.** The trial-wide OS benefit (0.69, 0.54–0.89) carries the card; the pMMR stratum itself is PFS 0.76 (0.59–0.98) and OS 0.79 (0.60–1.04), NS, which the card prints. Carboplatin–paclitaxel alone stays tier 2 (GOG-177 OS → GOG-209 non-inferiority). The other chemo-IO regimens stay tier 4 (GY018 has no OS in the note; DUO-E OS interim; AtTEnd pMMR PFS 0.92, NS → tier 5).
 
-E7. **DUO-E durvalumab + olaparib interim OS** (0.59, 0.42–0.83, P=.003) is shown but not counted as an OS benefit (interim, not formally tested). Tier 4.
+E7. **DUO-E durvalumab + olaparib interim OS counts, flagged as interim (Jay, 2026-10-06).** ITT OS 0.59 (0.42–0.83, P=.003) at ~28% maturity is credited as an OS benefit but held at **tier 3** until the final analysis; the card prints "INTERIM" in the OS cell and a qualifier. In dMMR the arm stays tier 4: the interim OS is ITT and olaparib added nothing over durvalumab in dMMR (PFS 0.97, 0.49–1.98). Durvalumab alone (interim OS 0.77, NS) stays tier 4.
 
 E8. **Fader (HER2+ serous) is tier 3**: randomised phase II, serous-only, OS 0.49 (0.25–0.97) in the primary stage III–IV subgroup. Recurrent subgroup (n=17) → tier 4.
 

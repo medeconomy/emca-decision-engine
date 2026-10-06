@@ -1310,22 +1310,34 @@
     "arm": "durvalumab + olaparib"
    },
    "os": {
-    "benefit": "interim",
+    "benefit": "interim_positive",
     "hr": "0.59",
     "ci95": [
      "0.42",
      "0.83"
     ],
-    "median": "Interim, P=.003 — not a formally tested OS claim",
-    "evidence_strength": "single_phase3",
+    "median": "INTERIM (~28% maturity), P=.003 — counted as an OS benefit but held at tier 3 until the final analysis",
+    "evidence_strength": "single_phase3_interim",
     "trial": "DUO-E — durvalumab + olaparib arm"
    },
    "pfs": {
     "text": "15.1 vs 9.6 mo; ITT HR 0.55 (0.43–0.69); dMMR 0.41 (0.21–0.75); pMMR 0.57 (0.44–0.73)"
    },
-   "tier": 4,
+   "tier": 3,
    "evidence_basis": "mmr_stratum",
+   "tier_rules": [
+    {
+     "when": {
+      "mmr": [
+       "dMMR"
+      ]
+     },
+     "tier": 4,
+     "reason": "dMMR: the interim OS is ITT; olaparib adds nothing over durvalumab in dMMR (PFS HR 0.97, 0.49–1.98), so the OS signal is not credited to this arm here"
+    }
+   ],
    "qualifiers": [
+    "Interim OS: ITT HR 0.59 (0.42–0.83) at ~28% maturity, P=.003 — tier 3 pending the final analysis (Jay, 2026-10-06)",
     "Durvalumab + olaparib vs durvalumab alone: pMMR 0.76 (0.59–0.99), dMMR 0.97 (0.49–1.98) — olaparib adds in pMMR only",
     "Endometrioid progression 48.7% vs 50.4% with durvalumab alone: little visible olaparib effect in endometrioid tumours"
    ],

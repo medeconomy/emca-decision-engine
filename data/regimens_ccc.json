@@ -323,6 +323,7 @@
     "DUO-E — both arms"
    ],
    "tier": 6,
+   "tier_rules": [],
    "evidence_basis": "included_not_broken_out",
    "qualifiers": [
     "Clear cell 19/718 (2.6%): 8 D+O / 4 durvalumab / 7 control"

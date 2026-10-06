@@ -441,6 +441,7 @@
     "DUO-E / ENGOT-EN10 / GOG-3041"
    ],
    "tier": 6,
+   "tier_rules": [],
    "evidence_basis": "included_not_broken_out",
    "qualifiers": [
     "CS 18/239 (7.5%); no CS subgroup"
