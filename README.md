@@ -20,7 +20,7 @@ Decision principle: **overall-survival benefit first → evidence-strength quali
 
 ## Ranking logic
 
-1. **Gate** by histology (pool), setting, FIGO 2009 stage, residual, myometrial invasion, MMR, HER2, grade, response to platinum, prior platinum / prior PD-(L)1 — as each pivotal trial requires.
+1. **Gate** by histology (pool), setting, FIGO 2009 stage (FIGO 2023 input is translated and the translation shown), adjuvant risk group derived from the trials' eligibility (low / high-intermediate / high), residual, myometrial invasion, MMR, HER2, grade, response to platinum, prior platinum / prior PD-(L)1 — as each pivotal trial requires.
 2. **Tier**: 1 replicated OS · 2 single phase 3 OS (or non-inferior to an OS-positive regimen) · 3 OS in a subgroup / randomised phase II · 4 PFS / RFS / local control only · 5 no difference, or the comparator that lost (kept for patients who cannot receive the better option) · 6 no phase 3 · 7 do not use. **Endometrioid and serous** rank on the trial-wide result and the prespecified dMMR / pMMR strata; **clear cell** on clear-cell-level evidence only (tiers 1–4 empty); **carcinosarcoma** on its own randomised trials, with trials that excluded it at tier 7.
 3. **Molecular class**: MMR moves tiers and gates; POLEmut / NSMP / p53abn (PORTEC-3 post hoc) add fit and caution flags, and p53abn lifts stage I–II chemoradiation to tier 3.
 4. **Exclude** on label contraindications and trial exclusions matched to baseline-risk flags; the ledger excludes a class stopped for toxicity and flags checkpoint-inhibitor re-challenge.

@@ -20,7 +20,8 @@ Decision principle (unchanged): OS benefit first → evidence-strength qualifier
 patient:
   histology: eec | usc | ccc | ucs
   setting: adjuvant | first_line | maintenance | second_line | fertility_sparing   # no neoadjuvant: no data in any note
-  stage: IA | IB | II | IIIA | IIIB | IIIC1 | IIIC2 | IVA | IVB                     # FIGO 2009, the staging the trials used
+  stage_system: 2009 | 2023
+  stage: IA | IB | II | IIIA | IIIB | IIIC1 | IIIC2 | IVA | IVB                     # FIGO 2009, the staging the trials used; a 2023 substage is mapped (E14)
   status: primary | recurrence            # first_line only (the notes treat both as one chemo-naive population)
   measurable: yes | no | unknown          # first_line (DUO-E newly diagnosed)
   grade: 1 | 2 | 3                         # endometrioid only
@@ -31,7 +32,8 @@ patient:
   response: CR | PR | SD | PD              # maintenance (SIENDO required PR/CR)
   pfi_months: months since last platinum (2L) / since prior systemic therapy (first recurrence)
   prior_lines, age, ecog
-  mol_class: POLEmut | MMRd | NSMP | p53abn | unknown
+  mol_class: POLEmut | MMRd | NSMP | NSMP_noPOLE | p53abn | unknown   # NSMP_noPOLE = p53wt + pMMR without POLE sequencing → NSMP with a notice
+  risk_group: low | hir | high | unknown   # derived, endometrioid adjuvant only (E13)
   mmr: pMMR | dMMR | unknown               # if unknown: MMRd → dMMR; NSMP, p53abn → pMMR; POLEmut left unknown
   er_pr: positive | negative | unknown
   her2: 3+ | 2+amp | 2+ | 1+ | 0 | unknown
@@ -75,3 +77,9 @@ E10. **Carcinosarcoma:** carboplatin–paclitaxel tier 2 first-line (non-inferio
 E11. **RUBY final OS** (Powell 2024: 0.69, 0.54–0.89; dMMR 0.32; pMMR 0.79) is taken from the carcinosarcoma note's RUBY row and extract; the endometrioid note's row carries the interim (0.64). Card says so.
 
 E12. **Press-release-only TroFuse-005** (sacituzumab tirumotecan) is shown at tier 6 with a caution; no FDA label.
+
+## Decisions taken while validating (2026-10-06, Jay)
+
+E13. **Adjuvant risk group is derived from the trials' eligibility and gates the RT options.** Jay's first test case (endometrioid G1, FIGO 2023 IA2, LVSI−, pMMR, p53wt, ER−) was offered VBT at tier 4 with "fits HIR" above observation. No adjuvant RT trial enrolled low-risk disease (PORTEC-1 took G1 only with ≥50% invasion; PORTEC-2 and GOG-99 high-intermediate risk; ASTEC's meta-analysis excludes a >3% OS gain even there). `readPatient` now derives `risk_group`: low = stage IA, G1–2, no substantial LVSI, not p53abn; hir = IB G1–2, IA G3, substantial LVSI or stage II (PORTEC-2 / GOG-99); high = IB G3, p53abn, stage III–IV. For low risk every RT option (VBT, EBRT, chemoradiation, VBT + TC, RT → chemo) drops to tier 6 with the reason, observation carries a fit, and the PORTEC-3 NSMP / ER fits and cautions (high-risk cohort) do not fire. A "p53wt / pMMR, POLE not tested" option reads as NSMP with a notice that POLEmut is not excluded.
+
+E14. **FIGO 2023 input is translated to FIGO 2009.** The trials staged by FIGO 2009 (GOG-99 and PORTEC-1 by 1988), so the ranker keeps 2009 as its working stage. A staging-system switch accepts the 2023 substages and maps them (IA1/IA2 → IA; IC → IA; IB → IB; IIA → II; IIB and IIC → IA or IB by the myometrial-invasion field, IIB also sets substantial LVSI; IA3 → IIIA; IIIA1/2 → IIIA; IIIB1 → IIIB; IIIB2 → IVB, as 2009 had no pelvic-peritoneum category; IIIC1/2 → IIIC1/2; IVA → IVA; IVB/IVC → IVB). The translation and its reason are shown as a notice and a chip. The 2023 molecular modifiers (IAmPOLEmut, IICmp53abn) are not separate inputs: enter the molecular class.

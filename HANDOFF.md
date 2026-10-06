@@ -10,7 +10,7 @@ v0.1 built in one Claude Code session from the four EMCA v1.2 vault notes, forki
 
 ## Reviewed by Jay (2026-10-06)
 
-All build-time judgement calls (SPEC E5–E12) were reviewed the same day: E5 and E8–E12 accepted as written; E6 revised (RUBY pMMR → tier 3 on trial-wide OS); E7 revised (DUO-E durvalumab + olaparib interim OS counts, tier 3, flagged interim; dMMR stays tier 4). Nothing is waiting on Jay.
+All build-time judgement calls (SPEC E5–E12) were reviewed the same day: E5 and E8–E12 accepted as written; E6 revised (RUBY pMMR → tier 3 on trial-wide OS); E7 revised (DUO-E durvalumab + olaparib interim OS counts, tier 3, flagged interim; dMMR stays tier 4). Nothing is waiting on Jay. Validation with real cases started the same day; the first case produced E13 (trial-derived adjuvant risk group) and E14 (FIGO 2023 → 2009 mapping).
 
 ## Discrepancies found during extraction (vault notes untouched)
 

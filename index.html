@@ -253,7 +253,8 @@ details[open] .tierhead summary::after{content:"hide"}
       <div class="frow">
        <div class="fld"><label for="f_hist">Histology</label><select id="f_hist"><option value="eec">Endometrioid</option><option value="usc">Serous</option><option value="ccc">Clear cell</option><option value="ucs">Carcinosarcoma</option></select></div>
        <div class="fld"><label for="f_setting">Setting</label><select id="f_setting"></select></div>
-       <div class="fld"><label for="f_stage">FIGO 2009 stage</label><select id="f_stage"><option value="">unknown</option><option>IA</option><option>IB</option><option>II</option><option>IIIA</option><option>IIIB</option><option>IIIC1</option><option>IIIC2</option><option>IVA</option><option>IVB</option></select></div>
+       <div class="fld"><label for="f_sys">Staging system</label><select id="f_sys"><option value="2009">FIGO 2009 (the trials')</option><option value="2023">FIGO 2023 (mapped to 2009)</option></select></div>
+       <div class="fld"><label for="f_stage" id="lbl_stage">FIGO 2009 stage</label><select id="f_stage"><option value="">unknown</option><option>IA</option><option>IB</option><option>II</option><option>IIIA</option><option>IIIB</option><option>IIIC1</option><option>IIIC2</option><option>IVA</option><option>IVB</option></select></div>
        <div class="fld" id="fld_status"><label for="f_status">Disease status</label><select id="f_status"><option value="primary">Newly diagnosed stage III–IV</option><option value="recurrence">First recurrence</option></select></div>
        <div class="fld" id="fld_meas"><label for="f_meas">Measurable disease</label><select id="f_meas"><option value="unknown">unknown</option><option value="yes">yes</option><option value="no">no</option></select></div>
        <div class="fld" data-hist="eec"><label for="f_grade">Grade</label><select id="f_grade"><option value="unknown">unknown</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
@@ -270,7 +271,7 @@ details[open] .tierhead summary::after{content:"hide"}
      </fieldset>
      <fieldset><legend>Molecular and biomarkers</legend>
       <div class="frow">
-       <div class="fld"><label for="f_mol">Molecular class</label><select id="f_mol"><option value="unknown">not classified</option><option value="POLEmut">POLEmut</option><option value="MMRd">MMRd</option><option value="NSMP">NSMP</option><option value="p53abn">p53abn</option></select></div>
+       <div class="fld"><label for="f_mol">Molecular class</label><select id="f_mol"><option value="unknown">not classified</option><option value="POLEmut">POLEmut</option><option value="MMRd">MMRd</option><option value="NSMP">NSMP (POLE tested)</option><option value="NSMP_noPOLE">p53wt / pMMR, POLE not tested</option><option value="p53abn">p53abn</option></select></div>
        <div class="fld"><label for="f_mmr">MMR</label><select id="f_mmr"><option value="unknown">unknown</option><option value="pMMR">proficient</option><option value="dMMR">deficient / MSI-H</option></select></div>
        <div class="fld"><label for="f_er">ER / PR</label><select id="f_er"><option value="unknown">unknown</option><option value="positive">positive</option><option value="negative">negative</option></select></div>
        <div class="fld"><label for="f_her2">HER2 IHC</label><select id="f_her2"><option value="unknown">unknown</option><option value="3+">3+</option><option value="2+amp">2+, ISH amplified</option><option value="2+">2+, ISH negative / not done</option><option value="1+">1+</option><option value="0">0</option></select></div>
@@ -491,7 +492,7 @@ function renderLedger(){
 function applyPreset(p){
   const set=(id,v)=>{const el=$("#"+id);if(el)el.value=v??""};
   set("f_hist",p.hist||"eec");syncSettings(p.hist||"eec");set("f_setting",p.setting);
-  set("f_stage",p.stage||"");set("f_status",p.status||"primary");set("f_meas",p.meas||"unknown");set("f_grade",p.grade||"unknown");set("f_mi",p.mi||"unknown");set("f_lvsi",p.lvsi||"unknown");
+  set("f_sys",p.sys||"2009");syncStageSystem();set("f_stage",p.stage||"");set("f_status",p.status||"primary");set("f_meas",p.meas||"unknown");set("f_grade",p.grade||"unknown");set("f_mi",p.mi||"unknown");set("f_lvsi",p.lvsi||"unknown");
   set("f_resid",p.resid||"unknown");set("f_sarc",p.sarc||"unknown");set("f_resp",p.resp||"unknown");set("f_pfi",p.pfi??"");set("f_lines",p.lines??1);set("f_age",p.age??"");set("f_ecog",p.ecog||"0");
   set("f_mol",p.mol||"unknown");set("f_mmr",p.mmr||"unknown");set("f_er",p.er||"unknown");set("f_her2",p.her2||"unknown");
   set("f_neuro",p.neuro??0);set("f_hep",p.hep||"none");set("f_crcl",p.crcl??"");
@@ -499,16 +500,49 @@ function applyPreset(p){
   ledgerRows=(p.ledger||[]).map(x=>x.slice());renderLedger();rank();
 }
 const STAGE_GROUP=s=>s?s.replace(/[ABC]\d?$/,"").replace(/[ABC]$/,""):null;
+const STAGE_2009='<option value="">unknown</option>'+["IA","IB","II","IIIA","IIIB","IIIC1","IIIC2","IVA","IVB"].map(x=>`<option>${x}</option>`).join("");
+/* FIGO 2023 → 2009. The trials staged by FIGO 2009 (or 1988), so 2023 input is translated and the translation is shown.
+   IIB (substantial LVSI) and IIC (aggressive histology with invasion) need the myometrial-invasion field to land on IA vs IB. */
+const STAGE_2023={IA1:["IA","confined to polyp or endometrium"],IA2:["IA","<50% invasion, non-aggressive"],IA3:["IIIA","low-grade endometrioid with simultaneous low-grade ovarian involvement — 2009 IIIA (adnexa); the trials did not single this group out"],
+  IB:["IB","≥50% invasion, non-aggressive"],IC:["IA","aggressive histology confined to polyp or endometrium (no invasion)"],IIA:["II","cervical stromal invasion"],
+  IIB:[null,"substantial LVSI, non-aggressive — 2009 IA or IB by invasion depth"],IIC:[null,"aggressive histology with any invasion — 2009 IA or IB by invasion depth"],
+  IIIA1:["IIIA","ovary or tube"],IIIA2:["IIIA","uterine subserosa / serosa"],IIIB1:["IIIB","vagina or parametria"],IIIB2:["IVB","pelvic peritoneum — no 2009 category; 2009 counted peritoneal disease as IVB"],
+  IIIC1:["IIIC1","pelvic nodes (i micro / ii macro)"],IIIC2:["IIIC2","para-aortic nodes (i micro / ii macro)"],IVA:["IVA","bladder or bowel mucosa"],IVB:["IVB","abdominal peritoneum beyond the pelvis"],IVC:["IVB","distant metastasis"]};
+const STAGE_2023_HTML='<option value="">unknown</option>'+Object.keys(STAGE_2023).map(x=>`<option>${x}</option>`).join("");
+function syncStageSystem(){
+  const sys=$("#f_sys").value,el=$("#f_stage"),want=sys==="2023"?STAGE_2023_HTML:STAGE_2009;
+  if(el.dataset.sys!==sys){const cur=el.value;el.innerHTML=want;el.dataset.sys=sys;el.value=[...el.options].some(o=>o.value===cur)?cur:"";}
+  $("#lbl_stage").textContent=sys==="2023"?"FIGO 2023 stage":"FIGO 2009 stage";
+}
+function mapStage(p){
+  p.stage_entered=p.stage;p.stage_note=null;
+  if(p.stage_system!=="2023"||!p.stage)return;
+  const m=STAGE_2023[p.stage];if(!m)return;
+  let to=m[0];
+  if(to===null){to=p.mi==="ge50"?"IB":(p.mi==="none"||p.mi==="lt50")?"IA":null;if(p.stage==="IIB")p.lvsi="substantial";}
+  p.stage=to;p.stage_note="FIGO 2023 "+p.stage_entered+" → 2009 "+(to||"? (enter myometrial invasion)")+" · "+m[1];
+}
 function readPatient(){
   const num=id=>{const v=$("#"+id).value;return v===""?null:Number(v)};
-  syncSettings($("#f_hist").value);
-  const p={histology:$("#f_hist").value,setting:$("#f_setting").value,stage:$("#f_stage").value||null,status:$("#f_status").value,measurable:$("#f_meas").value,
+  syncSettings($("#f_hist").value);syncStageSystem();
+  const p={histology:$("#f_hist").value,setting:$("#f_setting").value,stage_system:$("#f_sys").value,stage:$("#f_stage").value||null,status:$("#f_status").value,measurable:$("#f_meas").value,
     grade:$("#f_grade").value,mi:$("#f_mi").value,lvsi:$("#f_lvsi").value,residual:$("#f_resid").value,sarc:$("#f_sarc").value,response:$("#f_resp").value,
     pfi_months:num("f_pfi"),prior_lines:num("f_lines")??0,age:num("f_age"),ecog:+$("#f_ecog").value,
     mol_class:$("#f_mol").value,mmr_entered:$("#f_mmr").value,er_pr:$("#f_er").value,her2:$("#f_her2").value,
     neuropathy_grade:+$("#f_neuro").value,hepatic_impairment:$("#f_hep").value,renal_crcl:num("f_crcl"),ledger:ledgerRows.map(r=>({cls:r[0],outcome:r[1]}))};
   FLAG_DEFS.forEach(([k])=>{p[k]=$("#fl_"+k).checked});
+  mapStage(p);
   p.stage_group=STAGE_GROUP(p.stage);
+  p.pole_untested=p.mol_class==="NSMP_noPOLE";if(p.pole_untested)p.mol_class="NSMP";
+  /* Adjuvant risk group from the trials' own eligibility (endometrioid only). low = stage IA, G1–2, no substantial LVSI, not p53abn:
+     outside PORTEC-1 (G1 needed ≥50% MI), GOG-99, PORTEC-2 and ASTEC. hir = PORTEC-2 / GOG-99 high-intermediate: IB G1–2, IA G3,
+     substantial LVSI or stage II. high = IB G3, p53abn, or stage III–IV (PORTEC-3 / GOG-258 population). */
+  const deep=p.mi==="ge50"||(p.mi==="unknown"&&p.stage==="IB"),g=p.grade;
+  if(p.histology!=="eec"||!p.stage_group||p.setting!=="adjuvant")p.risk_group="unknown";
+  else if(p.mol_class==="p53abn"||p.stage_group==="III"||p.stage_group==="IV"||(deep&&g==="3"))p.risk_group="high";
+  else if(p.stage_group==="II"||p.lvsi==="substantial"||(deep&&(g==="1"||g==="2"))||(!deep&&p.mi!=="unknown"&&g==="3"))p.risk_group="hir";
+  else if(!deep&&p.mi!=="unknown"&&(g==="1"||g==="2"))p.risk_group="low";
+  else p.risk_group="unknown";
   /* MMR follows the molecular class when it was not entered separately: MMRd → dMMR; NSMP and p53abn are pMMR by definition; POLEmut can be either. */
   p.mmr=p.mmr_entered;
   if(p.mmr==="unknown"){if(p.mol_class==="MMRd")p.mmr="dMMR";else if(p.mol_class==="NSMP"||p.mol_class==="p53abn")p.mmr="pMMR"}
@@ -612,6 +646,9 @@ function inSetting(g,s){return g.setting===s||(Array.isArray(g.settings)&&g.sett
 function histBanner(p,H){
   const n=t=>`<div class="notice" style="margin-bottom:10px">${t}</div>`;let w="";
   if(p.mmr_conflict)w+=n(`<b>Molecular class and MMR disagree.</b> ${esc(p.mol_class)} with MMR entered as ${esc(p.mmr_entered)} — check the IHC; the ranker uses the MMR field as entered.`);
+  if(p.stage_note)w+=n(`<b>Stage translated.</b> ${esc(p.stage_note)}. The trials staged by FIGO 2009 (GOG-99 / PORTEC-1 by 1988), so the ranker works in 2009 terms.`);
+  if(p.pole_untested)w+=n(`<b>POLE not tested.</b> p53 wild-type + pMMR is read as NSMP, but POLEmut cannot be excluded without sequencing (6% of early-stage endometrioid carcinoma, ~26% of PORTEC-3 grade 3) — it is the class that de-escalates.`);
+  if(p.risk_group==="low")w+=n(`<b>Low-risk by trial eligibility</b> (stage IA, G1–2, no substantial LVSI): no adjuvant RT trial enrolled this group — PORTEC-1 took G1 only with ≥50% invasion — and ASTEC's meta-analysis excludes a >3% OS gain from RT even in intermediate risk. The note reads these trials as supporting observation for low-risk disease.`);
   if(p.histology==="eec"&&p.grade==="3"&&p.mol_class==="unknown")w+=n(`<b>Grade 3 endometrioid is not one disease.</b> In PORTEC-3 about 26% of G3 tumours were POLEmut and 19% p53abn — the best- and worst-prognosis classes under the same grade. Classify before choosing adjuvant therapy.`);
   if(p.histology==="usc"&&(p.mol_class==="POLEmut"||p.mol_class==="MMRd"))w+=n(`<b>${esc(p.mol_class)} "serous".</b> These tumours behave like their endometrioid counterparts (POLEmut observation-eligible at stage I–II; MMRd an immunotherapy candidate) and are not represented in any serous trial. Consider ranking on the endometrioid page.`);
   if(p.histology==="ccc")w+=n(`<b>Treat an unreviewed clear cell label as provisional.</b> On expert re-review only 46% stayed clear cell; mixed endometrioid + clear cell tumours were MMRd in 66% (Lynch evaluation, immunotherapy candidates). NSMP clear cell is not favourable.`);
@@ -640,8 +677,8 @@ function rank(){
 }
 const MI_LABEL={none:"no MI",lt50:"MI <50%",ge50:"MI ≥50%"};
 function metaChips(p){const c=[];const sp=t=>`<span>${esc(t)}</span>`;
-  if(p.stage)c.push(sp("FIGO "+p.stage));if(p.status)c.push(sp(p.status==="recurrence"?"first recurrence":"newly diagnosed"));
-  if(p.grade!=="unknown")c.push(sp("G"+p.grade));if(p.mi!=="unknown")c.push(sp(MI_LABEL[p.mi]));if(p.lvsi==="substantial")c.push(sp("LVSI substantial"));
+  if(p.stage_note)c.push(sp(p.stage_note.split(" · ")[0]));else if(p.stage)c.push(sp("FIGO 2009 "+p.stage));if(p.status)c.push(sp(p.status==="recurrence"?"first recurrence":"newly diagnosed"));
+  if(p.grade!=="unknown")c.push(sp("G"+p.grade));if(p.mi!=="unknown")c.push(sp(MI_LABEL[p.mi]));if(p.lvsi==="substantial")c.push(sp("LVSI substantial"));if(p.risk_group!=="unknown")c.push(sp({low:"low risk",hir:"high-intermediate risk",high:"high risk"}[p.risk_group]));
   c.push(sp(p.mol_class==="unknown"?"class ?":p.mol_class));c.push(sp(p.mmr==="unknown"?"MMR ?":p.mmr+(p.mmr_entered==="unknown"&&p.mmr!=="unknown"?" (from class)":"")));
   if(p.er_pr!=="unknown")c.push(sp("ER/PR "+p.er_pr));if(p.her2!=="unknown")c.push(sp("HER2 "+(VAL_LABEL[p.her2]||p.her2)));
   if(p.sarc==="yes")c.push(sp("sarcoma-dominant"));if(p.response!=="unknown")c.push(sp("response "+p.response));
@@ -695,7 +732,7 @@ function switchView(v){
 function initRanker(){
   buildForm();
   let restored=false;
-  try{const s=JSON.parse(localStorage.getItem("emca-patient")||"null");if(s&&s.f){if(s.f.f_hist&&HIST[s.f.f_hist])syncSettings(s.f.f_hist);for(const [id,v] of Object.entries(s.f)){const el=document.getElementById(id);if(!el)continue;if(el.type==="checkbox")el.checked=!!v;else el.value=v}ledgerRows=(s.ledger||[]).map(x=>x.slice());restored=true}}catch(e){}
+  try{const s=JSON.parse(localStorage.getItem("emca-patient")||"null");if(s&&s.f){if(s.f.f_hist&&HIST[s.f.f_hist])syncSettings(s.f.f_hist);if(s.f.f_sys){$("#f_sys").value=s.f.f_sys;syncStageSystem()}for(const [id,v] of Object.entries(s.f)){const el=document.getElementById(id);if(!el)continue;if(el.type==="checkbox")el.checked=!!v;else el.value=v}ledgerRows=(s.ledger||[]).map(x=>x.slice());restored=true}}catch(e){}
   if(!restored)applyPreset(PRESETS[0].p);else{renderLedger();rank()}
   $("#vbRanker").addEventListener("click",()=>switchView("ranker"));$("#vbBrowser").addEventListener("click",()=>switchView("browser"));
   $("#results").addEventListener("click",e=>{const b=e.target.closest(".tlink");if(b)openTrial(b.dataset.trial,b.dataset.h)});

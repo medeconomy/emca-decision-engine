@@ -20,7 +20,7 @@ Read `HANDOFF.md` for current state and open items, `SPEC.md` for schema differe
 - Ranker pipeline: `readPatient` → `gateOK` → `effectiveTier` → `assess` (drug_rules + risk_rules / prefer_when / ledger_rules / exclude_default / caution_default) → `sortKey` (tier, cautions − fits, G≥3) → `rank`.
 - `syncSettings(h)` builds the Setting options from `meta.settings`, keeping only settings that have records in that pool.
 - Toxicity is resolved at runtime: `toxFor(g, p)` → `tox.json` entry by label prefix + `arm` (or `arm_by_mmr`).
-- `readPatient` derives `stage_group` (I–IV) from the FIGO 2009 substage, and MMR from the molecular class when MMR is unknown (MMRd → dMMR; NSMP / p53abn → pMMR).
+- `readPatient` maps a FIGO 2023 substage to 2009 (`mapStage`, `STAGE_2023`), derives `stage_group` (I–IV) and the endometrioid adjuvant `risk_group` (low / hir / high from PORTEC-1/2, GOG-99 eligibility), and MMR from the molecular class when MMR is unknown (MMRd → dMMR; NSMP / p53abn → pMMR).
 - Tiers: 1 OS replicated · 2 OS single phase 3 or NI to an OS-positive regimen · 3 OS subgroup / randomised phase II · 4 PFS/RFS/local control · 5 no difference or the comparator that lost · 6 no phase 3 · 7 do not use. Clear cell may not hold tiers 1–4; carcinosarcoma only with `evidence_basis: histotype_rct` (validator).
 
 ## Commands

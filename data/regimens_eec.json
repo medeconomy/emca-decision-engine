@@ -81,12 +81,18 @@
      "reason": "POLEmut: 10-yr RFS 100% vs 96.4% across PORTEC-3 arms — de-escalation candidate"
     },
     {
-     "flag": "grade",
+     "flag": "risk_group",
      "in": [
-      "1",
-      "2"
+      "low"
      ],
-     "reason": "Grade 1–2: the population in which RT bought local control only (PORTEC-1, GOG-99)"
+     "reason": "Low-risk: no adjuvant trial enrolled this group; the note reads PORTEC-1 / GOG-99 / ASTEC as supporting observation for low-risk disease"
+    },
+    {
+     "flag": "risk_group",
+     "in": [
+      "hir"
+     ],
+     "reason": "High-intermediate risk: RT cut locoregional recurrence without an OS gain (PORTEC-1, GOG-99, ASTEC); vaginal relapse is salvageable"
     }
    ],
    "risk_rules": [
@@ -97,6 +103,14 @@
      ],
      "effect": "caution",
      "reason": "p53abn: chemotherapy benefit whatever the histology (PORTEC-3 post hoc RFS HR 0.42, 0.24–0.74)"
+    },
+    {
+     "flag": "risk_group",
+     "in": [
+      "high"
+     ],
+     "effect": "caution",
+     "reason": "High-risk (IB G3, stage II–III or p53abn): the PORTEC-3 / GOG-258 population; observation was not an arm in any high-risk trial"
     },
     {
      "flag": "stage_group",
@@ -166,6 +180,17 @@
    },
    "tier": 4,
    "evidence_basis": "itt_all_histology",
+   "tier_rules": [
+    {
+     "when": {
+      "risk_group": [
+       "low"
+      ]
+     },
+     "tier": 6,
+     "reason": "Low-risk (stage IA, G1–2, no substantial LVSI): outside every adjuvant RT trial — PORTEC-1 enrolled G1 only with ≥50% invasion, PORTEC-2 and GOG-99 high-intermediate risk only"
+    }
+   ],
    "qualifiers": [
     "Tier 4 by non-inferiority: vaginal control equal to pelvic EBRT, whose benefit over observation is local control only (PORTEC-1, GOG-99, ASTEC)",
     "Same vaginal control as pelvic EBRT with far less GI toxicity: G1–2 12.6% vs 53.8%",
@@ -173,11 +198,9 @@
    ],
    "prefer_when": [
     {
-     "flag": "grade",
+     "flag": "risk_group",
      "in": [
-      "1",
-      "2",
-      "3"
+      "hir"
      ],
      "reason": "High-intermediate-risk stage I/IIA: PORTEC-2 is the trial for this patient"
     }
@@ -253,6 +276,15 @@
      },
      "tier": 7,
      "reason": "Stage III: pelvic RT alone was the PORTEC-3 control arm that lost OS to chemoradiation (HR 0.70, 0.51–0.97)"
+    },
+    {
+     "when": {
+      "risk_group": [
+       "low"
+      ]
+     },
+     "tier": 6,
+     "reason": "Low-risk (stage IA, G1–2, no substantial LVSI): outside every adjuvant RT trial — PORTEC-1 enrolled G1 only with ≥50% invasion, PORTEC-2 and GOG-99 high-intermediate risk only"
     }
    ],
    "qualifiers": [
@@ -328,6 +360,15 @@
    "tier_rules": [
     {
      "when": {
+      "risk_group": [
+       "low"
+      ]
+     },
+     "tier": 6,
+     "reason": "Low-risk (stage IA, G1–2, no substantial LVSI): outside PORTEC-3 (high-risk I–III) and every adjuvant RT trial — PORTEC-1 enrolled G1 only with ≥50% invasion, PORTEC-2 and GOG-99 high-intermediate risk only"
+    },
+    {
+     "when": {
       "stage_group": [
        "I",
        "II"
@@ -376,9 +417,17 @@
        "in": [
         "negative"
        ]
+      },
+      {
+       "flag": "risk_group",
+       "in": [
+        "hir",
+        "high",
+        "unknown"
+       ]
       }
      ],
-     "reason": "PORTEC-3 NSMP ER-negative (post hoc): recurrences 2/6 vs 5/7 — aggressive, benefit likely"
+     "reason": "PORTEC-3 NSMP ER-negative (post hoc, high-risk cohort): recurrences 2/6 vs 5/7 — aggressive, benefit likely"
     }
    ],
    "risk_rules": [
@@ -411,6 +460,14 @@
        "flag": "er_pr",
        "in": [
         "positive"
+       ]
+      },
+      {
+       "flag": "risk_group",
+       "in": [
+        "hir",
+        "high",
+        "unknown"
        ]
       }
      ],
@@ -458,6 +515,17 @@
    },
    "tier": 5,
    "evidence_basis": "itt_all_histology",
+   "tier_rules": [
+    {
+     "when": {
+      "risk_group": [
+       "low"
+      ]
+     },
+     "tier": 6,
+     "reason": "Low-risk (stage IA, G1–2, no substantial LVSI): outside GOG-249 (high-intermediate / high risk) and every adjuvant RT trial — PORTEC-1 enrolled G1 only with ≥50% invasion, PORTEC-2 and GOG-99 high-intermediate risk only"
+    }
+   ],
    "caution_default": {
     "reason": "More nodal recurrences than pelvic RT (pelvic/para-aortic 9% vs 4%)"
    },
@@ -697,6 +765,17 @@
    },
    "tier": 4,
    "evidence_basis": "itt_all_histology",
+   "tier_rules": [
+    {
+     "when": {
+      "risk_group": [
+       "low"
+      ]
+     },
+     "tier": 6,
+     "reason": "Low-risk (stage IA, G1–2, no substantial LVSI): outside NSGO/EORTC/MaNGO (high-risk) and every adjuvant RT trial — PORTEC-1 enrolled G1 only with ≥50% invasion, PORTEC-2 and GOG-99 high-intermediate risk only"
+    }
+   ],
    "qualifiers": [
     "Endometrioid subgroup (n=384, unplanned): PFS 0.53 (0.34–0.83); OS 0.60 (0.36–1.00) — exploratory",
     "The chemotherapy regimens are not specified in the vault row, so no drug labels or toxicity figure are attached"
